@@ -26,7 +26,7 @@
 | Generative Loaders | https://generativeloaders.com/ | 加载和内容出现 | 文字逐字出现（只动新增部分，已有文字不动）；图片模糊变清晰；生成中的等待动画 |
 | shadcn/ui | https://ui.shadcn.com/ | 日常基础组件 | 按钮的状态和尺寸；表格排序、分页、可展开行；弹窗长内容滚动和底部按钮；表单校验和错误提示 |
 | React Bits Pro | https://pro.reactbits.dev/ | 更完整的页面模块 | AI 输入框（附件、快捷指令、多模态）；数据表格（筛选、排序、批量操作）；文件上传（进度、失败、重试）；后台的信息组织和导航。Pro 内容付费 |
-| AIUI Components | https://aiuicomponents.com/ | AI 常见交互，界面可切换中文（作者就是视频里的 Connie） | 对话输入（多行、快捷命令、附件）；思考过程；引用来源标注；危险操作二次确认 |
+| AIUI Components | https://aiuicomponents.com/ | AI 常见交互，界面可切换中文 | 对话输入（多行、快捷命令、附件）；思考过程；引用来源标注；危险操作二次确认 |
 
 ## 要装的时候
 
