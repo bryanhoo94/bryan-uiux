@@ -39,6 +39,7 @@
 | 屏上移动曲线 | <例：cubic-bezier(0.77, 0, 0.175, 1)> | 已可见元素的位移、形变 |
 | 时长档 | 快 <ms> · 标准 <ms> · 慢 <ms> | 按压 / 悬停用快；菜单、toast 用标准；弹窗、抽屉用慢 |
 | spring | <本项目用哪几个预设，按人格改写后的值> | 手势落位、让位 |
+| 物理参数（用 Matter.js 时） | <restitution / frictionAir / density，按人格选，见 physics.md> | M8 系列 |
 | 统一进场方式 | <例：透明度 + translateY(4px)；菜单从 scale(0.97)> | 所有新出现的元素 |
 
 代码里的 token 在：<文件路径>。从不用 `ease-in`，从不用 `transition: all`；只动 `transform` 和 `opacity`。

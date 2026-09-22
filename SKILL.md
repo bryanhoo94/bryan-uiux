@@ -1,6 +1,6 @@
 ---
 name: bryan-interactions
-description: Bryan 的交互配方库：每次先认出当前项目，读它的 DESIGN.md / 动效规格（MOTION-SPEC），没有就先起草，保证同一项目的动效和 UI/UX 统一；再从 49 个挑选过的 App / Web 高级交互（页面级 8、组件 6、图表控件 10、手势手感 7、控件反馈 10、动效质感 8）里挑，每条带适用场景、原提示词、具体参数、打断规则、降级和禁用场景。负责「这里该加哪个交互、参数是多少」，适用于 Web 应用、手机 App（RN / Expo、Capacitor 混合 App）、桌面 App（Electron / Tauri WebView），实现交给 animate（Web / WebView）/ animate-expo（RN·Expo）。Use when 决定页面或组件该加什么交互、用户说「加点交互 / 手感好一点 / 质感 / 高级感 / 更有生命力 / 像 iOS 那样顺」、做 dashboard 图表控件的动效、给列表·卡片·滑杆·开关·标签·步骤条·网格加反馈、处理手势（滑动返回、拖拽排序、下拉回弹、方向锁定、手势转场），想要物理质感（磁吸、液态形变、3D 视差、物理碰撞、图片展开全屏），或点名某个配方（主题扩散、拖拽让位、到顶回弹、数字翻牌、流动 Tab…）；也用于做 AI 产品界面（思考状态、流式输出、工具调用、操作确认、引用来源）时查漏状态、找参考组件库（Beautiful UI、beUI、AI Elements、Generative Loaders、shadcn/ui、React Bits、AIUI Components）。Not for 静态视觉（配色/字体/间距 → finesse-ui / design-taste-frontend / impeccable），也不负责扫代码找哪里缺动效（→ find-animation-opportunities）。
+description: Bryan 的设计配方库：每次先认出当前项目（平台、DESIGN.md、动效规格 MOTION-SPEC），没有规格就先起草，保证同一项目的动效和 UI/UX 统一。内容：49 个交互配方（页面级、组件、图表控件、手势、控件反馈、动效质感），每条带场景、提示词、参数、打断、降级和禁用场景；Matter.js 物理模式 7 个；dashboard 排版方向 4 种（静态视觉阶段选 1 种）；AI 产品状态清单和参考组件库。适用于 Web 应用、手机 App（RN / Expo、Capacitor）、桌面 App（Electron / Tauri），实现交给 animate（Web / WebView）/ animate-expo（RN·Expo）。Use when 决定页面或组件该加什么交互、用户说「加点交互 / 手感好一点 / 质感 / 高级感 / 更有生命力 / 像 iOS 那样顺」、做 dashboard（排版方向、图表控件动效）、给列表·卡片·滑杆·开关·标签·步骤条·网格加反馈、处理手势（滑动返回、拖拽排序、下拉回弹、方向锁定、手势转场）、想要物理感（磁吸、液态形变、3D 视差、碰撞、掉落堆叠、Matter.js）、做 AI 产品界面（思考状态、流式输出、工具调用、操作确认、引用来源），或点名某个配方（主题扩散、数字翻牌、流动 Tab…）。Not for 配色 / 字体 / 间距的细节（→ finesse-ui / design-taste-frontend / impeccable），也不负责扫代码找哪里缺动效（→ find-animation-opportunities）。
 ---
 
 # Bryan Interactions — 交互配方库
@@ -41,6 +41,8 @@ description: Bryan 的交互配方库：每次先认出当前项目，读它的 
    - 手势手感 G1–G7 → [references/gesture.md](references/gesture.md)
    - 控件反馈 F1–F10 → [references/feedback.md](references/feedback.md)
    - 动效质感 M1–M8 → [references/motion.md](references/motion.md)
+   - Matter.js 物理模式 M8-1–M8-7 + 参数表 → [references/physics.md](references/physics.md)（先读 M8）
+   - Dashboard 排版方向 L1–L4 → [references/dashboard-layouts.md](references/dashboard-layouts.md)（静态视觉阶段用，见第四步）
    - 参考组件库 + AI 产品状态清单 → [references/libraries.md](references/libraries.md)（不是配方；找效果参照、查漏状态时读）
    - 平台适配 → [references/platforms.md](references/platforms.md)（每次都要读第 2 节；WebView 项目加读第 3 节，原生加读第 5 节）
 6. 按平台和输入方式落地：同一个配方在触屏、鼠标 / 触控板、键盘上各怎么做，见 `platforms.md` 第 2 节。触屏手势配方在桌面上要有鼠标或键盘的对应做法。
@@ -48,7 +50,7 @@ description: Bryan 的交互配方库：每次先认出当前项目，读它的 
 
 ## 第四步：按设计流程做
 
-结构层 → 视觉（有 `DESIGN.md` 就锁定 token，只动结构；没有时新页面用 `finesse-ui`、改版用 `design-taste-frontend`）→ `impeccable audit` → `polish` → 本库挑配方 → `animate` / `animate-expo` 实现。
+结构层 → 视觉（有 `DESIGN.md` 就锁定 token，只动结构；没有时新页面用 `finesse-ui`、改版用 `design-taste-frontend`；做 dashboard 且没有 `DESIGN.md` 时，先从 `dashboard-layouts.md` 的 L1–L4 选 1 个排版方向，写进 `DESIGN.md`，再交给 `finesse-ui`）→ `impeccable audit` → `polish` → 本库挑配方 → `animate` / `animate-expo` 实现。
 
 - 静态视觉没定之前不加交互。
 - 先加组件级（C / D / F），再加页面级（P）和手势（G），最后才加动效质感（M）。M 最重，最容易做过头。
@@ -90,7 +92,7 @@ description: Bryan 的交互配方库：每次先认出当前项目，读它的 
 | 任何移动端 App 的基础手感 | G1 边缘滑回、G2 按钮滑出取消、G7 到顶回弹 | G5 飞行中可抓住 |
 | 桌面 App / 桌面网页（鼠标 + 键盘） | G2 按钮滑出取消、F2 拖拽排序、D4 悬停对比 | C5 悬停放大（只在精细指针下）、M3 视差（只在品牌页） |
 | 想要质感提升最明显 | P3 速度拖影、P5 参考线吸附 | P8 选中聚焦 |
-| 财务 / 数据 dashboard | D1 活动圆环、D3 半圆仪表盘、D8 分段占比条 | D4 周月柱图、D6 折线切换、D9 环形占比、D10 气泡图 |
+| 财务 / 数据 dashboard | 先定排版方向 L1–L4；D1 活动圆环、D3 半圆仪表盘、D8 分段占比条 | D4 周月柱图、D6 折线切换、D9 环形占比、D10 气泡图 |
 | 习惯 / 目标 / 时间记录 | D2 打卡热力格、D7 可拖动目标线 | D5 专注分段图 |
 | 信息密度高的页面 | C1 重叠头像堆、C3 横向手风琴 | C4 托盘明细、C6 摘要胶囊 |
 | todo / onboarding / task tracker | C2 进度底色、F3 批量勾选接力 | F6 步骤条回弹 |
@@ -100,7 +102,7 @@ description: Bryan 的交互配方库：每次先认出当前项目，读它的 
 | 设置页 / 表单控件 | F4 滑杆惯性吸附、F5 文本展开 | F7 开关涟漪（只用在低频页面） |
 | 列表排序 / 筛选 | F2 拖拽让位、F10 标签挤开、G3 数字翻牌 | C5 图标放大栏、M8 物理碰撞（兴趣选择） |
 | 落地页叙事 | P2 滚动驱动、F9 卡片堆叠 | P7 悬浮反色、F1 主题扩散、M4 中心聚焦 |
-| 品牌感 / 首屏 hero | M3 3D 视差、M2 液态形变 | M1 磁吸、M8 物理碰撞 |
+| 品牌感 / 首屏 hero | M3 3D 视差、M2 液态形变 | M1 磁吸、M8 物理碰撞（M8-7 浮动标签云） |
 | AI 对话 / agent 界面 | 先对照 libraries.md 的「AI 产品状态清单」 | G3 数字翻牌、F6 步骤条回弹（多步任务） |
 
 ## 参数词典
