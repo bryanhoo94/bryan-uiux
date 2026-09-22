@@ -1,6 +1,6 @@
 ---
 name: bryan-interactions
-description: Bryan 的交互配方库：每次先认出当前项目，读它的 DESIGN.md / 动效规格（MOTION-SPEC），没有就先起草，保证同一项目的动效和 UI/UX 统一；再从 49 个挑选过的 App / Web 高级交互（页面级 8、组件 6、图表控件 10、手势手感 7、控件反馈 10、动效质感 8）里挑，每条带适用场景、原提示词、具体参数、打断规则、降级和禁用场景。负责「这里该加哪个交互、参数是多少」，实现交给 animate（Web）/ animate-expo（RN·Expo）。Use when 决定页面或组件该加什么交互、用户说「加点交互 / 手感好一点 / 质感 / 高级感 / 更有生命力 / 像 iOS 那样顺」、做 dashboard 图表控件的动效、给列表·卡片·滑杆·开关·标签·步骤条·网格加反馈、处理手势（滑动返回、拖拽排序、下拉回弹、方向锁定、手势转场），想要物理质感（磁吸、液态形变、3D 视差、物理碰撞、图片展开全屏），或点名某个配方（主题扩散、拖拽让位、到顶回弹、数字翻牌、流动 Tab…）；也用于做 AI 产品界面（思考状态、流式输出、工具调用、操作确认、引用来源）时查漏状态、找参考组件库（Beautiful UI、beUI、AI Elements、Generative Loaders、shadcn/ui、React Bits、AIUI Components）。Not for 静态视觉（配色/字体/间距 → finesse-ui / design-taste-frontend / impeccable），也不负责扫代码找哪里缺动效（→ find-animation-opportunities）。
+description: Bryan 的交互配方库：每次先认出当前项目，读它的 DESIGN.md / 动效规格（MOTION-SPEC），没有就先起草，保证同一项目的动效和 UI/UX 统一；再从 49 个挑选过的 App / Web 高级交互（页面级 8、组件 6、图表控件 10、手势手感 7、控件反馈 10、动效质感 8）里挑，每条带适用场景、原提示词、具体参数、打断规则、降级和禁用场景。负责「这里该加哪个交互、参数是多少」，适用于 Web 应用、手机 App（RN / Expo、Capacitor 混合 App）、桌面 App（Electron / Tauri WebView），实现交给 animate（Web / WebView）/ animate-expo（RN·Expo）。Use when 决定页面或组件该加什么交互、用户说「加点交互 / 手感好一点 / 质感 / 高级感 / 更有生命力 / 像 iOS 那样顺」、做 dashboard 图表控件的动效、给列表·卡片·滑杆·开关·标签·步骤条·网格加反馈、处理手势（滑动返回、拖拽排序、下拉回弹、方向锁定、手势转场），想要物理质感（磁吸、液态形变、3D 视差、物理碰撞、图片展开全屏），或点名某个配方（主题扩散、拖拽让位、到顶回弹、数字翻牌、流动 Tab…）；也用于做 AI 产品界面（思考状态、流式输出、工具调用、操作确认、引用来源）时查漏状态、找参考组件库（Beautiful UI、beUI、AI Elements、Generative Loaders、shadcn/ui、React Bits、AIUI Components）。Not for 静态视觉（配色/字体/间距 → finesse-ui / design-taste-frontend / impeccable），也不负责扫代码找哪里缺动效（→ find-animation-opportunities）。
 ---
 
 # Bryan Interactions — 交互配方库
@@ -17,9 +17,10 @@ description: Bryan 的交互配方库：每次先认出当前项目，读它的 
 2. `PRODUCT.md`（根目录、`frontend/`、`docs/`）：给谁用、什么类型的产品。它决定动效人格。
 3. 静态视觉：`DESIGN.md`、`.impeccable/design.json`、`*TOKENS*.md`、`docs/DESIGN-SYSTEM.md`。有就锁定 token。
 4. 动效规格：`docs/MOTION-SPEC.md`，或名字里带 MOTION 的任何文档。
-5. 代码：`package.json` 看 tech stack 和已装的动效库；grep `--ease`、`--dur`、`transition`、`animation`、`spring`，看已有的动效常量和它们在哪个文件。
+5. 平台：按 [references/platforms.md](references/platforms.md) 第 1 节判断目标平台（Web 应用、PWA、混合 App、Electron / Tauri、RN / Expo、原生），可能不止一个。
+6. 代码：`package.json` 看已装的动效库；grep `--ease`、`--dur`、`transition`、`animation`、`spring`，看已有的动效常量和它们在哪个文件。
 
-读完用 3 行告诉用户：这是什么项目、动效人格是什么、动效规格在不在。
+读完用 3 行告诉用户：这是什么项目、目标平台是哪些、动效人格是什么、动效规格在不在。
 
 ## 第二步：没有动效规格就先建
 
@@ -41,7 +42,9 @@ description: Bryan 的交互配方库：每次先认出当前项目，读它的 
    - 控件反馈 F1–F10 → [references/feedback.md](references/feedback.md)
    - 动效质感 M1–M8 → [references/motion.md](references/motion.md)
    - 参考组件库 + AI 产品状态清单 → [references/libraries.md](references/libraries.md)（不是配方；找效果参照、查漏状态时读）
-6. 参数按人格改写。例如「不回弹」人格把 `spring-gesture` / `spring-pop` 一律换成 `spring-ui`。改写后的值写进规格。
+   - 平台适配 → [references/platforms.md](references/platforms.md)（每次都要读第 2 节；WebView 项目加读第 3 节，原生加读第 5 节）
+6. 按平台和输入方式落地：同一个配方在触屏、鼠标 / 触控板、键盘上各怎么做，见 `platforms.md` 第 2 节。触屏手势配方在桌面上要有鼠标或键盘的对应做法。
+7. 参数按人格改写。例如「不回弹」人格把 `spring-gesture` / `spring-pop` 一律换成 `spring-ui`。改写后的值写进规格。
 
 ## 第四步：按设计流程做
 
@@ -53,7 +56,8 @@ description: Bryan 的交互配方库：每次先认出当前项目，读它的 
 ## 第五步：自检，再写回规格
 
 - 新代码里的时长、曲线、spring 只能用规格里的常量。grep 出规格外的新数值：改成常量；确实需要新值，就先加进规格的常量表。
-- 同一类组件，全项目用同一个配方、同一组参数。
+- 同一类组件，全项目用同一个配方、同一组参数；多个平台之间也统一，只有输入方式不同。
+- 每个目标平台都按 `platforms.md` 第 6 节验收一遍，不能只测一个。
 - 这次新采用的配方写进「已采用」，考虑过但否决的写进「没采用 + 原因」，都附日期。
 
 ## 只在两种情况停下来问用户
@@ -84,6 +88,7 @@ description: Bryan 的交互配方库：每次先认出当前项目，读它的 
 | 场景 | 先用 | 再考虑 |
 |---|---|---|
 | 任何移动端 App 的基础手感 | G1 边缘滑回、G2 按钮滑出取消、G7 到顶回弹 | G5 飞行中可抓住 |
+| 桌面 App / 桌面网页（鼠标 + 键盘） | G2 按钮滑出取消、F2 拖拽排序、D4 悬停对比 | C5 悬停放大（只在精细指针下）、M3 视差（只在品牌页） |
 | 想要质感提升最明显 | P3 速度拖影、P5 参考线吸附 | P8 选中聚焦 |
 | 财务 / 数据 dashboard | D1 活动圆环、D3 半圆仪表盘、D8 分段占比条 | D4 周月柱图、D6 折线切换、D9 环形占比、D10 气泡图 |
 | 习惯 / 目标 / 时间记录 | D2 打卡热力格、D7 可拖动目标线 | D5 专注分段图 |
