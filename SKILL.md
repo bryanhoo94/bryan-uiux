@@ -1,6 +1,6 @@
 ---
 name: bryan-uiux
-description: Bryan 的设计配方库：每次先认出当前项目（平台、DESIGN.md、动效规格 MOTION-SPEC），没有规格就先起草，保证同一项目的动效和 UI/UX 统一。内容：54 个交互配方（页面级、组件、图表控件、手势、控件反馈、动效质感、网页效果），每条带场景、提示词、参数、打断、降级和禁用场景；Matter.js 物理模式 7 个；dashboard 排版方向 4 种（静态视觉阶段选 1 种）；AI 产品状态清单和参考组件库。适用于 Web 应用、手机 App（RN / Expo、Capacitor）、桌面 App（Electron / Tauri），实现交给 animate（Web / WebView）/ animate-expo（RN·Expo）。用户说不清要什么时，先问几道选择题再给 2–3 套方案让他选（见 references/interview.md）。Use when 用户说「帮我设计一下 / 好看一点 / 随便你 / 我不知道要什么样 / 现在这个好丑」、决定页面或组件该加什么交互、用户说「加点交互 / 手感好一点 / 质感 / 高级感 / 更有生命力 / 像 iOS 那样顺」、做 dashboard（排版方向、图表控件动效）、给列表·卡片·滑杆·开关·标签·步骤条·网格加反馈、处理手势（滑动返回、拖拽排序、下拉回弹、方向锁定、手势转场）、想要物理感（磁吸、液态形变、3D 视差、碰撞、掉落堆叠、Matter.js）、做 AI 产品界面（思考状态、流式输出、工具调用、操作确认、引用来源）、选图标库（Lucide / Morphicons / Lordicon），或点名某个配方（主题扩散、数字翻牌、流动 Tab…）；也用于把用户的大白话翻译成正式效果（「鼠标放上去变大旁边让开」「像扇子一样展开」「扭成一圈」「波浪一样传开」「折一下翻过去」）。Not for 配色 / 字体 / 间距的细节（→ finesse-ui / design-taste-frontend / impeccable），也不负责扫代码找哪里缺动效（→ find-animation-opportunities）。
+description: Bryan 的设计配方库：每次先认出当前项目（平台、DESIGN.md、动效规格 MOTION-SPEC），没有规格就先起草，保证同一项目的动效和 UI/UX 统一。内容：61 个交互配方（页面级、组件、图表控件、手势、控件反馈、动效质感、网页效果），每条带场景、提示词、参数、打断、降级和禁用场景；Matter.js 物理模式 7 个；dashboard 排版方向 4 种（静态视觉阶段选 1 种）；AI 产品状态清单和参考组件库。适用于 Web 应用、手机 App（RN / Expo、Capacitor）、桌面 App（Electron / Tauri），实现交给 animate（Web / WebView）/ animate-expo（RN·Expo）。用户说不清要什么时，先问几道选择题再给 2–3 套方案让他选（见 references/interview.md）。Use when 用户说「帮我设计一下 / 好看一点 / 随便你 / 我不知道要什么样 / 现在这个好丑」、决定页面或组件该加什么交互、用户说「加点交互 / 手感好一点 / 质感 / 高级感 / 更有生命力 / 像 iOS 那样顺」、做 dashboard（排版方向、图表控件动效）、给列表·卡片·滑杆·开关·标签·步骤条·网格加反馈、处理手势（滑动返回、拖拽排序、下拉回弹、方向锁定、手势转场）、想要物理感（磁吸、液态形变、3D 视差、碰撞、掉落堆叠、Matter.js）、做 AI 产品界面（思考状态、流式输出、工具调用、操作确认、引用来源）、选图标库（Lucide / Morphicons / Lordicon）、用 GSAP 写动画、做 Apple 风玻璃质感卡片，或点名某个配方（主题扩散、数字翻牌、流动 Tab…）；也用于把用户的大白话翻译成正式效果（「鼠标放上去变大旁边让开」「像扇子一样展开」「扭成一圈」「波浪一样传开」「折一下翻过去」）。Not for 配色 / 字体 / 间距的细节（→ finesse-ui / design-taste-frontend / impeccable），也不负责扫代码找哪里缺动效（→ find-animation-opportunities）。
 ---
 
 # Bryan Interactions — 交互配方库
@@ -52,7 +52,7 @@ description: Bryan 的设计配方库：每次先认出当前项目（平台、D
 4. **新配方列成表，给用户确认后再写代码**：配方编号 + 名字 ｜ 放在哪个元素 ｜ 回答的问题 ｜ 参数。
 5. 读对应文件拿完整配方，只读用得上的那个：
    - 页面级 P1–P8 → [references/page.md](references/page.md)
-   - 组件 C1–C6 → [references/component.md](references/component.md)
+   - 组件 C1–C13 → [references/component.md](references/component.md)
    - 图表控件 D1–D10 → [references/chart.md](references/chart.md)
    - 手势手感 G1–G7 → [references/gesture.md](references/gesture.md)
    - 控件反馈 F1–F10 → [references/feedback.md](references/feedback.md)
@@ -62,6 +62,8 @@ description: Bryan 的设计配方库：每次先认出当前项目（平台、D
    - 网页视觉效果 E1–E5 + 用户原话翻译表 → [references/effects.md](references/effects.md)
    - 问用户、出方案的流程 → [references/interview.md](references/interview.md)（见第零步）
    - 参考组件库 + 图标库 + AI 产品状态清单 → [references/libraries.md](references/libraries.md)（不是配方；找效果参照、选图标库、查漏状态时读）
+   - 玻璃质感怎么做 → [references/glassmorphism.md](references/glassmorphism.md)（配 L1 用）
+   - 用 GSAP 写动画 → [references/gsap.md](references/gsap.md)（曲线、时长按本库的对照表换算）
    - 平台适配 → [references/platforms.md](references/platforms.md)（每次都要读第 2 节；WebView 项目加读第 3 节，原生加读第 5 节）
 6. 按平台和输入方式落地：同一个配方在触屏、鼠标 / 触控板、键盘上各怎么做，见 `platforms.md` 第 2 节。触屏手势配方在桌面上要有鼠标或键盘的对应做法。
 7. 参数按人格改写。例如「不回弹」人格把 `spring-gesture` / `spring-pop` 一律换成 `spring-ui`。改写后的值写进规格。
@@ -112,7 +114,8 @@ description: Bryan 的设计配方库：每次先认出当前项目（平台、D
 | 想要质感提升最明显 | P3 速度拖影、P5 参考线吸附 | P8 选中聚焦 |
 | 财务 / 数据 dashboard | 先定排版方向 L1–L4；D1 活动圆环、D3 半圆仪表盘、D8 分段占比条 | D4 周月柱图、D6 折线切换、D9 环形占比、D10 气泡图 |
 | 习惯 / 目标 / 时间记录 | D2 打卡热力格、D7 可拖动目标线 | D5 专注分段图 |
-| 信息密度高的页面 | C1 重叠头像堆、C3 横向手风琴 | C4 托盘明细、C6 摘要胶囊 |
+| 信息密度高的页面 | C1 重叠头像堆、C3 横向手风琴 | C4 托盘明细、C6 摘要胶囊、C11 就地展开详情 |
+| 手机 App 的常用控件 | C7 搜索框展开、C9 按钮显示提交状态、C12 顶栏随滚动收起 | C8 加号展开面板、C10 按钮变步进器、C13 菜单铺满全屏 |
 | todo / onboarding / task tracker | C2 进度底色、F3 批量勾选接力 | F6 步骤条回弹 |
 | 相册 / 作品集 / 商品网格 | P1 捏合换密度、M6 图片展开至全屏 | P6 弧线换列、P4 下拉放大头图 |
 | 卡片流 / 轮播 / 图片查看器 | G6 预判落点、G4 方向锁定 | F8 删除飞走、F9 卡片堆叠、M4 中心聚焦 |
