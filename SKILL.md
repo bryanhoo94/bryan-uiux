@@ -1,6 +1,6 @@
 ---
 name: bryan-uiux
-description: Bryan 的设计配方库：每次先认出当前项目（平台、DESIGN.md、动效规格 MOTION-SPEC），没有规格就先起草，保证同一项目的动效和 UI/UX 统一。内容：54 个交互配方（页面级、组件、图表控件、手势、控件反馈、动效质感、网页效果），每条带场景、提示词、参数、打断、降级和禁用场景；Matter.js 物理模式 7 个；dashboard 排版方向 4 种（静态视觉阶段选 1 种）；AI 产品状态清单和参考组件库。适用于 Web 应用、手机 App（RN / Expo、Capacitor）、桌面 App（Electron / Tauri），实现交给 animate（Web / WebView）/ animate-expo（RN·Expo）。用户说不清要什么时，先问几道选择题再给 2–3 套方案让他选（见 references/interview.md）。Use when 用户说「帮我设计一下 / 好看一点 / 随便你 / 我不知道要什么样 / 现在这个好丑」、决定页面或组件该加什么交互、用户说「加点交互 / 手感好一点 / 质感 / 高级感 / 更有生命力 / 像 iOS 那样顺」、做 dashboard（排版方向、图表控件动效）、给列表·卡片·滑杆·开关·标签·步骤条·网格加反馈、处理手势（滑动返回、拖拽排序、下拉回弹、方向锁定、手势转场）、想要物理感（磁吸、液态形变、3D 视差、碰撞、掉落堆叠、Matter.js）、做 AI 产品界面（思考状态、流式输出、工具调用、操作确认、引用来源），或点名某个配方（主题扩散、数字翻牌、流动 Tab…）；也用于把用户的大白话翻译成正式效果（「鼠标放上去变大旁边让开」「像扇子一样展开」「扭成一圈」「波浪一样传开」「折一下翻过去」）。Not for 配色 / 字体 / 间距的细节（→ finesse-ui / design-taste-frontend / impeccable），也不负责扫代码找哪里缺动效（→ find-animation-opportunities）。
+description: Bryan 的设计配方库：每次先认出当前项目（平台、DESIGN.md、动效规格 MOTION-SPEC），没有规格就先起草，保证同一项目的动效和 UI/UX 统一。内容：54 个交互配方（页面级、组件、图表控件、手势、控件反馈、动效质感、网页效果），每条带场景、提示词、参数、打断、降级和禁用场景；Matter.js 物理模式 7 个；dashboard 排版方向 4 种（静态视觉阶段选 1 种）；AI 产品状态清单和参考组件库。适用于 Web 应用、手机 App（RN / Expo、Capacitor）、桌面 App（Electron / Tauri），实现交给 animate（Web / WebView）/ animate-expo（RN·Expo）。用户说不清要什么时，先问几道选择题再给 2–3 套方案让他选（见 references/interview.md）。Use when 用户说「帮我设计一下 / 好看一点 / 随便你 / 我不知道要什么样 / 现在这个好丑」、决定页面或组件该加什么交互、用户说「加点交互 / 手感好一点 / 质感 / 高级感 / 更有生命力 / 像 iOS 那样顺」、做 dashboard（排版方向、图表控件动效）、给列表·卡片·滑杆·开关·标签·步骤条·网格加反馈、处理手势（滑动返回、拖拽排序、下拉回弹、方向锁定、手势转场）、想要物理感（磁吸、液态形变、3D 视差、碰撞、掉落堆叠、Matter.js）、做 AI 产品界面（思考状态、流式输出、工具调用、操作确认、引用来源）、选图标库（Lucide / Morphicons / Lordicon），或点名某个配方（主题扩散、数字翻牌、流动 Tab…）；也用于把用户的大白话翻译成正式效果（「鼠标放上去变大旁边让开」「像扇子一样展开」「扭成一圈」「波浪一样传开」「折一下翻过去」）。Not for 配色 / 字体 / 间距的细节（→ finesse-ui / design-taste-frontend / impeccable），也不负责扫代码找哪里缺动效（→ find-animation-opportunities）。
 ---
 
 # Bryan Interactions — 交互配方库
@@ -61,7 +61,7 @@ description: Bryan 的设计配方库：每次先认出当前项目（平台、D
    - Dashboard 排版方向 L1–L4 → [references/dashboard-layouts.md](references/dashboard-layouts.md)（静态视觉阶段用，见第四步）
    - 网页视觉效果 E1–E5 + 用户原话翻译表 → [references/effects.md](references/effects.md)
    - 问用户、出方案的流程 → [references/interview.md](references/interview.md)（见第零步）
-   - 参考组件库 + AI 产品状态清单 → [references/libraries.md](references/libraries.md)（不是配方；找效果参照、查漏状态时读）
+   - 参考组件库 + 图标库 + AI 产品状态清单 → [references/libraries.md](references/libraries.md)（不是配方；找效果参照、选图标库、查漏状态时读）
    - 平台适配 → [references/platforms.md](references/platforms.md)（每次都要读第 2 节；WebView 项目加读第 3 节，原生加读第 5 节）
 6. 按平台和输入方式落地：同一个配方在触屏、鼠标 / 触控板、键盘上各怎么做，见 `platforms.md` 第 2 节。触屏手势配方在桌面上要有鼠标或键盘的对应做法。
 7. 参数按人格改写。例如「不回弹」人格把 `spring-gesture` / `spring-pop` 一律换成 `spring-ui`。改写后的值写进规格。

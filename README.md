@@ -145,6 +145,8 @@
 - 回答有出处的话，要标出处
 - 等待的时候别只会转圈：文字用流式、图片用从模糊到清晰、思考用步骤条
 
+顺带还有一张图标库选型表：常规图标用 Lucide，图标要互相变（菜单 ↔ 关闭）用 Morphicons，要吸引注意的动画用 Lordicon。
+
 ---
 
 ## 剩下的 46 个是什么
@@ -237,7 +239,7 @@
 | `references/effects.md` | 网页效果 5 个 + 把大白话翻译成专业说法的对照表 |
 | `references/interview.md` | 怎么问用户、怎么出方案让他选 |
 | `references/platforms.md` | 网页 / 手机 / 桌面怎么分别落地 |
-| `references/libraries.md` | 7 个可以直接逛的组件库 + AI 界面清单 |
+| `references/libraries.md` | 7 个可以直接逛的组件库 + 图标库怎么选 + AI 界面清单 |
 | `references/motion-spec-template.md` | 给新项目起草「动效规格」的模板 |
 | `demo/` | 上面那些例子的源码和动图 |
 

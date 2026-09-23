@@ -51,6 +51,39 @@
 - `reactbits.pro`：域名在挂牌出售。
 - `npx shadcn-ui@latest ...`、`npm install shadcn-ui`：`shadcn-ui` 包已被官方弃用，用 `npx shadcn@latest`。
 - `npm install aiui-components`：npm 上没有这个包，正确的是 `@aiuicomponents/components`。
+- `@itchief/react-morphicons`、`@morphicons/core`：npm 上没有这两个包，正确的是 `morphicons`。
+- `<LOrdIcon icon="https://cdn.lordicon.com/xxx.json">`：`@lordicon/react` 没有这种写法，它导出的是 `Player`，`icon` 收的是下载好的 JSON 数据；带 `colors="primary:..."` 的是网页组件 `@lordicon/element` 的 `<lord-icon>`。
+
+## 图标：选哪个库
+
+```
+要什么样的图标？
+├─ 常规静态图标（搜索、设置、菜单）        → Lucide
+├─ 两个图标之间要变（菜单 ↔ 关闭）         → Morphicons
+└─ 要吸引注意的动态图标（加载、成功、空状态） → Lordicon
+```
+
+| 库 | 官网 | 装什么 | 怎么写 |
+|---|---|---|---|
+| Lucide | https://lucide.dev/ | `npm install lucide-react`（纯 JS 用 `lucide`） | `import { Search } from 'lucide-react'` → `<Search size={20} strokeWidth={2} />` |
+| Morphicons | https://morphicons.com/ | `npm install morphicons` | `import { MorphIcon } from 'morphicons/react'` → `<MorphIcon icon={open ? X : Menu} />`，图标数据直接用 Lucide 的 |
+| Lordicon | https://lordicon.com/ | `npm install @lordicon/react`（要 `lottie-web`）；任意框架用 `@lordicon/element` | React：`import { Player } from '@lordicon/react'` → `<Player icon={ICON} />`，ICON 是从官网下载的 JSON，播放用 ref 控制。纯 HTML：`<lord-icon src="..." colors="primary:#10B981" trigger="in">` |
+
+**各自用在哪**
+
+- **Lucide**：侧栏导航、筛选器、操作按钮。线性图标，24×24 网格，一整套风格一致。
+- **Morphicons**：侧栏折叠（菜单 → X）、播放 ↔ 暂停、加号 ↔ 减号、亮 ↔ 暗、收藏 ↔ 已收藏。它是**两个状态之间的形变**，跟 F5 的「箭头转 180°」是同一个道理：让人知道这是同一个开关的两面。
+- **Lordicon**：加载中、提交成功、操作失败、空状态、收到消息、任务完成。属于惊喜类动效，只放在低频时刻。加载状态还可以看 Generative Loaders（按内容类型选加载方式）。
+
+**一个页面三个一起用的例子**：Lucide 做侧栏导航图标，Morphicons 做折叠按钮，Lordicon 做加载和提交成功。三者颜色统一。
+
+**注意**
+
+- **别混风格**：Lucide 是线性图标，同一组里不要混实心或填充风格的图标。
+- **Lordicon 别滥用**：一个页面 2–3 个动态图标就够，多了很吵。
+- **Morphicons 的时长**：官网写 200–400ms，按本库的时长档取 **200–250ms**，不要超过 300ms。
+- **大小统一**：同一区域统一 20 或 24，不要混用。
+- **图标不能是唯一信息**：重要操作要有文字，或至少有 `aria-label`。
 
 ## AI 产品状态清单
 
