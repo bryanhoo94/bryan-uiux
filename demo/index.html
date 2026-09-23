@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bryan 的设计配方库 — 看得见的例子</title>
+<style>
+  :root{
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    --fast: 150ms;
+    --base: 250ms;
+    --ink: #0F172A;
+    --muted: #64748B;
+    --line: #E2E8F0;
+    --bg: #F8FAFC;
+    --card: #FFFFFF;
+    --accent: #FF5A3C;
+    font-synthesis-weight: none;
+  }
+  *{ box-sizing: border-box; }
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  header{ max-width: 1040px; margin: 0 auto; padding: 56px 20px 24px; }
+  h1{ font-size: 30px; margin:0 0 8px; letter-spacing:-0.01em; }
+  header p{ margin:0; color:var(--muted); font-size:15px; line-height:1.6; }
+  .grid{ max-width:1040px; margin:0 auto; padding: 8px 20px 72px; display:grid; gap:20px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px; }
+  .card h2{ font-size:15px; margin:0 0 2px; }
+  .card .sub{ font-size:13px; color:var(--muted); margin:0 0 14px; }
+  .stage{ height:190px; border-radius:12px; background:var(--bg); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+  .tag{ display:inline-block; margin-top:12px; font-size:11px; color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:3px 9px; }
+  button{ font: inherit; color: inherit; }
+
+  /* solo mode: one demo, fills the window, used for recording */
+  body.solo header, body.solo .card h2, body.solo .card .sub, body.solo .tag{ display:none; }
+  body.solo .grid{ padding:0; display:block; }
+  body.solo .card{ border:0; border-radius:0; padding:0; }
+  body.solo .card:not(.active){ display:none; }
+  body.solo .stage{ height:100vh; border-radius:0; background:var(--card); }
+
+  /* G2 press */
+  .btn{ background:var(--ink); color:#fff; border:0; border-radius:12px; padding:14px 26px; font-size:15px; font-weight:600;
+        transition: transform 140ms var(--ease-out); touch-action:none; user-select:none; }
+  .btn.pressed{ transform: scale(0.97); }
+  .hint{ position:absolute; bottom:14px; left:0; right:0; text-align:center; font-size:12px; color:var(--muted); }
+  .ghost{ position:absolute; width:26px; height:26px; border-radius:999px; border:2px solid rgba(15,23,42,.35); pointer-events:none; opacity:0; transform:translate(-50%,-50%); }
+
+  /* G3 number roll */
+  .roll{ display:flex; gap:2px; font-size:46px; font-weight:700; font-variant-numeric: tabular-nums; }
+  .digit{ width:30px; height:56px; overflow:hidden; position:relative; }
+  .digit span{ position:absolute; left:0; right:0; height:56px; line-height:56px; text-align:center; }
+  .roll-label{ position:absolute; top:26px; font-size:12px; color:var(--muted); letter-spacing:.08em; }
+
+  /* C2 progress fill */
+  .todo{ width:78%; }
+  .row{ position:relative; display:flex; align-items:center; gap:10px; padding:11px 12px; border-radius:10px; background:#fff; border:1px solid var(--line); margin-bottom:8px; overflow:hidden; }
+  .fill{ position:absolute; inset:0; background:#FFE9E4; transform-origin:left; transform:scaleX(0); transition: transform var(--base) var(--ease-out); }
+  .row > *{ position:relative; }
+  .box{ width:18px; height:18px; border-radius:6px; border:2px solid #CBD5E1; display:grid; place-items:center; flex:none; }
+  .box svg{ width:12px; height:12px; }
+  .box path{ stroke:#fff; stroke-width:2.5; fill:none; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:16; stroke-dashoffset:16; }
+  .box.on{ background:var(--accent); border-color:var(--accent); }
+  .box.on path{ transition: stroke-dashoffset 150ms var(--ease-out); stroke-dashoffset:0; }
+  .row.done .label{ color:var(--muted); text-decoration:line-through; }
+  .label{ font-size:14px; }
+
+  /* F3 select all */
+  .list3 .row{ margin-bottom:6px; }
+  .box.pop{ animation: pop 300ms var(--ease-out); }
+  @keyframes pop{ 0%{ transform:scale(.9); } 60%{ transform:scale(1.12); } 100%{ transform:scale(1); } }
+  .mini{ margin-top:6px; background:#fff; border:1px solid var(--line); border-radius:9px; padding:7px 13px; font-size:13px; }
+
+  /* F8 delete fly */
+  .cards{ width:78%; }
+  .ncard{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; font-size:14px; display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; transition: transform var(--base) var(--ease-out); }
+  .x{ border:0; background:transparent; color:var(--muted); font-size:16px; cursor:pointer; line-height:1; }
+  .trash{ position:absolute; right:16px; bottom:14px; width:38px; height:38px; border-radius:11px; background:#fff; border:1px solid var(--line); display:grid; place-items:center; font-size:16px; }
+  .trash.hit{ animation: pop 300ms var(--ease-out); }
+  .flyer{ position:fixed; z-index:9; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; font-size:14px; pointer-events:none; }
+
+  /* M5 liquid tab */
+  .tabs{ position:relative; display:flex; background:#fff; border:1px solid var(--line); border-radius:999px; padding:5px; }
+  .tabs button{ position:relative; z-index:1; border:0; background:transparent; padding:9px 16px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; }
+  .tabs button.on{ color:#fff; }
+  .pill{ position:absolute; top:5px; bottom:5px; left:0; width:10px; background:var(--ink); border-radius:999px; transform-origin:left; }
+
+  /* G7 rubber band */
+  .phone{ width:190px; height:150px; background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; position:relative; touch-action:none; }
+  .sheet{ padding:0 12px; }
+  .line{ height:13px; background:#EEF2F6; border-radius:5px; margin:11px 0; }
+  .line.s{ width:58%; }
+  .edge{ position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent); opacity:0; }
+
+  /* D1 rings */
+  .rings{ position:relative; width:150px; height:150px; }
+  .rings svg{ transform: rotate(-90deg); }
+  .rings circle{ fill:none; stroke-linecap:round; }
+  .rings .num{ position:absolute; inset:0; display:grid; place-items:center; font-size:26px; font-weight:700; font-variant-numeric: tabular-nums; }
+
+  /* layout previews */
+  .layout{ width:100%; height:100%; }
+  .l1{ background:#F4F6FA; background-image:linear-gradient(#E4E9F2 1px, transparent 1px), linear-gradient(90deg, #E4E9F2 1px, transparent 1px); background-size:22px 22px; padding:14px; display:grid; gap:10px; grid-template-columns:repeat(3,1fr); align-content:start; }
+  .glass{ background:rgba(255,255,255,.66); backdrop-filter:blur(6px); border-radius:10px; padding:10px; font-size:11px; color:var(--muted); }
+  .glass b{ display:block; font-size:19px; color:var(--ink); }
+  .l1 .wide{ grid-column:1 / -1; height:64px; }
+  .bars{ display:flex; gap:5px; align-items:flex-end; height:38px; margin-top:6px; }
+  .bars i{ flex:1; border-radius:3px 3px 0 0; background:var(--ink); opacity:.16; }
+  .l4{ background:#0B0D12; padding:14px; display:grid; gap:10px; grid-template-columns:2fr 1fr; align-content:start; color:#E6E9EF; }
+  .l4 .box2{ background:#151922; border-radius:10px; padding:11px; }
+  .l4 .big{ font-size:30px; font-weight:700; font-variant-numeric:tabular-nums; }
+  .l4 .unit{ font-size:10px; color:#7A8394; margin-left:4px; }
+  .dots{ grid-column:1 / -1; display:grid; grid-template-columns:repeat(14,1fr); gap:6px; }
+  .dots i{ aspect-ratio:1; border-radius:999px; background:#1C212C; }
+  .dots i.on{ background:var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>看得见的例子</h1>
+  <p>下面每一格都是真的能玩的。用的数字和做法，跟这个配方库写的一模一样。</p>
+</header>
+
+<div class="grid" id="grid"></div>
+
+<script>
+const demos = [];
+const add = (d) => demos.push(d);
+
+/* ---------- G2 按住又后悔 ---------- */
+add({ id:'g2', title:'按着又后悔了，滑开就不算数', sub:'手指滑出按钮，按钮慢慢弹回原样，松手不触发', tag:'G2 按钮滑出取消',
+  mount(stage){
+    stage.innerHTML = `<button class="btn">付款</button><div class="ghost"></div><div class="hint">按住 → 滑出去 → 松手</div>`;
+    const btn = stage.querySelector('.btn'), ghost = stage.querySelector('.ghost'), hint = stage.querySelector('.hint');
+    let down = false;
+    const dist = (e) => { const r = btn.getBoundingClientRect();
+      const dx = Math.max(r.left - e.clientX, 0, e.clientX - r.right);
+      const dy = Math.max(r.top - e.clientY, 0, e.clientY - r.bottom);
+      return Math.hypot(dx, dy); };
+    btn.addEventListener('pointerdown', (e) => { down = true; btn.setPointerCapture(e.pointerId); btn.classList.add('pressed'); hint.textContent = '按住了'; });
+    window.addEventListener('pointermove', (e) => {
+      const r = stage.getBoundingClientRect();
+      ghost.style.opacity = down ? '1' : '0';
+      ghost.style.left = (e.clientX - r.left) + 'px'; ghost.style.top = (e.clientY - r.top) + 'px';
+      if (!down) return;
+      const d = dist(e);
+      const back = Math.min(Math.max((d - 10) / 30, 0), 1);   // 出边界 10px 开始恢复，40px 完全恢复
+      btn.style.transform = `scale(${0.97 + 0.03 * back})`;
+      hint.textContent = back > 0.99 ? '滑出去了，松手不算' : '按住了';
+    });
+    window.addEventListener('pointerup', (e) => {
+      if (!down) return; down = false; ghost.style.opacity = '0';
+      const fired = dist(e) <= 10;
+      btn.classList.remove('pressed'); btn.style.transform = '';
+      hint.textContent = fired ? '付款成功' : '没有付款';
+      setTimeout(() => hint.textContent = '按住 → 滑出去 → 松手', 1400);
+    });
+  }});
+
+/* ---------- G3 数字翻牌 ---------- */
+add({ id:'g3', title:'数字像翻牌钟，只翻变了的那一位', sub:'往上翻表示多了，往下翻表示少了', tag:'G3 数字翻牌',
+  mount(stage){
+    stage.innerHTML = `<div class="roll-label">今天的订单</div><div class="roll"></div><div class="hint">数字变了才会翻</div>`;
+    const roll = stage.querySelector('.roll');
+    let value = 128;
+    const render = (v, prev) => {
+      const s = String(v).padStart(3,'0'), p = String(prev).padStart(3,'0');
+      roll.innerHTML = '';
+      [...s].forEach((ch, i) => {
+        const d = document.createElement('div'); d.className = 'digit';
+        const same = ch === p[i];
+        const up = Number(s) > Number(p);
+        const a = document.createElement('span'), b = document.createElement('span');
+        a.textContent = p[i]; b.textContent = ch;
+        a.style.top = '0px'; b.style.top = (up ? 56 : -56) + 'px';
+        d.append(a, b); roll.append(d);
+        if (same) { a.style.display='none'; b.style.top='0px'; return; }
+        requestAnimationFrame(() => {
+          a.style.transition = b.style.transition = 'transform 250ms var(--ease-out)';
+          const dy = up ? -56 : 56;
+          a.style.transform = b.style.transform = `translateY(${dy}px)`;
+        });
+      });
+    };
+    render(value, value);
+    this.play = () => { const prev = value; value += Math.random() < .5 ? 7 : 13; render(value, prev); };
+    stage.addEventListener('click', this.play);
+  }});
+
+/* ---------- C2 进度底色 ---------- */
+add({ id:'c2', title:'做完一件，颜色往前推一点', sub:'背景的填充就是进度，不用另外放进度条', tag:'C2 进度底色',
+  mount(stage){
+    const items = ['买牛奶','写作业','遛狗'];
+    stage.innerHTML = `<div class="todo">${items.map((t,i)=>`
+      <div class="row" data-i="${i}"><div class="fill"></div>
+        <div class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5 L6.5 12 L13 4.5"/></svg></div>
+        <div class="label">${t}</div></div>`).join('')}</div>`;
+    const rows = [...stage.querySelectorAll('.row')];
+    let done = 0;
+    const tick = (row) => {
+      if (row.classList.contains('done')) return;
+      row.classList.add('done'); row.querySelector('.box').classList.add('on'); done++;
+      const p = done / rows.length;
+      rows.forEach(r => r.querySelector('.fill').style.transform = `scaleX(${p})`);
+    };
+    rows.forEach(r => r.addEventListener('click', () => tick(r)));
+    this.play = async () => {
+      rows.forEach(r => { r.classList.remove('done'); r.querySelector('.box').classList.remove('on'); r.querySelector('.fill').style.transform='scaleX(0)'; });
+      done = 0;
+      for (const r of rows) { await new Promise(s => setTimeout(s, 700)); tick(r); }
+    };
+  }});
+
+/* ---------- F3 批量勾选接力 ---------- */
+add({ id:'f3', title:'点全选，勾一个接一个跑过去', sub:'每条差 30 毫秒，看得出是一串，不是一起闪', tag:'F3 批量勾选接力',
+  mount(stage){
+    const items = ['小明','小红','小刚','小美'];
+    stage.innerHTML = `<div class="todo list3">${items.map(t=>`
+      <div class="row"><div class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5 L6.5 12 L13 4.5"/></svg></div><div class="label">${t}</div></div>`).join('')}
+      <button class="mini">全选</button></div>`;
+    const boxes = [...stage.querySelectorAll('.box')];
+    const btn = stage.querySelector('.mini');
+    this.play = () => {
+      boxes.forEach(b => b.classList.remove('on','pop'));
+      boxes.forEach((b, i) => setTimeout(() => { b.classList.add('on','pop'); }, i * 30));
+    };
+    btn.addEventListener('click', this.play);
+  }});
+
+/* ---------- F8 删除飞走 ---------- */
+add({ id:'f8', title:'删掉的卡片会飞进垃圾桶', sub:'走一条弧线，一路变小变淡，垃圾桶弹一下表示收到了', tag:'F8 卡片删除飞走',
+  mount(stage){
+    const make = () => ['水电费','买菜','看电影'].map(t=>`<div class="ncard"><span>${t}</span><button class="x">✕</button></div>`).join('');
+    stage.innerHTML = `<div class="cards">${make()}</div><div class="trash">🗑</div>`;
+    const wrap = stage.querySelector('.cards'), trash = stage.querySelector('.trash');
+    const remove = (card) => {
+      const a = card.getBoundingClientRect(), b = trash.getBoundingClientRect();
+      const fly = card.cloneNode(true);
+      fly.className = 'flyer';
+      Object.assign(fly.style, { left:a.left+'px', top:a.top+'px', width:a.width+'px' });
+      document.body.append(fly);
+      const dx = (b.left + b.width/2) - (a.left + a.width/2), dy = (b.top + b.height/2) - (a.top + a.height/2);
+      fly.animate([{ transform:'translate(0,0) scale(1)', opacity:1 },
+                   { transform:`translate(${dx*0.55}px, ${dy*0.2}px) scale(.7)`, opacity:.85, offset:.55 },
+                   { transform:`translate(${dx}px, ${dy}px) scale(.2)`, opacity:0 }],
+                  { duration:300, easing:'cubic-bezier(0.77, 0, 0.175, 1)' }).onfinish = () => fly.remove();
+      const rest = [...wrap.children].filter(c => c !== card);
+      const before = rest.map(c => c.getBoundingClientRect().top);
+      card.style.visibility = 'hidden';
+      card.remove();
+      rest.forEach((c, i) => {                       // 其余卡片滑上来补位，不是瞬间跳
+        const dy = before[i] - c.getBoundingClientRect().top;
+        if (!dy) return;
+        c.animate([{ transform:`translateY(${dy}px)` }, { transform:'none' }],
+                  { duration:240, easing:'cubic-bezier(0.23, 1, 0.32, 1)' });
+      });
+      setTimeout(() => { trash.classList.add('hit'); setTimeout(()=>trash.classList.remove('hit'), 320); }, 260);
+      setTimeout(() => { if (!wrap.children.length) { wrap.innerHTML = make(); bind(); } }, 320);
+    };
+    const bind = () => wrap.querySelectorAll('.x').forEach(x => x.onclick = () => remove(x.closest('.ncard')));
+    bind();
+    this.play = () => { const c = wrap.querySelector('.ncard'); if (c) remove(c); };
+  }});
+
+/* ---------- M5 流动 Tab ---------- */
+add({ id:'m5', title:'底下那条会像水一样流过去', sub:'先伸长，再收回，不是整块平移', tag:'M5 流动 Tab',
+  mount(stage){
+    const names = ['首页','订单','消息','我的'];
+    stage.innerHTML = `<div class="tabs"><div class="pill"></div>${names.map((n,i)=>`<button class="${i?'':'on'}">${n}</button>`).join('')}</div>`;
+    const tabs = stage.querySelector('.tabs'), pill = stage.querySelector('.pill');
+    const btns = [...tabs.querySelectorAll('button')];
+    let cur = 0, L = 0, R = 0;
+    const place = (i, animate) => {
+      const p = tabs.getBoundingClientRect(), r = btns[i].getBoundingClientRect();
+      const l = r.left - p.left, right = r.right - p.left;
+      const set = () => { pill.style.transform = `translateX(${L}px) scaleX(${(R - L) / 10})`; };
+      if (!animate) { L = l; R = right; set(); return; }
+      const forward = l > L;
+      const lead = forward ? 'R' : 'L', trail = forward ? 'L' : 'R';
+      const start = { L, R }, target = { L: l, R: right }, t0 = performance.now();
+      const ease = (x) => 1 - Math.pow(1 - x, 3);
+      const step = (t) => {
+        const e = (t - t0);
+        const pLead  = Math.min(Math.max(e / 420, 0), 1);
+        const pTrail = Math.min(Math.max((e - 60) / 420, 0), 1);   // 后沿晚 60ms 出发 → 中间被拉长
+        const v = { L: start.L, R: start.R };
+        v[lead]  = start[lead]  + (target[lead]  - start[lead])  * ease(pLead);
+        v[trail] = start[trail] + (target[trail] - start[trail]) * ease(pTrail);
+        L = v.L; R = v.R; set();
+        if (pTrail < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    btns.forEach((b, i) => b.addEventListener('click', () => {
+      btns[cur].classList.remove('on'); b.classList.add('on'); cur = i; place(i, true);
+    }));
+    requestAnimationFrame(() => place(0, false));
+    this.play = () => { const n = (cur + 1) % btns.length; btns[n].click(); };
+  }});
+
+/* ---------- G7 到顶回弹 ---------- */
+add({ id:'g7', title:'拉到头了，会像橡皮筋一样弹回去', sub:'越拉越重，松手弹回原位，告诉你「到底了」', tag:'G7 到顶阻尼回弹',
+  mount(stage){
+    stage.innerHTML = `<div class="phone"><div class="edge"></div><div class="sheet">
+      ${Array.from({length:6}).map((_,i)=>`<div class="line ${i%3===2?'s':''}"></div>`).join('')}</div></div>
+      <div class="hint">在方框里往下拖</div>`;
+    const phone = stage.querySelector('.phone'), sheet = stage.querySelector('.sheet'), edge = stage.querySelector('.edge');
+    const H = 150, C = 0.55;
+    const band = (x) => (x * H * C) / (H + C * Math.abs(x));   // 苹果的阻尼公式
+    let start = null, cur = 0;
+    const settle = () => {
+      const from = cur, t0 = performance.now();
+      const step = (t) => { const p = Math.min((t - t0) / 400, 1);
+        cur = from * (1 - (1 - Math.pow(1 - p, 3)));
+        sheet.style.transform = `translateY(${cur}px)`; edge.style.opacity = String(Math.min(cur / 40, 1) * .8);
+        if (p < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    };
+    phone.addEventListener('pointerdown', (e) => { start = e.clientY; phone.setPointerCapture(e.pointerId); });
+    phone.addEventListener('pointermove', (e) => {
+      if (start === null) return;
+      cur = band(Math.max(e.clientY - start, 0));
+      sheet.style.transform = `translateY(${cur}px)`; edge.style.opacity = String(Math.min(cur / 40, 1) * .8);
+    });
+    phone.addEventListener('pointerup', () => { if (start === null) return; start = null; settle(); });
+  }});
+
+/* ---------- D1 活动圆环 ---------- */
+add({ id:'d1', title:'圆圈从 0 画到今天的成绩', sub:'三个目标一起看，中间的数字同步长大', tag:'D1 同心活动圆环',
+  mount(stage){
+    const conf = [{ r:62, c:'#FF5A3C', p:.82 }, { r:46, c:'#FFB020', p:.64 }, { r:30, c:'#2FBF71', p:.46 }];
+    stage.innerHTML = `<div class="rings"><svg width="150" height="150" viewBox="0 0 150 150">
+      ${conf.map(c=>`<circle cx="75" cy="75" r="${c.r}" stroke="#EDF1F6" stroke-width="11"></circle>`).join('')}
+      ${conf.map(c=>`<circle class="arc" cx="75" cy="75" r="${c.r}" stroke="${c.c}" stroke-width="11"></circle>`).join('')}
+    </svg><div class="num">0%</div></div>`;
+    const arcs = [...stage.querySelectorAll('.arc')], num = stage.querySelector('.num');
+    arcs.forEach((a, i) => { const len = 2 * Math.PI * conf[i].r; a.style.strokeDasharray = len; a.style.strokeDashoffset = len; });
+    this.play = () => {
+      arcs.forEach((a, i) => {
+        const len = 2 * Math.PI * conf[i].r;
+        a.style.transition = 'none'; a.style.strokeDasharray = len; a.style.strokeDashoffset = len;
+        requestAnimationFrame(() => { setTimeout(() => {
+          a.style.transition = 'stroke-dashoffset 400ms var(--ease-out)';
+          a.style.strokeDashoffset = String(len * (1 - conf[i].p));
+        }, i * 50); });
+      });
+      const t0 = performance.now();
+      const step = (t) => { const p = Math.min((t - t0) / 400, 1);
+        num.textContent = Math.round(82 * (1 - Math.pow(1 - p, 3))) + '%';
+        if (p < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    };
+    stage.addEventListener('click', this.play);
+    setTimeout(() => this.play(), 300);
+  }});
+
+/* ---------- L1 / L4 排版方向（静态） ---------- */
+add({ id:'l1', title:'排版方向一：方格纸 + 玻璃卡', sub:'卡片像玻璃浮在方格纸上，靠材质分层，不用边框和阴影', tag:'L1 方格纸 + 玻璃卡', static:true,
+  mount(stage){
+    stage.innerHTML = `<div class="layout l1">
+      <div class="glass wide">本月收入<b>RM 48,200</b><div class="bars">${Array.from({length:12}).map((_,i)=>`<i style="height:${20+i*6}%"></i>`).join('')}</div></div>
+      <div class="glass">新客户<b>32</b></div><div class="glass">待收款<b>9</b></div><div class="glass">回头客<b>68%</b></div></div>`;
+  }});
+
+add({ id:'l4', title:'排版方向四：暗底，靠明暗分层', sub:'底色接近黑，卡片亮一档就是一层，适合盯很久的监控屏', tag:'L4 暗底明度分层', static:true,
+  mount(stage){
+    stage.innerHTML = `<div class="layout l4">
+      <div class="box2">在线机器<div class="big">124<span class="unit">台</span></div></div>
+      <div class="box2">告警<div class="big">3</div></div>
+      <div class="box2 dots">${Array.from({length:42}).map((_,i)=>`<i class="${[3,8,14,15,27,33].includes(i)?'on':''}"></i>`).join('')}</div></div>`;
+  }});
+
+/* ---------- 渲染 ---------- */
+const grid = document.getElementById('grid');
+const solo = new URLSearchParams(location.search).get('solo');
+demos.forEach(d => {
+  const card = document.createElement('div');
+  card.className = 'card' + (solo === d.id ? ' active' : '');
+  card.innerHTML = `<h2>${d.title}</h2><p class="sub">${d.sub}</p><div class="stage"></div><span class="tag">${d.tag}</span>`;
+  grid.append(card);
+  d.mount(card.querySelector('.stage'));
+});
+if (solo) document.body.classList.add('solo');
+window.__demo = (id) => demos.find(d => d.id === id);
+window.__play = (id) => { const d = demos.find(x => x.id === id); if (d && d.play) d.play(); };
+</script>
+</body>
+</html>
