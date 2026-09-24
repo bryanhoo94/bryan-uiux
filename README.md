@@ -167,9 +167,29 @@
 
 ---
 
+## 装什么
+
+**这个 skill 本身零依赖**：15 个 md 文件加一个 demo 网页，放进 `~/.claude/skills/` 就能用，连 node 都不用装。
+
+一条命令装齐它和会用到的配套 skill：
+
+```bash
+git clone git@github.com:bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash install.sh
+```
+
+它会先把打算做的事列给你看，你点头才动手。装的是 `animate`、`animate-expo`、`apple-design`、`pick-ui-library`（来自 emilkowalski/skills）、`finesse-ui`、`design-taste-frontend`，全部从各自的上游取，已经装过的会跳过。**它只碰 `~/.claude/skills/`，不会给你的任何项目装东西。**
+
+收尾检查用的 `impeccable` 有自己的安装器：在项目根目录跑 `npx impeccable install`。
+
+**配套 skill 少装几个也没关系**：曲线、时长、弹性这些数字本库自己就有一份，缺了谁都不会瞎编。
+
+**项目里的 npm 包（gsap、lucide、matter.js 这些）永远不会自动装**。只有你选中的那条配方真的需要，它才会问你，然后装进那一个项目。
+
+---
+
 ## 怎么用
 
-1. 把这个文件夹放进 `~/.claude/skills/`（或者做个链接指过去）。
+1. 装好（见上面）。
 2. 在项目文件夹里打一行 **`/bryan-uiux`**，后面什么都不用带。
 3. 它会自己把整件事跑完：
 
