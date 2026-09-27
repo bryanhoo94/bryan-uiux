@@ -5,7 +5,7 @@
 **起草原则**
 
 - 常量先从现有代码里找（CSS 变量、tokens 文件、Motion / Reanimated 配置）。已有就沿用，只补缺的，不另起一套。
-- 人格按 `PRODUCT.md` 和 SKILL.md 的「人格 → 配方范围」表定。
+- 人格按 `PRODUCT.md` 和 `references/core/pick.md` 的「人格 → 配方范围」表定。
 - 「已采用」一开始可以是空的。先把现有代码里已经在用的动效登记进「按频率逐项定」。
 - 起草完先给用户确认「意图」和「常量」两节，确认后才写入文件。
 
@@ -26,9 +26,10 @@
 
 ## 平台
 
-- **目标平台：** <例：Web 应用（桌面 + 手机浏览器）+ Capacitor iOS / Android；判断方法见 platforms.md 第 1 节>
+- **目标平台：** <例：Web 应用（桌面 + 手机浏览器）+ Capacitor iOS / Android；判断方法见 references/core/platforms.md 第 1 节>
 - **输入方式：** <触屏 / 鼠标 / 触控板 / 键盘，哪些要支持>
-- **平台差异：** <同一配方在不同平台上怎么落地，只写和 platforms.md 默认做法不同的地方>
+- **目标视图：** <桌面 / 平板 / 手机，断点取自哪里；见 references/core/platforms.md 第 2.2 节>
+- **平台差异：** <同一配方在不同平台上怎么落地，只写和 references/core/platforms.md 默认做法不同的地方>
 - **最旧的目标引擎：** <例：iOS 16 WKWebView；决定哪些新 API 必须走降级>
 
 ## 常量
@@ -39,7 +40,7 @@
 | 屏上移动曲线 | <例：cubic-bezier(0.77, 0, 0.175, 1)> | 已可见元素的位移、形变 |
 | 时长档 | 快 <ms> · 标准 <ms> · 慢 <ms> | 按压 / 悬停用快；菜单、toast 用标准；弹窗、抽屉用慢 |
 | spring | <本项目用哪几个预设，按人格改写后的值> | 手势落位、让位 |
-| 物理参数（用 Matter.js 时） | <restitution / frictionAir / density，按人格选，见 physics.md> | M8 系列 |
+| 物理参数（用 Matter.js 时） | <restitution / frictionAir / density，按人格选，见 references/recipes/physics.md> | M8 系列 |
 | 统一进场方式 | <例：透明度 + translateY(4px)；菜单从 scale(0.97)> | 所有新出现的元素 |
 
 代码里的 token 在：<文件路径>。从不用 `ease-in`，从不用 `transition: all`；只动 `transform` 和 `opacity`。

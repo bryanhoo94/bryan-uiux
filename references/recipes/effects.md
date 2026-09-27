@@ -9,7 +9,7 @@
 | 鼠标放上去变大，旁边的让开 | 悬停抬起 + 邻位让位（Hover Lift + Neighbor Displace） | E1 |
 | 像扇子一样展开 / 一张张排过去 | 扇形排列 / 封面流（Fan Layout / Cover Flow） | E2 |
 | 扭成一圈、像转盘 | 3D 环形画廊（3D Ring Gallery） | E3 |
-| 一个一个冒出来 | 交错入场（Stagger Enter） | SKILL.md 的错峰规则 + F3 |
+| 一个一个冒出来 | 交错入场（Stagger Enter） | `references/core/params.md` 的错峰规则 + F3 |
 | 弹来弹去收不住 | 弹簧过冲（Spring Physics / Overshoot） | `spring-pop`、F6 步骤条回弹 |
 | 飘在水面上 | 浮动悬浮（Floating Levity） | M8-7 |
 | 被吸过去 | 磁吸对齐（Magnetic Snap） | M1（拖拽吸附）、P5（对齐线） |
@@ -23,8 +23,8 @@
 
 - 纯 CSS 能做就不加库。要加库先按 CLAUDE.md 过 `pick-ui-library`。
 - 只动 `transform` 和 `opacity`，不动 `width` / `height` / `padding`（会掉帧）。
-- **配色和间距不由本库决定**：项目有 `DESIGN.md` 就用它的 token；没有就先按 `dashboard-layouts.md` 定排版方向，再交给 `finesse-ui`。不要只丢一段动效代码给用户，页面整体要能跑。
-- 数值只用 SKILL.md 参数词典里的。常见对应关系：`cubic-bezier(0.16, 1, 0.3, 1)` ≈ 我们的 `--ease-out`；`cubic-bezier(0.34, 1.56, 0.64, 1)`（带过冲）≈ 我们的 `spring-pop`。
+- **配色和间距不由本库决定**：项目有 `DESIGN.md` 就用它的 token；没有就先按 `references/visual/dashboard-layouts.md` 定排版方向，再交给 `finesse-ui`。不要只丢一段动效代码给用户，页面整体要能跑。
+- 数值只用 `references/core/params.md` 参数词典里的。常见对应关系：`cubic-bezier(0.16, 1, 0.3, 1)` ≈ 我们的 `--ease-out`；`cubic-bezier(0.34, 1.56, 0.64, 1)`（带过冲）≈ 我们的 `spring-pop`。
 
 ---
 

@@ -116,6 +116,8 @@
 
 你选一套，它**先做一屏**给你看。不喜欢就换一套，不用推倒重来。
 
+**记住你觉得好看的。** 刷到好看的网站或组件，把链接或截图丢给它，说「记下来」。它看完只问你一句「喜欢它哪一点」，然后存进你的口味档案。一次有很多张，就全部拖进 `screenshot/`，说「整理截图」，它每张看一遍、先猜你喜欢哪一点，最后给你一张表，你只改猜错的。以后出方案，只要有对得上的收藏，其中一套就会写明「参照你收藏的 X」，其余几套换方向给你对比。收藏只决定方向，时长、对比度这些规矩照旧，项目自己的设计规矩也照旧优先。
+
 还有一张「翻译表」：你说「鼠标放上去变大，旁边的让开」，它知道你要的是悬停抬起 + 邻位让位，不用你会讲专业词。
 
 ---
@@ -169,7 +171,7 @@
 
 ## 装什么
 
-**这个 skill 本身零依赖**：15 个 md 文件加一个 demo 网页，放进 `~/.claude/skills/` 就能用，连 node 都不用装。
+**这个 skill 本身零依赖**：22 个 md 文件加一个 demo 网页，放进 `~/.claude/skills/` 就能用，连 node 都不用装。
 
 一条命令装齐它和会用到的配套 skill：
 
@@ -229,7 +231,7 @@ git clone git@github.com:bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash inst
 
 只有两种情况它会停下来问你：**第一次定规格**，和**要加一道新菜**。其他时候照规格自己做。
 
-**支持**：网页、手机 App（React Native / Expo、Capacitor）、桌面 App（Electron / Tauri）。同一道菜在触屏、鼠标、键盘上怎么做，都写清楚了。
+**支持**：网页、手机 App（React Native / Expo、Capacitor）、桌面 App（Electron / Tauri）。同一道菜在触屏、鼠标、键盘上怎么做，同一个页面在电脑宽屏和手机窄屏上怎么排，都写清楚了。
 
 ---
 
@@ -245,24 +247,37 @@ git clone git@github.com:bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash inst
 
 ## 文件说明
 
+`references/` 分成 4 个文件夹，按「什么时候用」分：
+
 | 文件 | 里面是什么 |
 |---|---|
-| `SKILL.md` | 总入口：怎么认项目、怎么挑、统一的数字（曲线、时长、弹性） |
-| `references/page.md` | 页面级的 8 个 |
-| `references/component.md` | 组件的 6 个 |
-| `references/chart.md` | 图表控件的 10 个 |
-| `references/gesture.md` | 手势手感的 7 个 |
-| `references/feedback.md` | 控件反馈的 10 个 |
-| `references/motion.md` | 动效质感的 8 个 |
-| `references/physics.md` | 物理引擎的 7 种玩法和参数 |
-| `references/dashboard-layouts.md` | 4 种排版方向 |
-| `references/effects.md` | 网页效果 5 个 + 把大白话翻译成专业说法的对照表 |
-| `references/interview.md` | 怎么问用户、怎么出方案让他选 |
-| `references/platforms.md` | 网页 / 手机 / 桌面怎么分别落地 |
-| `references/libraries.md` | 7 个可以直接逛的组件库 + 图标库怎么选 + AI 界面清单 |
-| `references/glassmorphism.md` | Apple 风磨砂玻璃卡片怎么做 |
-| `references/gsap.md` | 用 GSAP 写动画：什么时候用、怎么排节奏、缓动对照表 |
-| `references/motion-spec-template.md` | 给新项目起草「动效规格」的模板 |
+| `SKILL.md` | 总入口：怎么叫它、怎么认项目、五步流程、冲突时听谁的、文件地图 |
+| `CLAUDE.md` | 只在编辑这个仓库时生效：以后贴外面的 skill.md 进来怎么处理 |
+| **core/ 每次都会用** | |
+| `references/core/params.md` | 统一的数字：曲线、时长、弹性、手势常量 + 通用规则 + 「太弹 / 太慢」怎么调 |
+| `references/core/pick.md` | 按项目性格圈范围 + 按场景挑配方 |
+| `references/core/platforms.md` | 网页 / 手机 / 桌面怎么分别落地，桌面宽屏和手机窄屏怎么排 |
+| `references/core/motion-spec-template.md` | 给新项目起草「动效规格」的模板 |
+| **recipes/ 交互配方** | |
+| `references/recipes/page.md` | 页面级的 8 个 |
+| `references/recipes/component.md` | 组件的 13 个 |
+| `references/recipes/chart.md` | 图表控件的 10 个 |
+| `references/recipes/gesture.md` | 手势手感的 7 个 |
+| `references/recipes/feedback.md` | 控件反馈的 10 个 |
+| `references/recipes/motion.md` | 动效质感的 8 个 |
+| `references/recipes/physics.md` | 物理引擎的 7 种玩法和参数 |
+| `references/recipes/effects.md` | 网页效果 5 个 + 把大白话翻译成专业说法的对照表 |
+| `references/recipes/gsap.md` | 用 GSAP 写动画：什么时候用、怎么排节奏、缓动对照表 |
+| **visual/ 长什么样** | |
+| `references/visual/navigation.md` | 导航：手机底部 Tab、平板竖栏、桌面侧边栏一起设计，11 种风格、5 条硬规则、安全区写法 |
+| `references/visual/dashboard-layouts.md` | 4 种排版方向 |
+| `references/visual/cards.md` | 高级感卡片：一张卡只用一种主色、字号层级、5 种现成卡片、悬停和按下的微交互 |
+| `references/visual/glassmorphism.md` | Apple 风磨砂玻璃卡片怎么做 |
+| `references/visual/libraries.md` | 7 个可以直接逛的组件库 + 图标库怎么选 + AI 界面清单 |
+| **ux/ 体验和流程** | |
+| `references/ux/ux-laws.md` | 减少摩擦的 7 条 UX 定律：先减选项、再分组、最后高亮，附检查清单和结账例子 |
+| `references/ux/interview.md` | 怎么问用户、怎么出方案让他选 |
+| `references/ux/taste.md` | 你的口味档案怎么读、怎么写：说「记下来 / 整理截图」就存，出方案时自动参照；截图和索引在 `screenshot/` |
 | `demo/` | 上面那些例子的源码和动图 |
 
 ---
