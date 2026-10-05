@@ -29,7 +29,7 @@ done
 
 echo "安装目录：$SKILLS_DIR"
 echo
-echo "1. 装 bryan-uiux 本体（22 个 md + demo，没有任何依赖）"
+echo "1. 装 bryan-uiux 本体（23 个 md + demo，没有任何依赖）"
 [ -e "$SKILLS_DIR/bryan-uiux" ] && echo "   已经装了，跳过"
 echo "2. 配套 skill："
 [ ${#have[@]} -gt 0 ] && echo "   已有，跳过：${have[*]}"

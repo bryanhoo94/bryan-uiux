@@ -57,7 +57,7 @@
 
 每套必须包含 6 样东西，缺一不可：
 
-1. **长什么样**：选一个排版方向（`references/visual/dashboard-layouts.md` 的 L1–L4）。
+1. **长什么样**：选一个排版方向（`references/visual/dashboard-layouts.md` 的 L1–L5；L5 等距 3D 场景要先过 `references/visual/isometric-scene.md` 第 1 节那道关）。
 2. **会怎么动**：3–5 个配方（写编号 + 大白话）。
 3. **一句话感觉**：像什么。
 4. **代价**：这套有什么不好。不写代价用户没法选。

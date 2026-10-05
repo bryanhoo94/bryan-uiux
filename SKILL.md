@@ -1,6 +1,6 @@
 ---
 name: bryan-uiux
-description: Bryan 的设计配方库。每次先认出当前项目（平台、DESIGN.md、动效规格 MOTION-SPEC），没有规格先起草，保证同一项目的 UI/UX 和动效统一；每个页面都要有桌面视图和手机视图，实现交给 animate（Web / WebView）/ animate-expo（RN·Expo）。内容：61 个交互配方（页面、组件、图表控件、手势、控件反馈、动效质感、网页效果）、Matter.js 物理模式、dashboard 排版方向 L1–L4、导航（手机底部 Tab / 平板竖栏 / 桌面侧边栏，11 种风格）、高级感卡片、Apple 风玻璃卡片、7 条减少摩擦的 UX 定律（希克、费茨、雅各布、米勒、峰终、邻近、冯·雷斯托夫）、AI 产品状态清单、参考组件库、图标库（Lucide / Morphicons / Lordicon）、GSAP 指南、个人口味档案。适用于 Web 应用、手机 App（RN / Expo、Capacitor）、桌面 App（Electron / Tauri）。Use when 用户说「帮我设计一下 / 好看一点 / 随便你 / 我不知道要什么样 / 现在这个好丑」；review 现有页面的 UI/UX；页面太复杂或没人点（「转化低 / 找不到按钮 / 减少摩擦」）；「加点交互 / 手感好一点 / 质感 / 高级感 / 更有生命力 / 像 iOS 那样顺」；做 dashboard、导航栏（底部 Tab、侧边栏、顶栏）、卡片；给列表·卡片·滑杆·开关·标签·步骤条·网格加反馈；手势（滑动返回、拖拽排序、下拉回弹、方向锁定、手势转场）；物理感（磁吸、液态形变、3D 视差、碰撞、掉落堆叠）；AI 界面（思考状态、流式输出、工具调用、操作确认、引用来源）；选图标库、用 GSAP；「记下来 / 收藏这个 / 这个好看 / 整理截图」；点名某个配方（主题扩散、数字翻牌、流动 Tab…）；把大白话翻译成正式效果（「鼠标放上去变大旁边让开」「像扇子一样展开」「扭成一圈」「波浪一样传开」「折一下翻过去」）。Not for 配色 / 字体 / 间距的细节（→ finesse-ui / design-taste-frontend / impeccable），也不负责扫代码找哪里缺动效（→ find-animation-opportunities）。
+description: Bryan 的设计配方库。每次先认出当前项目（平台、DESIGN.md、动效规格 MOTION-SPEC），没有规格先起草，保证同一项目的 UI/UX 和动效统一；每个页面都要有桌面视图和手机视图，实现交给 animate（Web / WebView）/ animate-expo（RN·Expo）。内容：61 个交互配方（页面、组件、图表控件、手势、控件反馈、动效质感、网页效果）、Matter.js 物理模式、dashboard 排版方向 L1–L5（含等距 3D 场景）、导航（手机底部 Tab / 平板竖栏 / 桌面侧边栏，11 种风格）、高级感卡片、Apple 风玻璃卡片、7 条减少摩擦的 UX 定律（希克、费茨、雅各布、米勒、峰终、邻近、冯·雷斯托夫）、AI 产品状态清单、参考组件库、图标库（Lucide / Morphicons / Lordicon）、GSAP 指南、个人口味档案。适用于 Web、手机 App（RN / Expo、Capacitor）、桌面 App（Electron / Tauri）。Use when 用户说「帮我设计一下 / 好看一点 / 随便你 / 我不知道要什么样 / 现在这个好丑」；review 现有页面的 UI/UX；页面太复杂或没人点（「转化低 / 找不到按钮 / 减少摩擦」）；「加点交互 / 手感好一点 / 质感 / 高级感 / 更有生命力 / 像 iOS 那样顺」；做 dashboard、3D 可视化、数字孪生、大屏、导航栏（底部 Tab、侧边栏、顶栏）、卡片；给列表·卡片·滑杆·开关·标签·步骤条·网格加反馈；手势（滑动返回、拖拽排序、下拉回弹、方向锁定、手势转场）；物理感（磁吸、液态形变、3D 视差、碰撞、掉落堆叠）；AI 界面（思考状态、流式输出、工具调用、操作确认、引用来源）；选图标库、用 GSAP；「记下来 / 收藏这个 / 这个好看 / 整理截图」；点名某个配方（主题扩散、数字翻牌、流动 Tab…）；把大白话翻译成正式效果（「鼠标放上去变大旁边让开」「像扇子一样展开」「扭成一圈」「波浪一样传开」「折一下翻过去」）。Not for 配色 / 字体 / 间距的细节（→ finesse-ui / design-taste-frontend / impeccable），也不负责扫代码找哪里缺动效（→ find-animation-opportunities）。
 ---
 
 # Bryan Interactions — 交互配方库
@@ -17,6 +17,7 @@ description: Bryan 的设计配方库。每次先认出当前项目（平台、D
 | 「没人点 / 转化低 / 太复杂 / 找不到按钮」 | 先按 [references/ux/ux-laws.md](references/ux/ux-laws.md) 的检查清单过一遍，列出违反了哪几条、各怎么改，再动手 |
 | `/bryan-uiux review`、「review 一下 / 检查现在的 UI / 哪里不好」 | **只看不改**：先第一步认项目，列出所有页面，每一页都看，不只看首页（点名了页面就只看那一页）。能跑起来就截图看桌面 1440px 和手机 390px 两种宽度；跑不起来就读代码，并说明是读代码判断的。每一页按 [references/ux/ux-laws.md](references/ux/ux-laws.md) 的页面类型过 7 条清单；动效对照项目动效规格，没有规格就数一下现在用了几套时长和曲线。最后给一张表：页面 ｜ 违反哪条 ｜ 现在怎样 ｜ 怎么改 ｜ 先改哪个，按影响排序。配色、字体、间距的细节不在这里评，提示用户接着跑 `impeccable` 的 critique 和 audit。用户点了改哪几条再动手 |
 | 做导航（底部 Tab、侧边栏、顶栏、「导航栏好丑」） | 按 [references/visual/navigation.md](references/visual/navigation.md) 做：手机、平板、桌面三种宽度一起出，同一组入口 |
+| 做 3D 可视化、数字孪生、可视化大屏、等距场景（「把数据做立体一点」「让客户一眼看懂仓库现在什么情况」） | 按 [references/visual/isometric-scene.md](references/visual/isometric-scene.md) 做：先过第 1 节「该不该上 3D」那道关，再定场景画法 S1–S4 和是哪种屏（演示 / 后台 / 大屏）；桌面视图和手机视图一起出。要装 3D 的 npm 包先问用户 |
 | 点名要什么（「加个数字翻牌」） | 跳过提问，直接做 |
 | 用大白话描述效果（「鼠标放上去变大旁边让开」） | 查 [references/recipes/effects.md](references/recipes/effects.md) 翻译表，复述确认后再做 |
 | 丢来链接或截图，说「记下来 / 收藏这个 / 这个好看」 | 按 [references/ux/taste.md](references/ux/taste.md) 记一条收藏，只记不做 |
@@ -57,7 +58,7 @@ description: Bryan 的设计配方库。每次先认出当前项目（平台、D
 
 ## 第四步：按设计流程做
 
-结构层 → 视觉（有 `DESIGN.md` 就锁定 token，只动结构；没有时新页面用 `finesse-ui`、改版用 `design-taste-frontend`；做 dashboard 且没有 `DESIGN.md` 时，先从 `references/visual/dashboard-layouts.md` 的 L1–L4 选 1 个排版方向，写进 `DESIGN.md`，再交给 `finesse-ui`）→ `impeccable audit` → `polish` → 本库挑配方 → `animate` / `animate-expo` 实现。
+结构层 → 视觉（有 `DESIGN.md` 就锁定 token，只动结构；没有时新页面用 `finesse-ui`、改版用 `design-taste-frontend`；做 dashboard 且没有 `DESIGN.md` 时，先从 `references/visual/dashboard-layouts.md` 的 L1–L5 选 1 个排版方向，写进 `DESIGN.md`，再交给 `finesse-ui`）→ `impeccable audit` → `polish` → 本库挑配方 → `animate` / `animate-expo` 实现。
 
 - 结构层和静态视觉按 `references/ux/ux-laws.md` 的顺序：先减选项、再分组、最后只高亮 1 样（做事的页是主操作，看的页是主数字）；峰终定律留到挑配方时用。
 - 静态视觉没定之前不加交互。
@@ -121,7 +122,8 @@ description: Bryan 的设计配方库。每次先认出当前项目（平台、D
 
 **visual/ 长什么样**（静态视觉阶段用，见第四步）
 - 导航：手机底部 Tab / 平板竖栏 / 桌面侧边栏，11 种风格 → [references/visual/navigation.md](references/visual/navigation.md)
-- Dashboard 排版方向 L1–L4 → [references/visual/dashboard-layouts.md](references/visual/dashboard-layouts.md)
+- Dashboard 排版方向 L1–L5 → [references/visual/dashboard-layouts.md](references/visual/dashboard-layouts.md)
+- 等距 3D 场景（L5 的完整做法）：该不该上 3D、四种场景画法 S1–S4、三种屏、镜头、白模配色、部件清单、联动、手机降级、R3F 写法 → [references/visual/isometric-scene.md](references/visual/isometric-scene.md)（做 3D 可视化、数字孪生、可视化大屏时读）
 - 高级感卡片：配色、字号层级、5 种卡片结构、微交互 → [references/visual/cards.md](references/visual/cards.md)（从零做卡片时用；项目有 `DESIGN.md` 就只借结构和层级）
 - 玻璃质感 → [references/visual/glassmorphism.md](references/visual/glassmorphism.md)（配 L1 用）
 - 参考组件库 + 图标库 + AI 产品状态清单 → [references/visual/libraries.md](references/visual/libraries.md)（不是配方；找效果参照、选图标库、查漏状态时读）
