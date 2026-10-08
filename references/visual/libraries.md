@@ -1,8 +1,20 @@
 # 参考组件库（看效果用，不是装库用）
 
-7 个现成组件库，用来找「效果参照」和「查漏状态」。先确认效果对不对，再讨论怎么实现。
+<!-- 目录:开始（自动生成，别手改；改了标题就跑 python3 tools/toc.py） -->
+**本文件目录**（全文 137 行；先看这里，再按行号只读用得上的那一节）
 
-- 实现时仍然先用项目里已有的组件。要新装库，按 CLAUDE.md 先过 `pick-ui-library`。
+- 第 20–30 行：按你在做什么挑
+- 第 32–43 行：8 个库
+- 第 45–58 行：要装的时候
+- 第 60–70 行：不要用的链接和命令
+- 第 72–101 行：图标：选哪个库
+- 第 103–133 行：AI 产品状态清单
+- 第 135–137 行：给开发或别的 AI 描述需求时
+<!-- 目录:结束 -->
+
+8 个现成组件库，用来找「效果参照」和「查漏状态」。先确认效果对不对，再讨论怎么实现。
+
+- 实现时仍然先用项目里已有的组件。要新装库，先查 `references/visual/pick-library.md`，并先问用户。
 - AI 能读库的文档页（WebFetch），了解组件有哪些状态和属性。动效手感要实际点着试：请用户自己打开链接，或用浏览器 skill 截图。
 
 ## 按你在做什么挑
@@ -13,10 +25,11 @@
 | AI 要执行操作（调用工具、需要用户批准） | AI Elements | Beautiful UI、AIUI Components |
 | 加载、生成中的等待状态 | Generative Loaders | Beautiful UI |
 | 按钮、菜单、状态切换的细节动效 | beUI | — |
+| 拖、滑、按住这类手势小组件（滑动确认、拖动对比、径向菜单） | Bencho | beUI |
 | 日常基础组件（按钮、表格、弹窗、表单） | shadcn/ui | — |
 | 后台 / 工具类页面、AI 输入框、文件上传 | React Bits Pro（付费） | shadcn/ui |
 
-## 7 个库
+## 8 个库
 
 | 库 | 网址 | 适合看 | 重点参考 |
 |---|---|---|---|
@@ -26,6 +39,7 @@
 | Generative Loaders | https://generativeloaders.com/ | 加载和内容出现 | 文字逐字出现（只动新增部分，已有文字不动）；图片模糊变清晰；生成中的等待动画 |
 | shadcn/ui | https://ui.shadcn.com/ | 日常基础组件 | 按钮的状态和尺寸；表格排序、分页、可展开行；弹窗长内容滚动和底部按钮；表单校验和错误提示 |
 | React Bits Pro | https://pro.reactbits.dev/ | 更完整的页面模块 | AI 输入框（附件、快捷指令、多模态）；数据表格（筛选、排序、批量操作）；文件上传（进度、失败、重试）；后台的信息组织和导航。Pro 内容付费 |
+| Bencho | https://bencho.dev/ | 按手势分类的交互小组件，48 个（2026-10-07），分悬停、按下、拖、滑动切换、滑扫、输入、选择 7 类 | 滑动确认；按住录音、滑出取消；图片拖动对比；两栏互换；径向菜单；就地确认删除。每个都能现场点着试，旁边的面板能调外观 |
 | AIUI Components | https://aiuicomponents.com/ | AI 常见交互，界面可切换中文 | 对话输入（多行、快捷命令、附件）；思考过程；引用来源标注；危险操作二次确认 |
 
 ## 要装的时候
@@ -40,6 +54,7 @@
 | Generative Loaders | `npm install generative-loaders`，再引入它的样式表。React 组件 |
 | shadcn/ui | `npx shadcn@latest init`，然后 `npx shadcn@latest add <组件名>`。代码复制进项目，可以随便改 |
 | React Bits Pro | 免费版在 https://reactbits.dev/ ；Pro 付费后按官网说明安装 |
+| Bencho | 不用装包。打开组件，切到代码页签，复制源码进项目。React，部分组件用到 `framer-motion` 和 `lucide-react`（项目里装的是 `motion` 就把引入改成 `motion/react`）。它的弹簧数值是它自己的，抄进项目时换成 `references/core/params.md` 的预设。组件源码 MIT，整段复制时保留它的版权声明；组件里的示例照片和字体不在授权范围内，换成自己的 |
 | AIUI Components | `npm install @aiuicomponents/components`。React 组件，MIT，源码在 https://github.com/connie918/aiui-components |
 
 ## 不要用的链接和命令
@@ -87,7 +102,7 @@
 
 ## AI 产品状态清单
 
-从上面 7 个库总结。设计 AI 功能时逐条对照，漏掉的状态要补设计，不是等上线后再说。
+从上面的库总结。设计 AI 功能时逐条对照，漏掉的状态要补设计，不是等上线后再说。
 
 **AI 在工作时**
 

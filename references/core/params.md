@@ -4,7 +4,7 @@
 
 ## 参数词典
 
-所有配方只用这里的值。曲线、时长、spring 取自 `animate`（Web）和 `animate-expo`（RN）；手势常量取自 `apple-design`；两边冲突以 `animate` 为准。配方里标「起始值」的是几何量（距离、缩放、模糊半径），要在真机上调。
+所有配方只用这里的值。搬进本库的文件（`references/build/`、`references/review/`、`references/visual/` 的子文件夹）也以这里为准：别处出现不一样的时长、曲线、spring，按这里改。配方里标「起始值」的是几何量（距离、缩放、模糊半径），要在真机上调。
 
 **Spring 预设**
 
@@ -14,9 +14,9 @@
 | `spring-gesture` | `{ type: "spring", duration: 0.5, bounce: 0.2 }` | `{ duration: 400, dampingRatio: 0.8, velocity }` | 手势松手后落位，继承松手速度，轻微回弹 |
 | `spring-pop` | `{ type: "spring", duration: 0.4, bounce: 0.3 }` | `{ duration: 400, dampingRatio: 0.7 }` | 确认时弹一下。bounce 0.3 是上限，只用在低频操作 |
 
-**曲线**：`--ease-out: cubic-bezier(0.23, 1, 0.32, 1)` 用于进入、离开和默认；`--ease-in-out: cubic-bezier(0.77, 0, 0.175, 1)` 用于屏幕上的移动和形变；颜色和 hover 用 `ease`。永远不用 `ease-in`。
+**曲线**：`--ease-out: cubic-bezier(0.23, 1, 0.32, 1)` 用于进入、离开和默认；`--ease-in-out: cubic-bezier(0.77, 0, 0.175, 1)` 用于屏幕上的移动和形变；`--ease-drawer: cubic-bezier(0.32, 0.72, 0, 1)` 只用于抽屉和底部弹层；颜色和 hover 用 `ease`；匀速运动（跑马灯、进度条）用 `linear`。永远不用 `ease-in`。
 
-**时长**：按下反馈 100–160ms ｜ 小弹层 125–200ms ｜ 下拉菜单 150–250ms ｜ 全屏切换、抽屉 200–500ms ｜ 其余 UI ≤ 300ms ｜ 错峰 30–80ms 一项，整组错峰总和 ≤ 300ms（超出的项同时出现）。
+**时长**：按下反馈 100–160ms ｜ 小弹层 125–200ms ｜ 下拉菜单 150–250ms ｜ 全屏切换、抽屉 200–500ms ｜ 其余 UI ≤ 300ms ｜ 落地页和品牌页的首屏叙事、滚动叙事可以更长，曲线照旧 ｜ 错峰 30–80ms 一项，整组错峰总和 ≤ 300ms（超出的项同时出现）。
 
 **手势常量**
 
@@ -31,6 +31,7 @@
 
 每个配方默认遵守，配方里不再重复：
 
+- **频率关**：每天用 100 次以上的操作不加动画，只留按下反馈。**目的关**：说不出这个动效回答用户哪个问题，就不做。完整的判断顺序见 `references/build/web.md`。
 - 只动 `transform` / `opacity`；`clip-path` 可以；高度只允许在折叠展开里动。
 - 可能被连续触发的用 transition 或 spring，不用 keyframes（keyframes 每次从头播）。
 - 手势相关的动画全部用 spring，保证动画中随时能被按住（见 G5）。

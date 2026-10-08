@@ -1,7 +1,7 @@
 # Bryan 的设计配方库
 
-> 一本给 AI 看的食谱：界面该怎么动、dashboard 该怎么排、AI 产品的界面该有哪些状态。
-> *A recipe book that teaches AI coding agents how UI should move, how dashboards should be laid out, and what states an AI product UI needs.*
+> 一本给 AI 看的设计手册：页面该长什么样、该怎么动、dashboard 该怎么排、AI 产品的界面该有哪些状态、做完怎么检查。
+> *One skill that teaches AI coding agents how a UI should look, move, be laid out, and be checked before it ships.*
 
 ## 这是什么
 
@@ -15,13 +15,15 @@
 
 ---
 
-## 它帮你做 3 件事
+## 它帮你做 6 件事
 
 | | 做什么 | 里面有多少 |
 |---|---|---|
-| 🎬 | 让界面会动 | 61 个小动作 |
+| 🧱 | 从零做一页，或者改版旧的一页 | 品牌页、后台、工作流页、AI 工作台、电商页、手机 H5，附 22 个示例网页 |
+| 🎬 | 让界面会动 | 77 个小动作，Web 和手机 App 的写法都有 |
 | 📐 | 帮你排 dashboard 的版 | 5 种排版方向，其中一种是等距 3D 场景 |
 | 🤖 | 做 AI 产品的界面 | 一张「有没有漏掉」的清单 |
+| 🔍 | 做完帮你挑毛病 | 体验评分、技术检查、最后打磨，外加十几种只修一样的定向修 |
 | 💬 | 你说不清的时候，问你几个问题再给方案 | 最多 4 道选择题 |
 
 ---
@@ -153,17 +155,17 @@
 
 ---
 
-## 剩下的 53 个是什么
+## 剩下的 69 个是什么
 
-动图只放了 8 个。全部 61 个分成 7 类：
+动图只放了 8 个。全部 77 个分成 7 类：
 
 | 类别 | 例子 |
 |---|---|
 | 页面级（8 个） | 两根手指一捏，网格在大图和列表之间切换 |
-| 组件（13 个） | 几个头像叠在一起点一下散开；搜索按钮原地变成输入框；按钮点完原地转圈再打勾 |
+| 组件（19 个） | 几个头像叠在一起点一下散开；搜索按钮原地变成输入框；按钮点完原地转圈再打勾；拖中间那条线对比两张图；删除按钮原地变成「确认删除？」 |
 | 图表控件（10 个） | 打卡热力格、半圆仪表盘、可以拖的目标线 |
-| 手势手感（7 个） | 边缘滑回上一页、横滑竖滑不打架、甩出去的卡片半路能抓住 |
-| 控件反馈（10 个） | 点一下换深色模式，深色像水波一样铺满全屏 |
+| 手势手感（12 个） | 边缘滑回上一页、横滑竖滑不打架、甩出去的卡片半路能抓住、滑过去才算确认、按住录音滑走取消、像闹钟那样上下滚着选日期 |
+| 控件反馈（15 个） | 点一下换深色模式，深色像水波一样铺满全屏；输错了输入框变红并说明原因；绕圈拖的环形拨盘；发票标成已付时盖一个章 |
 | 动效质感（8 个） | 磁吸、拖起来像果冻一样变形、3D 视差 |
 | 网页效果（5 个） | 鼠标放上去旁边让开、封面流、3D 环形画廊、点击涟漪、翻页 |
 
@@ -173,21 +175,21 @@
 
 ## 装什么
 
-**这个 skill 本身零依赖**：23 个 md 文件加一个 demo 网页，放进 `~/.claude/skills/` 就能用，连 node 都不用装。
-
-一条命令装齐它和会用到的配套 skill：
+**只装这一个。** 所有内容都在这个仓库里：106 个 md 文件、22 个示例网页、一个 demo。不用再装别的 skill，连 node 都不用装。
 
 ```bash
 git clone git@github.com:bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash install.sh
 ```
 
-它会先把打算做的事列给你看，你点头才动手。装的是 `animate`、`animate-expo`、`apple-design`、`pick-ui-library`（来自 emilkowalski/skills）、`finesse-ui`、`design-taste-frontend`，全部从各自的上游取，已经装过的会跳过。**它只碰 `~/.claude/skills/`，不会给你的任何项目装东西。**
+它会先把打算做的事列给你看，你点头才动手。它只做一件事：把这个文件夹链接到 `~/.claude/skills/bryan-uiux`。**不下载别的东西，也不会给你的任何项目装东西。**
 
-收尾检查用的 `impeccable` 有自己的安装器：在项目根目录跑 `npx impeccable install`。
-
-**配套 skill 少装几个也没关系**：曲线、时长、弹性这些数字本库自己就有一份，缺了谁都不会瞎编。
+**以前分开装过别的设计 skill？** 做页面、做动效、做检查的内容这里都有了。两边同时留着会重复触发、规矩打架，建议把旧的移走。
 
 **项目里的 npm 包（gsap、lucide、matter.js、three.js 这些）永远不会自动装**。只有你选中的那条配方真的需要，它才会问你，然后装进那一个项目。
+
+**有一个可选的小工具**：`references/visual/new-page/scripts/detect.mjs`，电脑上有 Node 才会用到，用来自动扫一遍页面有没有显得廉价的写法。没有 Node 就照清单人工检查，不影响使用。
+
+这个仓库收了几套开源内容并做了修改，版权声明集中在 `THIRD_PARTY_NOTICES.md`。
 
 ---
 
@@ -221,6 +223,17 @@ git clone git@github.com:bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash inst
 
 **想直接点菜也行**：`/bryan-uiux 给设置页加个数字翻牌`，它就不问了，直接做。
 
+**常用的几种叫法**：
+
+| 你打 | 它做什么 |
+|---|---|
+| `/bryan-uiux` | 走全套：认项目、问几题、给方案、先做一屏 |
+| `/bryan-uiux new 定价页` | 从零做一页 |
+| `/bryan-uiux redesign 首页` | 改版已有的一页 |
+| `/bryan-uiux review` | 每一页都看一遍，只看不改，给你一张问题表 |
+| `/bryan-uiux critique`、`audit`、`polish` | 收尾：体验评分、技术检查、最后打磨 |
+| 「字体不对 / 太挤 / 手机上坏了」 | 只修那一样 |
+
 **它每次做事的 5 步**：
 
 | 第几步 | 它做什么 |
@@ -228,7 +241,7 @@ git clone git@github.com:bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash inst
 | 1 | 先认项目：这是什么产品、给谁用、手机还是网页、已经有什么设计规矩 |
 | 2 | 项目还没有「动效规格」就先起草一份，**给你确认** |
 | 3 | 挑 1–3 道菜，列成表**给你确认**，同类组件永远用同一道 |
-| 4 | 按顺序做：先结构、再外观、最后动效 |
+| 4 | 按顺序做：先结构、再外观、再检查、最后动效 |
 | 5 | 自己检查，再把这次用了什么写回规格文件 |
 
 只有两种情况它会停下来问你：**第一次定规格**，和**要加一道新菜**。其他时候照规格自己做。
@@ -249,38 +262,57 @@ git clone git@github.com:bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash inst
 
 ## 文件说明
 
-`references/` 分成 4 个文件夹，按「什么时候用」分：
+`references/` 分成 6 个文件夹，按「什么时候用」分：
 
 | 文件 | 里面是什么 |
 |---|---|
-| `SKILL.md` | 总入口：怎么叫它、怎么认项目、五步流程、冲突时听谁的、文件地图 |
+| `SKILL.md` | 总入口：怎么叫它、怎么认项目、五步流程、冲突时听谁的、文件地图（整个库的目录，AI 先看它再决定读哪一份） |
 | `CLAUDE.md` | 只在编辑这个仓库时生效：以后贴外面的 skill.md 进来怎么处理 |
+| `THIRD_PARTY_NOTICES.md` | 收进来的开源内容的版权声明。做设计时不用读 |
+| `tools/toc.py` | 生成目录的小脚本：每份长文件开头的「本文件目录」和配方目录都是它算出来的。只在编辑这个仓库时用 |
 | **core/ 每次都会用** | |
 | `references/core/params.md` | 统一的数字：曲线、时长、弹性、手势常量 + 通用规则 + 「太弹 / 太慢」怎么调 |
-| `references/core/pick.md` | 按项目性格圈范围 + 按场景挑配方 |
+| `references/core/pick.md` | 按项目性格圈范围 + 按场景挑配方 + 按手怎么动来挑 + 全部配方的目录（一行一个，写着用在哪、在第几行） |
 | `references/core/platforms.md` | 网页 / 手机 / 桌面怎么分别落地，桌面宽屏和手机窄屏怎么排 |
 | `references/core/motion-spec-template.md` | 给新项目起草「动效规格」的模板 |
+| `references/core/product-brief.md` | 帮项目写 `PRODUCT.md`：给谁用、什么类型的产品 |
+| `references/core/design-doc.md` | 从现有代码整理出 `DESIGN.md`：颜色、字体、间距这些规矩 |
 | **recipes/ 交互配方** | |
 | `references/recipes/page.md` | 页面级的 8 个 |
-| `references/recipes/component.md` | 组件的 13 个 |
+| `references/recipes/component.md` | 组件的 19 个 |
 | `references/recipes/chart.md` | 图表控件的 10 个 |
-| `references/recipes/gesture.md` | 手势手感的 7 个 |
-| `references/recipes/feedback.md` | 控件反馈的 10 个 |
+| `references/recipes/gesture.md` | 手势手感的 12 个 |
+| `references/recipes/feedback.md` | 控件反馈的 15 个 |
 | `references/recipes/motion.md` | 动效质感的 8 个 |
 | `references/recipes/physics.md` | 物理引擎的 7 种玩法和参数 |
 | `references/recipes/effects.md` | 网页效果 5 个 + 把大白话翻译成专业说法的对照表 |
+| `references/recipes/vocabulary.md` | 效果的正式英文名：你描述样子，它告诉你叫什么 |
 | `references/recipes/gsap.md` | 用 GSAP 写动画：什么时候用、怎么排节奏、缓动对照表 |
 | **visual/ 长什么样** | |
+| `references/visual/new-page/` | 从零做一页：先判断是品牌页还是产品页，再定方向、底色、骨架，最后过一遍「廉价感」清单。里面有它自己的参考文件和 22 个示例网页 |
+| `references/visual/redesign/` | 改版已有的一页：先审现状，定好什么不能动，再按优先级改 |
+| `references/visual/finish/` | 收尾：体验评分（critique）、技术检查（audit）、最后打磨（polish），和十几种定向修，每个一份 |
 | `references/visual/navigation.md` | 导航：手机底部 Tab、平板竖栏、桌面侧边栏一起设计，11 种风格、5 条硬规则、安全区写法 |
 | `references/visual/dashboard-layouts.md` | 5 种排版方向 |
 | `references/visual/isometric-scene.md` | 等距 3D 场景怎么做：该不该上 3D、4 种场景画法、3 种屏、镜头、配色、每个行业要认得出的物件、手机怎么降级 |
 | `references/visual/cards.md` | 高级感卡片：一张卡只用一种主色、字号层级、5 种现成卡片、悬停和按下的微交互 |
 | `references/visual/glassmorphism.md` | Apple 风磨砂玻璃卡片怎么做 |
-| `references/visual/libraries.md` | 7 个可以直接逛的组件库 + 图标库怎么选 + AI 界面清单 |
+| `references/visual/libraries.md` | 8 个可以直接逛的组件库 + 图标库怎么选 + AI 界面清单 |
+| `references/visual/pick-library.md` | 某件事该用哪个 npm 库：图表、拖拽、弹层、虚拟列表这些 |
 | **ux/ 体验和流程** | |
-| `references/ux/ux-laws.md` | 减少摩擦的 7 条 UX 定律：先减选项、再分组、最后高亮，附检查清单和结账例子 |
+| `references/ux/ux-laws.md` | 结构四问 + 减少摩擦的 7 条 UX 定律：先减选项、再分组、最后高亮，附检查清单和结账例子 |
 | `references/ux/interview.md` | 怎么问用户、怎么出方案让他选 |
 | `references/ux/taste.md` | 你的口味档案怎么读、怎么写：说「记下来 / 整理截图」就存，出方案时自动参照；截图和索引在 `screenshot/` |
+| **build/ 怎么写动效** | |
+| `references/build/web.md`、`web-recipes.md` | 网页上怎么写动效：先判断该不该动，再选工具、属性、曲线；常见组件的现成写法 |
+| `references/build/rn.md`、`rn-recipes.md` | 手机 App（RN / Expo）怎么写动效 |
+| `references/build/apple-feel.md` | 手势手感、弹性、材质和深度 |
+| `references/build/craft-details.md` | 组件上的小细节：transform、clip-path、拖拽、怎么调试 |
+| `references/build/intent.md` | 动效意图：想让人感觉什么、多个元素怎么编排 |
+| **review/ 评审动效** | |
+| `references/review/motion-review.md` | 评审一段动效代码，只看不改 |
+| `references/review/motion-audit.md` | 全项目动效审计，出改进方案 |
+| `references/review/opportunities.md` | 找哪里该加动效，哪里不该加 |
 | `demo/` | 上面那些例子的源码和动图 |
 
 ---

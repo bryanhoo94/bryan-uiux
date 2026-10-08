@@ -1,10 +1,20 @@
 # Dashboard 排版方向（L1–L5）
 
+<!-- 目录:开始（自动生成，别手改；改了标题就跑 python3 tools/toc.py） -->
+**本文件目录**（全文 164 行；先看这里，再按行号只读用得上的那一节）
+
+- 第 19–29 行：核心原则：只做一个视觉判断
+- 第 31–127 行：怎么选
+- 第 129–139 行：手机视图
+- 第 141–154 行：能混 / 不能混
+- 第 156–164 行：避坑清单
+<!-- 目录:结束 -->
+
 这是**静态视觉阶段**用的，不是动效配方。
 
 - 项目**还没有** `DESIGN.md`，或用户明确解锁了它 → 从 5 种里选 1 种，选定后写进项目 `DESIGN.md` 的「排版方向」一节，之后每个页面都照它做，不混用。
 - 项目**已经有** `DESIGN.md` → 只能借结构思路（分组、留白、比例条），不许改颜色和字体 token。
-- 选好方向后，交给 `finesse-ui`（新页面）或 `design-taste-frontend`（改版）实现，最后 `impeccable audit` 收尾。
+- 选好方向后，新页面按 `references/visual/new-page/index.md` 做，改版按 `references/visual/redesign/index.md` 做，最后按 `references/visual/finish/index.md` 跑 critique 和 audit 收尾。
 
 ## 核心原则：只做一个视觉判断
 

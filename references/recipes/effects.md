@@ -16,14 +16,30 @@
 | 波浪一样传开 | 点击涟漪（Wave Ripple） | E4 |
 | 撕开露出下面的 | 分层视差撕开（Parallax Split） | M7 + M3 |
 | 折一下翻过去 | 翻页 / 折纸（Page Flip / Origami） | E5 |
+| 两个对调一下 / 上下换个位置 | 两栏互换（Swap） | C14 |
+| 拖中间那条线看前后对比 | 图片拖动对比（Before / After Slider） | C15 |
+| 输错了晃一下 | 报错晃动（Error Shake） | F11 |
+| 滑过去才算确认 | 滑动确认（Slide to Confirm） | G8 |
+| 往下拉一下就刷新 | 下拉刷新（Pull to Refresh） | G9 |
+| 按住数字左右拖就能调 | 数字拖动快调（Scrubbable Number） | G10 |
+| 按住说话，滑走取消 | 按住录音（Hold to Record） | G11 |
+| 点删除先在原地问一句 | 就地确认（Inline Confirm） | C16 |
+| 把文件拖进来就上传 | 拖放上传区（Dropzone） | C17 |
+| 用手指签名 | 签名板（Signature Pad） | C18 |
+| 选了几个，底下冒出一条操作 | 批量操作条（Bulk Action Bar） | C19 |
+| 绕着圈拖来调数值 | 环形拨盘（Circular Slider / Dial） | F12 |
+| 点进输入框，标签跑到上面 | 浮动标签（Floating Label） | F13 |
+| 点赞的时候炸开一下 | 点赞爆开（Like Burst） | F14 |
+| 咚一下盖个章 / 盖上「已付」 | 盖章确认（Stamp Confirm） | F15 |
+| 像手机闹钟那样上下滚着选 | 滚轮选择器（Wheel Picker） | G12 |
 
 翻译完要复述一遍给用户确认：「你说的是不是这个——鼠标放上去那张抬起来，旁边两张往两边让？」确认了再动手。
 
 ## 实现规矩
 
-- 纯 CSS 能做就不加库。要加库先按 CLAUDE.md 过 `pick-ui-library`。
+- 纯 CSS 能做就不加库。要加库先查 `references/visual/pick-library.md`，并先问用户。
 - 只动 `transform` 和 `opacity`，不动 `width` / `height` / `padding`（会掉帧）。
-- **配色和间距不由本库决定**：项目有 `DESIGN.md` 就用它的 token；没有就先按 `references/visual/dashboard-layouts.md` 定排版方向，再交给 `finesse-ui`。不要只丢一段动效代码给用户，页面整体要能跑。
+- **配色和间距不由本库决定**：项目有 `DESIGN.md` 就用它的 token；没有就先按 `references/visual/dashboard-layouts.md` 定排版方向，再按 `references/visual/new-page/index.md` 做静态视觉。不要只丢一段动效代码给用户，页面整体要能跑。
 - 数值只用 `references/core/params.md` 参数词典里的。常见对应关系：`cubic-bezier(0.16, 1, 0.3, 1)` ≈ 我们的 `--ease-out`；`cubic-bezier(0.34, 1.56, 0.64, 1)`（带过冲）≈ 我们的 `spring-pop`。
 
 ---
@@ -61,7 +77,7 @@
 
 - **用在**：按钮、列表项的点击反馈。
 - **提示词**：点击位置生成一个圆，从小扩散到大并淡出
-- **参数**：在点击点放一个圆，`scale(0)` → `scale(4)`、`opacity 0.6` → `0`，350ms `--ease-out`（常见写法是 600ms，超过 UI 300ms 的上限太多，缩短）。不阻塞点击；可以连点，每个涟漪各自独立，播完删掉节点。
+- **参数**：在点击点放一个圆，`scale(0)` → `scale(4)`、`opacity 0.6` → `0`，300ms `--ease-out`（常见写法是 600ms，超过 UI 300ms 的上限，缩短）。不阻塞点击；可以连点，每个涟漪各自独立，播完删掉节点。
 - **降级**：reduced-motion 时只做颜色变化。
 - **别用在**：已经有 G2 按下缩放的按钮上再叠一层；一天点上百次的操作（过不了频率关）。
 

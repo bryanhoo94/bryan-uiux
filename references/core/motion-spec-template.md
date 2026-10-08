@@ -15,7 +15,7 @@
 # <项目名> 动效规格
 
 本文件是 <项目名> 动效的唯一标准。曲线、时长、spring 只用下面「常量」里的值。
-静态视觉见 <DESIGN.md 路径>。意图由 `motion-design` 定，配方从 `bryan-uiux` 挑，实现交给 `animate` / `animate-expo`；数值冲突以 `animate` 为准。
+静态视觉见 <DESIGN.md 路径>。意图、配方、实现都按 `bryan-uiux`；数值以本文件「常量」为准，本文件没写的按 `bryan-uiux` 的参数词典。
 
 ## 意图（<日期>）
 

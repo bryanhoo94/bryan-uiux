@@ -1,5 +1,19 @@
 # 高级感卡片
 
+<!-- 目录:开始（自动生成，别手改；改了标题就跑 python3 tools/toc.py） -->
+**本文件目录**（全文 117 行；先看这里，再按行号只读用得上的那一节）
+
+- 第 21–24 行：先别急着用
+- 第 26–36 行：配色（最重要）
+- 第 38–48 行：卡片结构
+- 第 50–60 行：字号层级（浅色版）
+- 第 62–67 行：视觉焦点放哪
+- 第 69–77 行：5 种现成卡片
+- 第 79–88 行：微交互
+- 第 90–109 行：桌面和手机
+- 第 111–117 行：常见翻车
+<!-- 目录:结束 -->
+
 这组卡片显得高级，靠三件事：**配色克制、信息层级清楚、微交互细致**，不靠堆装饰。
 
 参数预设、曲线和通用规则见 `references/core/params.md`，这里不重复。
@@ -91,7 +105,7 @@
 **RN / Expo**
 
 - 阴影：iOS 用 `shadowColor` / `shadowOffset` / `shadowOpacity` / `shadowRadius`，Android 用 `elevation`；新架构（RN 0.76 起）也可以直接写 `boxShadow`。
-- 没有 hover，也没有 `::after`。按下反馈用 `Pressable` + Reanimated，具体写法交给 `animate-expo`。
+- 没有 hover，也没有 `::after`。按下反馈用 `Pressable` + Reanimated，具体写法见 `references/build/rn.md`。
 - 图片跟着圆角裁切要用 `overflow: 'hidden'`，但 iOS 上它会把同一层的阴影一起裁掉。阴影放在外面再包一层。
 
 ## 常见翻车

@@ -1,19 +1,30 @@
 # 平台适配（Web 应用 / 手机 App / 桌面 App）
 
+<!-- 目录:开始（自动生成，别手改；改了标题就跑 python3 tools/toc.py） -->
+**本文件目录**（全文 141 行；先看这里，再按行号只读用得上的那一节）
+
+- 第 16–28 行：1. 判断目标平台
+- 第 30–104 行：2. 按输入方式和屏幕宽度落地
+- 第 106–115 行：3. WebView 特有的注意事项（Capacitor / Cordova / Electron / Tauri）
+- 第 117–126 行：4. 触觉反馈
+- 第 128–131 行：5. 原生 App 的换算
+- 第 133–141 行：6. 验收
+<!-- 目录:结束 -->
+
 同一个配方，在不同平台上落地的方式不一样。第一步「认项目」时先判断平台，挑完配方后按本文件落地。
 
 ## 1. 判断目标平台
 
 看 `package.json`、项目目录和 `PRODUCT.md`。一个项目可能同时有好几个目标（例如 Web + Capacitor 手机 App），每个都要列出来。
 
-| 信号 | 平台 | 实现交给 |
+| 信号 | 平台 | 写动效看哪份 |
 |---|---|---|
-| next / vite / react-dom / vue 等，没有外壳 | Web 应用（桌面浏览器 + 手机浏览器都要考虑） | `animate` |
-| 有 manifest + service worker | PWA | `animate` |
-| `@capacitor/core`、`cordova`、`@ionic/*` | 手机 App 里的 WebView（混合 App） | `animate`，并看第 3 节 |
-| `electron` | 桌面 App（自带 Chromium） | `animate`，并看第 3 节 |
-| `@tauri-apps/api` 或 `src-tauri/` | 桌面 App（系统 WebView：macOS 是 WKWebView，Windows 是 WebView2，Linux 是 WebKitGTK） | `animate`，并看第 3 节 |
-| `expo` / `react-native` | 原生手机 App | `animate-expo`，并看第 5 节 |
+| next / vite / react-dom / vue 等，没有外壳 | Web 应用（桌面浏览器 + 手机浏览器都要考虑） | `references/build/web.md` |
+| 有 manifest + service worker | PWA | `references/build/web.md` |
+| `@capacitor/core`、`cordova`、`@ionic/*` | 手机 App 里的 WebView（混合 App） | `references/build/web.md`，并看第 3 节 |
+| `electron` | 桌面 App（自带 Chromium） | `references/build/web.md`，并看第 3 节 |
+| `@tauri-apps/api` 或 `src-tauri/` | 桌面 App（系统 WebView：macOS 是 WKWebView，Windows 是 WebView2，Linux 是 WebKitGTK） | `references/build/web.md`，并看第 3 节 |
+| `expo` / `react-native` | 原生手机 App | `references/build/rn.md`，并看第 5 节 |
 | `pubspec.yaml`（Flutter）、Xcode / Android 原生工程 | 原生 App | 没有对应 skill，按第 5 节换算 |
 
 ## 2. 按输入方式和屏幕宽度落地
@@ -27,11 +38,12 @@
 | 配方 | 触屏 | 鼠标 / 触控板 | 键盘 |
 |---|---|---|---|
 | G1 边缘滑回 | 原生 App、PWA 独立窗口、混合 App 才做；手机浏览器不做（系统已占用） | 不做，用返回按钮 | Esc 或 Alt + ← |
-| G4 方向锁定、G6 预判落点、M7 手势转场 | 做 | 鼠标拖拽用同一套 Pointer Events；触控板横滑是 `wheel` 事件，要映射到同一个进度 | 方向键翻页，Esc 关闭 |
+| G4 方向锁定、G6 预判落点、M7 手势转场、E5 翻页 | 做 | 鼠标拖拽用同一套 Pointer Events；触控板横滑是 `wheel` 事件，要映射到同一个进度 | 方向键翻页，Esc 关闭 |
 | P1 捏合换密度 | 双指捏合 | 触控板捏合：Chrome / Edge / Firefox 是 `wheel` + `ctrlKey`，Safari 是 `gesturestart` / `gesturechange`；另外给按钮 | `+` / `−` 键 |
 | C5 跟手放大图标栏 | 按住滑动 | 悬停跟随，只在精细指针下开 | 方向键移动高亮 |
 | M3 3D 视差、M1 磁吸按钮 | 不做（不为它申请陀螺仪权限） | 鼠标跟随 | 不做 |
 | F2 拖拽排序 | 长按后拖 | 直接拖，不用长按 | 空格拿起，方向键移动，空格放下 |
+| P5 参考线吸附 | 做，吸住的那一刻加一次轻触觉反馈 | 做，按住 Alt / ⌘ 临时关掉吸附 | 方向键微调位置，不吸附 |
 | G2 按钮滑出取消 | 做 | 做（Pointer Events 一样） | 不适用，Enter / 空格直接触发 |
 | G7 到顶回弹、P4 下拉放大头图 | 做；平台自带回弹时不重复做 | 不做，交给系统（macOS 触控板自带弹性滚动） | 不适用 |
 | P2、P3、M4 等滚动驱动的配方 | 做 | 做 | 键盘滚动同样触发 |
@@ -70,11 +82,26 @@
 | 配方 | 桌面视图 | 手机视图 |
 |---|---|---|
 | C3 横向手风琴 | 做 | 改成纵向折叠 |
+| C6 顶部摘要胶囊 | 点一下展开，或者地方够就直接常显 | 下拉展开 |
+| C7 搜索框就地展开 | 顶栏够宽就常驻一个搜索框，不用藏 | 做 |
+| C8 加号展开操作面板 | 不做悬浮加号，操作放进工具栏或「新建」下拉菜单 | 做，放在右下拇指区，避开安全区和底部 Tab |
+| C12 顶栏随滚动收起 | 一般不收，顶栏常驻 | 做 |
 | C13 菜单铺满全屏 | 不做，用下拉菜单 | 做 |
+| C14 两栏互换 | 两栏可以左右排，左右对调 | 两栏上下排，上下对调 |
+| C17 文件拖放上传区 | 拖入、点击选择、粘贴都支持 | 没有拖入，整块是一个按钮，点了打开系统的选文件或拍照 |
+| C19 选中后长出操作条 | 浮在列表区域底部居中 | 贴底，避开安全区；有底部 Tab 时顶替 Tab |
+| F8 卡片删除飞走 | 点删除按钮触发，从卡片原位飞走 | 滑扫或点按钮触发，从松手位置飞走 |
+| G8 滑动确认 | 不做，用按钮加确认框 | 做 |
+| G9 下拉刷新 | 不做，放刷新按钮或自动刷新 | 做；RN 用系统的 `RefreshControl` |
+| G11 按住录音 | 点一下开始、再点一下结束 | 按住录，滑走取消 |
+| G12 滚轮选择器 | 不做，用日历弹层或直接打字 | 做；RN 用系统的选择器 |
+| E1 悬停抬起 + 邻位让位 | 做，只在精细指针下 | 不做，卡片排成单列或横滑一排 |
 | E2 封面流、E3 环形画廊 | 做 | 降级成横滑列表 + `scroll-snap` |
 | M5 流动 Tab | 顶部分段控件，限制最大拉伸长度 | 底部 Tab |
 | P6 弧线换列 | 窗口宽度跨过断点、列数变了时播，等 resize 停下再播 | 转屏时播 |
 | L5 等距 3D 场景 | 场景铺满窗口，面板浮在上面 | 场景占上半屏，列表和详情进底部弹层（M7）；跑不动换静态图。见 `references/visual/isometric-scene.md` 第 11 节 |
+
+没列在这张表和 2.1 那张表里的配方，桌面视图和手机视图做法一样，手机上只按上面的硬指标把点击区撑够。
 
 ## 3. WebView 特有的注意事项（Capacitor / Cordova / Electron / Tauri）
 
@@ -84,7 +111,7 @@
 - **系统返回**：iOS 的 WKWebView 默认没有边缘返回手势，混合 App 要自己做 G1。Android 的系统返回键或手势，用外壳提供的返回事件（Capacitor 用 `@capacitor/app` 的 `backButton`）接到同一套返回逻辑上。
 - **安全区**：底部 Tab（M5）、底部弹层（M7）、全屏图片（M6）要用 `env(safe-area-inset-*)` 避开刘海和底部横条。
 - **桌面窗口拖拽区**：Electron / Tauri 标题栏里的 `-webkit-app-region: drag` 区域收不到鼠标事件。可拖的元素要放在 `no-drag` 区域。
-- **桌面 App 键盘用得多**：快捷键触发的操作不加动画（`animate` 的频率关），而且门槛比网页更严。
+- **桌面 App 键盘用得多**：快捷键触发的操作不加动画（频率关），而且门槛比网页更严。
 - **低端 Android WebView 性能差**：`blur`、`backdrop-filter`、SVG 滤镜很贵。P3 拖影、P7 背景反色、M5 的液态滤镜默认关，或只在高端设备上开。
 
 ## 4. 触觉反馈
@@ -93,14 +120,14 @@
 
 | 平台 | 做法 |
 |---|---|
-| RN / Expo | `expo-haptics`（写法见 `animate-expo`） |
+| RN / Expo | `expo-haptics`（写法见 `references/build/rn.md`） |
 | Capacitor | `@capacitor/haptics` |
 | 手机浏览器 / PWA | `navigator.vibrate` 只有 Android Chrome 支持，iOS Safari 不支持，只能当加分项 |
 | 桌面浏览器、Electron、Tauri | 没有触觉，只靠视觉 |
 
 ## 5. 原生 App 的换算
 
-- **RN / Expo**：spring 用参数词典（`references/core/params.md`）的 RN 列；曲线用 `animate-expo` 里的同名常量（与 Web 同一组贝塞尔值）；手势用 Gesture Handler，动画跑在 UI 线程。CSS 专属的功能要换写法：View Transitions 换成 Reanimated 的共享元素 / 布局动画，滚动驱动换成 `useAnimatedScrollHandler` + `interpolate`。具体写法交给 `animate-expo`。
+- **RN / Expo**：spring 用参数词典（`references/core/params.md`）的 RN 列；曲线用 `references/build/rn.md` 里的同名常量（与 Web 同一组贝塞尔值）；手势用 Gesture Handler，动画跑在 UI 线程。CSS 专属的功能要换写法：View Transitions 换成 Reanimated 的共享元素 / 布局动画，滚动驱动换成 `useAnimatedScrollHandler` + `interpolate`。具体写法见 `references/build/rn.md`。
 - **Flutter / Swift / Kotlin**：没有对应的 skill，按参数词典换算。曲线用同一组贝塞尔值；spring 按「过冲多少」（bounce）和「时长」换成各平台的 spring 参数；手势常量（10px 方向判定、0.11 px/ms 甩动、`rubberband` 公式、动量落点公式）直接沿用。
 
 ## 6. 验收
