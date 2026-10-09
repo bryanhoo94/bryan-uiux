@@ -178,8 +178,10 @@
 **只装这一个。** 所有内容都在这个仓库里：106 个 md 文件、22 个示例网页、一个 demo。不用再装别的 skill，连 node 都不用装。
 
 ```bash
-git clone git@github.com:bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash install.sh
+git clone https://github.com/bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash install.sh
 ```
+
+**没装 git？** 在 GitHub 页面点 Code → Download ZIP，解压到一个以后不会删的位置，在解压出来的文件夹里跑 `bash install.sh`。装完别删这个文件夹（装的是指向它的链接）；以后要更新，重新下载 ZIP 覆盖它。
 
 它会先把打算做的事列给你看，你点头才动手。它只做一件事：把这个文件夹链接到 `~/.claude/skills/bryan-uiux`。**不下载别的东西，也不会给你的任何项目装东西。**
 
