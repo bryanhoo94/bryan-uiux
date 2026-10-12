@@ -20,7 +20,7 @@
 | | 做什么 | 里面有多少 |
 |---|---|---|
 | 🧱 | 从零做一页，或者改版旧的一页 | 品牌页、后台、工作流页、AI 工作台、电商页、手机 H5，附 22 个示例网页 |
-| 🎬 | 让界面会动 | 77 个小动作，Web 和手机 App 的写法都有 |
+| 🎬 | 让界面会动 | 79 个小动作，Web 和手机 App 的写法都有 |
 | 📐 | 帮你排 dashboard 的版 | 5 种排版方向，其中一种是等距 3D 场景 |
 | 🤖 | 做 AI 产品的界面 | 一张「有没有漏掉」的清单 |
 | 🔍 | 做完帮你挑毛病 | 体验评分、技术检查、最后打磨，外加十几种只修一样的定向修 |
@@ -155,19 +155,19 @@
 
 ---
 
-## 剩下的 69 个是什么
+## 剩下的 71 个是什么
 
-动图只放了 8 个。全部 77 个分成 7 类：
+动图只放了 8 个。全部 79 个分成 7 类：
 
 | 类别 | 例子 |
 |---|---|
 | 页面级（8 个） | 两根手指一捏，网格在大图和列表之间切换 |
-| 组件（19 个） | 几个头像叠在一起点一下散开；搜索按钮原地变成输入框；按钮点完原地转圈再打勾；拖中间那条线对比两张图；删除按钮原地变成「确认删除？」 |
+| 组件（20 个） | 几个头像叠在一起点一下散开；搜索按钮原地变成输入框；「发送验证码」按钮原地变成一排数字格；按钮点完原地转圈再打勾；拖中间那条线对比两张图；删除按钮原地变成「确认删除？」 |
 | 图表控件（10 个） | 打卡热力格、半圆仪表盘、可以拖的目标线 |
 | 手势手感（12 个） | 边缘滑回上一页、横滑竖滑不打架、甩出去的卡片半路能抓住、滑过去才算确认、按住录音滑走取消、像闹钟那样上下滚着选日期 |
 | 控件反馈（15 个） | 点一下换深色模式，深色像水波一样铺满全屏；输错了输入框变红并说明原因；绕圈拖的环形拨盘；发票标成已付时盖一个章 |
 | 动效质感（8 个） | 磁吸、拖起来像果冻一样变形、3D 视差 |
-| 网页效果（5 个） | 鼠标放上去旁边让开、封面流、3D 环形画廊、点击涟漪、翻页 |
+| 网页效果（6 个） | 鼠标放上去旁边让开、封面流、3D 环形画廊、点击涟漪、翻页、底部按钮上方的渐进模糊 |
 
 另外还有 7 个用真实物理引擎做的效果：掉落堆叠、爆炸散开、多米诺、标签云漂浮等等。
 
@@ -281,13 +281,13 @@ git clone https://github.com/bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash 
 | `references/core/design-doc.md` | 从现有代码整理出 `DESIGN.md`：颜色、字体、间距这些规矩 |
 | **recipes/ 交互配方** | |
 | `references/recipes/page.md` | 页面级的 8 个 |
-| `references/recipes/component.md` | 组件的 19 个 |
+| `references/recipes/component.md` | 组件的 20 个 |
 | `references/recipes/chart.md` | 图表控件的 10 个 |
 | `references/recipes/gesture.md` | 手势手感的 12 个 |
 | `references/recipes/feedback.md` | 控件反馈的 15 个 |
 | `references/recipes/motion.md` | 动效质感的 8 个 |
 | `references/recipes/physics.md` | 物理引擎的 7 种玩法和参数 |
-| `references/recipes/effects.md` | 网页效果 5 个 + 把大白话翻译成专业说法的对照表 |
+| `references/recipes/effects.md` | 网页效果 6 个 + 把大白话翻译成专业说法的对照表 |
 | `references/recipes/vocabulary.md` | 效果的正式英文名：你描述样子，它告诉你叫什么 |
 | `references/recipes/gsap.md` | 用 GSAP 写动画：什么时候用、怎么排节奏、缓动对照表 |
 | **visual/ 长什么样** | |
@@ -295,7 +295,7 @@ git clone https://github.com/bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash 
 | `references/visual/redesign/` | 改版已有的一页：先审现状，定好什么不能动，再按优先级改 |
 | `references/visual/finish/` | 收尾：体验评分（critique）、技术检查（audit）、最后打磨（polish），和十几种定向修，每个一份 |
 | `references/visual/navigation.md` | 导航：手机底部 Tab、平板竖栏、桌面侧边栏一起设计，11 种风格、5 条硬规则、安全区写法 |
-| `references/visual/dashboard-layouts.md` | 5 种排版方向 |
+| `references/visual/dashboard-layouts.md` | 6 种骨架 + 5 种排版方向 |
 | `references/visual/isometric-scene.md` | 等距 3D 场景怎么做：该不该上 3D、4 种场景画法、3 种屏、镜头、配色、每个行业要认得出的物件、手机怎么降级 |
 | `references/visual/cards.md` | 高级感卡片：一张卡只用一种主色、字号层级、5 种现成卡片、悬停和按下的微交互 |
 | `references/visual/glassmorphism.md` | Apple 风磨砂玻璃卡片怎么做 |

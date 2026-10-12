@@ -1,6 +1,6 @@
 ---
 name: bryan-uiux
-description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动效、收尾检查。每次先认出当前项目（平台、DESIGN.md、动效规格 MOTION-SPEC），没有规格先起草，保证同一项目的 UI/UX 和动效统一；每个页面都要有桌面视图和手机视图。内容：从零做新页面、改版已有页面、收尾检查（critique / audit / polish）和定向修（配色、字体、排版、文案、适配、性能）；77 个交互配方（页面、组件、图表控件、手势、控件反馈、动效质感、网页效果）、Matter.js 物理模式、Web 和 RN / Expo 的动效写法、动效评审和审计；dashboard 排版方向 L1–L5（含等距 3D 场景）、导航（底部 Tab / 竖栏 / 侧边栏，11 种风格）、高级感卡片、玻璃卡片、7 条减少摩擦的 UX 定律、AI 产品状态清单、图标库和 npm 库选型、GSAP 指南、个人口味档案。适用于 Web、手机 App（RN / Expo、Capacitor）、桌面 App（Electron / Tauri）。Use when 用户说「帮我设计一下 / 好看一点 / 随便你 / 我不知道要什么样 / 现在这个好丑 / 太 generic / 太 AI 味 / 高级一点」；新建、重做、改版某页或某屏；review 或 audit 现有页面的 UI/UX；调配色、字体、间距、空状态、错误态、设计 token；页面太复杂或没人点（「转化低 / 找不到按钮 / 减少摩擦」）；「加点交互 / 微交互 / 手感好一点 / 质感 / 更有生命力 / 像 iOS 那样顺」；做 dashboard、3D 可视化、数字孪生、大屏、导航栏、卡片；给列表、滑杆、开关、标签、步骤条加反馈；手势（滑动返回、拖拽排序、下拉回弹、方向锁定）；物理感（磁吸、液态形变、碰撞、掉落堆叠）；AI 界面（思考状态、流式输出、工具调用、操作确认、引用来源）；写动画、评审动效、找哪里该加动效、「这个效果叫什么」；选图标库或 npm 库、用 GSAP；「记下来 / 收藏这个 / 整理截图」；点名某个配方（主题扩散、数字翻牌、流动 Tab…）；用大白话描述效果（「鼠标放上去变大旁边让开」「像扇子一样展开」）。
+description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动效、收尾检查。每次先认出当前项目（平台、DESIGN.md、动效规格 MOTION-SPEC），没有规格先起草，保证同一项目的 UI/UX 和动效统一；每个页面都要有桌面视图和手机视图。内容：从零做新页面、改版已有页面、收尾检查（critique / audit / polish）和定向修（配色、字体、排版、文案、适配、性能）；79 个交互配方（页面、组件、图表控件、手势、控件反馈、动效质感、网页效果）、Matter.js 物理模式、Web 和 RN / Expo 的动效写法、动效评审和审计；dashboard 骨架 K1–K6（主次、横带、粘性窄栏、画布铺满、看板、时间泳道）和排版方向 L1–L5（含等距 3D 场景）、导航（底部 Tab / 竖栏 / 侧边栏，11 种风格）、高级感卡片、玻璃卡片、7 条减少摩擦的 UX 定律、AI 产品状态清单、图标库和 npm 库选型、GSAP 指南、个人口味档案。适用于 Web、手机 App（RN / Expo、Capacitor）、桌面 App（Electron / Tauri）。Use when 用户说「帮我设计一下 / 好看一点 / 随便你 / 我不知道要什么样 / 现在这个好丑 / 太 generic / 太 AI 味 / 高级一点」；新建、重做、改版某页或某屏；review 或 audit 现有页面的 UI/UX；调配色、字体、间距、空状态、错误态、设计 token；页面太复杂或没人点（「转化低 / 找不到按钮 / 减少摩擦」）；「加点交互 / 微交互 / 手感好一点 / 质感 / 更有生命力 / 像 iOS 那样顺」；做 dashboard、3D 可视化、数字孪生、大屏、导航栏、卡片；给列表、滑杆、开关、标签、步骤条加反馈；手势（滑动返回、拖拽排序、下拉回弹、方向锁定）；物理感（磁吸、液态形变、碰撞、掉落堆叠）；AI 界面（思考状态、流式输出、工具调用、操作确认、引用来源）；写动画、评审动效、找哪里该加动效、「这个效果叫什么」；选图标库或 npm 库、用 GSAP；「记下来 / 收藏这个 / 整理截图」；点名某个配方（主题扩散、数字翻牌、流动 Tab、渐进模糊、验证码展开…）；用大白话描述效果（「鼠标放上去变大旁边让开」「像扇子一样展开」）。
 ---
 
 # Bryan UI/UX — 结构、视觉、动效、收尾，一个 skill 做完
@@ -75,7 +75,7 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 | 层 | 做什么 | 看哪份 |
 |---|---|---|
 | 1 结构 | 结构四问，再先减选项、再分组、最后只高亮 1 样（做事的页是主操作，看的页是主数字） | `references/ux/ux-laws.md` |
-| 2 静态视觉 | 有 `DESIGN.md` 就锁定 token，只动结构和层级。没有时：新页面按 `references/visual/new-page/index.md`，改版按 `references/visual/redesign/index.md`。做 dashboard 且没有 `DESIGN.md`，先从 `references/visual/dashboard-layouts.md` 的 L1–L5 选 1 个排版方向写进 `DESIGN.md`，再做新页面 | 左边两份，二选一 |
+| 2 静态视觉 | 有 `DESIGN.md` 就锁定 token，只动结构和层级。没有时：新页面按 `references/visual/new-page/index.md`，改版按 `references/visual/redesign/index.md`。做 dashboard 且没有 `DESIGN.md`，先从 `references/visual/dashboard-layouts.md` 按每页的数据自己判断骨架 K1–K6（不让用户挑）、给产品选 1 个排版方向 L1–L5，写进 `DESIGN.md`，再做新页面 | 左边两份，二选一 |
 | 3 收尾 | `critique` 和 `audit` 两个都跑，挑出问题，再 `polish` | `references/visual/finish/index.md` |
 | 4 挑配方 | 第三步 | `references/core/pick.md` |
 | 5 写动效 | 第三步第 8 条 | `references/build/web.md` / `references/build/rn.md` |
@@ -142,7 +142,7 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 - 改版已有页面 → [references/visual/redesign/index.md](references/visual/redesign/index.md)
 - 收尾检查和定向修 → [references/visual/finish/index.md](references/visual/finish/index.md)（每个命令一份，在它的 `reference/` 里）
 - 导航：手机底部 Tab / 平板竖栏 / 桌面侧边栏，11 种风格 → [references/visual/navigation.md](references/visual/navigation.md)
-- Dashboard 排版方向 L1–L5 → [references/visual/dashboard-layouts.md](references/visual/dashboard-layouts.md)
+- Dashboard 骨架 K1–K6 + 排版方向 L1–L5 → [references/visual/dashboard-layouts.md](references/visual/dashboard-layouts.md)
 - 等距 3D 场景（L5 的完整做法）：该不该上 3D、四种场景画法 S1–S4、三种屏、镜头、白模配色、部件清单、联动、手机降级、R3F 写法 → [references/visual/isometric-scene.md](references/visual/isometric-scene.md)（做 3D 可视化、数字孪生、可视化大屏时读）
 - 高级感卡片：配色、字号层级、5 种卡片结构、微交互 → [references/visual/cards.md](references/visual/cards.md)（从零做卡片时用；项目有 `DESIGN.md` 就只借结构和层级）
 - 玻璃质感 → [references/visual/glassmorphism.md](references/visual/glassmorphism.md)（配 L1 用）
@@ -151,13 +151,13 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 
 **recipes/ 交互配方**
 - 页面级 P1–P8 → [references/recipes/page.md](references/recipes/page.md)
-- 组件 C1–C19 → [references/recipes/component.md](references/recipes/component.md)
+- 组件 C1–C20 → [references/recipes/component.md](references/recipes/component.md)
 - 图表控件 D1–D10 → [references/recipes/chart.md](references/recipes/chart.md)
 - 手势手感 G1–G12 → [references/recipes/gesture.md](references/recipes/gesture.md)
 - 控件反馈 F1–F15 → [references/recipes/feedback.md](references/recipes/feedback.md)
 - 动效质感 M1–M8 → [references/recipes/motion.md](references/recipes/motion.md)
 - Matter.js 物理模式 M8-1–M8-7 + 参数表 → [references/recipes/physics.md](references/recipes/physics.md)（先读 M8）
-- 网页视觉效果 E1–E5 + 用户原话翻译表 → [references/recipes/effects.md](references/recipes/effects.md)
+- 网页视觉效果 E1–E6 + 用户原话翻译表 → [references/recipes/effects.md](references/recipes/effects.md)
 - 效果的正式英文名（反查）→ [references/recipes/vocabulary.md](references/recipes/vocabulary.md)
 - 用 GSAP 写动画 → [references/recipes/gsap.md](references/recipes/gsap.md)（曲线、时长按本库的对照表换算）
 
