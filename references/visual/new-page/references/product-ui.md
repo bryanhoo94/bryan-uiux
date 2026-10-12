@@ -3,20 +3,20 @@
 # Product UI — Dashboards, Admin, Data Apps
 
 <!-- 目录:开始（自动生成，别手改；改了标题就跑 python3 tools/toc.py） -->
-**本文件目录**（全文 237 行；先看这里，再按行号只读用得上的那一节）
+**本文件目录**（全文 241 行；先看这里，再按行号只读用得上的那一节）
 
-- 第 28–85 行：0. The Product Substrate — what actually makes a dashboard look premium
-- 第 87–113 行：1. Layout Shell & Information Architecture
-- 第 115–125 行：2. Data Tables
-- 第 127–149 行：3. Charts — Selection & Rules
-- 第 151–160 行：4. Forms
-- 第 162–169 行：5. Interaction States (ship all of them)
-- 第 171–178 行：6. Component System
-- 第 180–187 行：7. Cognitive Load & Usability
-- 第 189–198 行：8. Product Tokens & Density
-- 第 200–209 行：8.A Typography Precision (add to the product substrate)
-- 第 211–221 行：9. Product-Specific Anti-Patterns (add to the blacklist)
-- 第 223–237 行：10. Product Pre-Flight (in addition to the shared `../index.md` §8)
+- 第 28–87 行：0. The Product Substrate — what actually makes a dashboard look premium
+- 第 89–117 行：1. Layout Shell & Information Architecture
+- 第 119–129 行：2. Data Tables
+- 第 131–153 行：3. Charts — Selection & Rules
+- 第 155–164 行：4. Forms
+- 第 166–173 行：5. Interaction States (ship all of them)
+- 第 175–182 行：6. Component System
+- 第 184–191 行：7. Cognitive Load & Usability
+- 第 193–202 行：8. Product Tokens & Density
+- 第 204–213 行：8.A Typography Precision (add to the product substrate)
+- 第 215–225 行：9. Product-Specific Anti-Patterns (add to the blacklist)
+- 第 227–241 行：10. Product Pre-Flight (in addition to the shared `../index.md` §8)
 <!-- 目录:结束 -->
 
 The **product** register: design SERVES the product. Dashboards, admin panels, analytics, data tables, app shells, settings. Optimize for **clarity · density · usability** — fast task completion, no errors. Spectacle is not the goal here; **craft still is.**
@@ -75,6 +75,8 @@ Don't ship a uniform `repeat(6,1fr)` row of identical tiles — vary the grid (s
 
 > **Who owns what.** The product register is feedback-only motion. How to write it — press, popover, dropdown, toast, tab switch, list reorder — is `references/build/web.md` and the recipes under `references/recipes/` (chart controls: `references/recipes/chart.md` D1–D10), with every curve, duration and spring from `references/core/params.md`. Big storytelling motion (scroll narrative, particles, hero engines) is brand-only and lives in `motion.md` / `hero-engines.md`. The frequency gate bites hardest here: an action a person does 100+ times a day gets press feedback only, and a dashboard opened dozens of times a day plays the three entrance moves below **once per session**, then only when the data changes.
 
+> **本库：这三个动作不必用 GSAP。** 项目里没有 GSAP 就用 CSS 或项目已有的动效库写，不为这三个动作装 GSAP（什么时候才用 GSAP 见 `references/recipes/gsap.md`）。数字从 0 滚到目标值：要装库用 NumberFlow（`references/visual/pick-library.md`）；数据刷新时的换数用 G3 数字翻牌（250ms）。时长、曲线照 `references/core/params.md`。
+
 Three moves cover a dashboard, all **above-the-fold on load** (no ScrollTrigger gating the first screen) and each **paired with a reduced-motion terminal state** (`chart-crafting.md` §6):
 - **Reveal stagger** — `.reveal{opacity:0; transform:translateY(16px)}` → one `gsap.to('.reveal',{opacity:1,y:0,duration:.3,ease:'power3.out',stagger:.06–.08})`, whose `onStart` kicks off the counters and chart draw-ins so they move *with* the cards. Keep the summed stagger within 0.3s; cards past that point arrive together.
 - **Number roll-up** — counters tween 0 → target in 300–500ms, formatted in `onUpdate`.
@@ -86,6 +88,8 @@ No bounce/elastic, no decorative motion that conveys no state. These use **GSAP*
 
 ## 1. Layout Shell & Information Architecture
 
+> **本库：外框和主区分开定。** 这一节管外框：侧栏、顶栏、整个页面装在什么容器里。外框里面的主区怎么排（谁大谁小、横带还是看板），是骨架 K1–K6，按 `references/visual/dashboard-layouts.md` 的信号表定。先定外框，再在 content 区里放 K。下面 content sub-grids 那句（KPI 一排 + 主图和右栏）只是还没定 K 时的起点。
+
 **Canonical shell:** sidebar (`240–280px` desktop / an `80px` rail (icon with its label underneath) when collapsed and on tablet / the bottom tab bar on phone — starting values, as in `references/visual/navigation.md`; sticky, full-height, `padding:22–24px 16–18px`) + topbar (56–64px: breadcrumb, page actions, user menu) + content (`padding:20–22px 26–28px 40px`; the column absorbs width, so a hard `max-width` is optional). Content sub-grids: a KPI row `repeat(4–5,1fr)`, a primary split `1fr 300–340px` (chart + right rail), **gap `14–18px`**.
 
 - **Nav IA:** ≤8 top-level items; group as main / config / account(pinned bottom); 24px between groups. Icon **+** label always (never icon-only). Selected state must be obvious (left bar or bg fill) — at least two differences from the unselected state, not colour alone (`references/visual/navigation.md`).
@@ -95,7 +99,7 @@ No bounce/elastic, no decorative motion that conveys no state. These use **GSAP*
 - **Desktop and phone are designed together.** One nav in three widths — same entries, same order, same selected style (`references/visual/navigation.md`). How tables, menus, dialogs, hover-only info and the primary action change on a phone is `references/core/platforms.md` §2.2. A shell with only a desktop view is not finished.
 
 **Alternative shells** (still inherit the substrate — these are container variants, not an excuse to skip §1's IA rules):
-- **Floating rounded panel:** the whole dashboard sits as one card on a tinted page background — `max-width:~1440px; margin:2rem auto; border-radius:28–32px` with a soft ambient shadow (`0 40px 90px -50px`, not a hard drop shadow). Reads as a self-contained "app" rather than a bare page; works well for consoles/ops tools where the brand wants a product-y frame around the UI.
+- **Framed app card** (not K4's floating panels, which float *over* a full-bleed canvas)**:** the whole dashboard sits as one card on a tinted page background — `max-width:~1440px; margin:2rem auto; border-radius:28–32px` with a soft ambient shadow (`0 40px 90px -50px`, not a hard drop shadow). Reads as a self-contained "app" rather than a bare page; works well for consoles/ops tools where the brand wants a product-y frame around the UI.
 - **Bento console:** asymmetric `fr` columns in one grid (e.g. `2.15fr 1.7fr 1fr 1fr 1fr`) mixing a hero card (API key, primary metric) with square stat tiles — suits a console with many small heterogeneous stats where a uniform KPI row would waste space on the short ones.
 - **Top pill-nav (no sidebar):** a rounded navbar with segmented pill links replaces the sidebar when IA is shallow (≤5 top sections) and mobile parity matters more than deep nesting — below the tablet breakpoint it becomes the bottom tab bar (same entries, same order — `references/visual/navigation.md`) rather than drawer-izing.
 - **Centered bento / triptych (top-nav, no sidebar):** `max-width:1440px; margin:0 auto; padding:22–26px 30px 44px`; content is an fr-weighted bento or a fixed-flex-fixed triptych `grid-template-columns:296px 1fr 320px; gap:16–20px; align-items:start` (the `start` gives independent, masonry-like column heights).

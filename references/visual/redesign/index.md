@@ -937,7 +937,7 @@ This file is NOT for the jobs below. Each has one owner in this skill; go there 
 | Building a new page or screen from nothing | `references/visual/new-page/index.md` |
 | Finishing: `critique`, `audit`, `polish`, and the targeted fixes (`typeset`, `colorize`, `layout`, `bolder`, `quieter`, `distill`, `clarify`, `adapt`, `harden`, `onboard`, `optimize`, `delight`, `overdrive`, `extract`) | `references/visual/finish/index.md` and `references/visual/finish/reference/<verb>.md` |
 | Structure, friction, UX laws (too many options, nobody clicks, long forms) | `references/ux/ux-laws.md` |
-| Interviewing the user and proposing directions | `references/ux/interview.md` |
+| Setting the direction from the project and telling the user | `references/ux/interview.md` |
 | Writing `PRODUCT.md` / writing `DESIGN.md` from existing code | `references/core/product-brief.md` / `references/core/design-doc.md` |
 | UI feedback motion (Web / React Native) | `references/build/web.md` / `references/build/rn.md` |
 | Reviewing or auditing existing motion code | `references/review/motion-review.md` / `references/review/motion-audit.md` |

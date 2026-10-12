@@ -21,7 +21,7 @@
 - 第 154–156 行：A Note on Technique Diversity Since the Original 37
 <!-- 目录:结束 -->
 
-`examples/EXAMPLES.md` bundles 5 full HTML pages as read-only reference. The showcase corpus they're drawn from has grown to **53 pages** — this file catalogs the other 48 as **technique notes, not files**. No HTML is copied here (some of these pages carry Three.js/WebGL payloads that would bloat the skill for every install); instead each entry distills the *industry, engine, and one distinctive move* so you have a wider menu to pull from than the 5 deep-dives + the persona table alone.
+`examples/EXAMPLES.md` now bundles 22 full HTML pages as read-only reference. This file catalogs 48 showcase pages as **technique notes**; nine of them also ship as files in `examples/` (caliber, flux, morph, buildly, stakent, huddle, nodeflux, inkline, ledgerio) — for those, open the file instead of reading the note. The rest are notes only. No HTML is copied here (some of these pages carry Three.js/WebGL payloads that would bloat the skill for every install); instead each entry distills the *industry, engine, and one distinctive move* so you have a wider menu to pull from than the 5 deep-dives + the persona table alone.
 
 **How to use this:** when `style-personas.md` gives you a persona, scan its section below for a page that solved a similar brief — steal the *move*, not the markup (you don't have the markup). When a brief doesn't map cleanly to any of the 10 personas, the entries flagged "own lane" below show it's fine to not fit the table.
 

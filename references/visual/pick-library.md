@@ -32,10 +32,10 @@ The picks below are for Web and React. For React Native / Expo, the animation, g
 | --- | --- |
 | Everyday components that come styled (buttons, tables, dialogs, forms), code copied into the project | [shadcn/ui](https://ui.shadcn.com/) — install commands in `references/visual/libraries.md` |
 | Unstyled, accessible UI components (dialogs, popovers, menus, selects…) the project styles itself | [base-ui](https://base-ui.com) |
-| Command menus (⌘K palettes) | [cmdk](https://cmdk.paco.me) |
+| Command menus (⌘K palettes) | [cmdk](https://www.npmjs.com/package/cmdk) |
 | Toasts / notifications | [Sonner](https://www.npmjs.com/package/sonner) |
-| One-time password / verification code inputs | [input-otp](https://input-otp.rodz.dev) |
-| Customizable GUIs / control panels | [Leva](https://github.com/pmndrs/leva) — [dialkit](https://joshpuckett.me/dialkit) is an alternative |
+| One-time password / verification code inputs | [input-otp](https://www.npmjs.com/package/input-otp) |
+| Customizable GUIs / control panels | [Leva](https://github.com/pmndrs/leva) — [dialkit](https://www.npmjs.com/package/dialkit) is an alternative |
 | Icons (static, morphing between two states, animated) | Lucide / Morphicons / Lordicon — which one is decided in `references/visual/libraries.md` |
 
 The component split: a project that wants ready-styled components it can edit takes shadcn/ui; a project with its own visual system that only needs behaviour and accessibility takes base-ui. A project that already has a component library keeps it.
@@ -47,8 +47,8 @@ The component split: a project that wants ready-styled components it can edit ta
 | General-purpose animation (springs, layout animations, enter/exit) | [motion](https://motion.dev) (Framer Motion) |
 | Scroll-triggered or scroll-progress motion, overlapping multi-element sequences, SVG path drawing, motion along a path | GSAP — only in the cases `references/recipes/gsap.md` lists |
 | Physics (falling, colliding, stacking, bouncing off walls) | Matter.js — only after the "can it be done without a physics engine" check in `references/recipes/physics.md`; pushing apart without gravity is d3-force |
-| Animating numbers (counters, prices, stats) | [NumberFlow](https://number-flow.barvian.me) |
-| Animated text components | [torph](https://torph.lochie.me/) |
+| Animating numbers (counters, prices, stats) | [NumberFlow](https://www.npmjs.com/package/@number-flow/react) |
+| Animated text components | [torph](https://www.npmjs.com/package/torph) |
 | 3D globes | [Cobe](https://cobe.vercel.app) |
 | 3D scenes (isometric, digital twin, big-screen visualization) | `@react-three/fiber` + `@react-three/drei` — only after the "should this be 3D at all" check in section 1 of `references/visual/isometric-scene.md` |
 | Dynamic OG images (HTML/CSS → SVG/PNG) | [Satori](https://github.com/vercel/satori) |
@@ -62,7 +62,7 @@ One animation library per project: if the project already has motion, GSAP, or a
 
 | Task | Library |
 | --- | --- |
-| Real-time / streaming charts | [Liveline](https://github.com/benjitaylor/liveline) |
+| Real-time / streaming charts | [Liveline](https://www.npmjs.com/package/liveline) |
 | General charts (static or interactive dashboards) | [recharts](https://recharts.org) |
 
 The split: if data points arrive live and the chart scrolls with time, use Liveline. Standard axis charts are recharts. The chart recipes D1–D10 in `references/recipes/chart.md` describe how each one is drawn (SVG rings, `scaleY` bars, path interpolation), and D10 bubbles use d3-hierarchy `pack` / d3-force — when building one of those, follow the recipe.
@@ -79,9 +79,9 @@ The split: if data points arrive live and the chart scrolls with time, use Livel
 | Task | Library |
 | --- | --- |
 | State management | [zustand](https://zustand.docs.pmnd.rs) |
-| Constructing `className` strings conditionally | [clsx](https://github.com/lukeed/clsx) |
+| Constructing `className` strings conditionally | [clsx](https://www.npmjs.com/package/clsx) |
 | Type-safe, variant-driven styling for Tailwind | [cva](https://cva.style) |
-| Theme switching / dark mode (no flash on load) | [next-themes](https://github.com/pacocoursey/next-themes) |
+| Theme switching / dark mode (no flash on load) | [next-themes](https://www.npmjs.com/package/next-themes) |
 
 The styling split: clsx for ad-hoc conditional classes; cva when a component has real variants (size, intent, state) that deserve a typed API. They compose — cva uses clsx-style inputs internally.
 

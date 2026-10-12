@@ -50,7 +50,7 @@ Curves, durations and springs come only from `references/core/params.md`, or fro
 
 ## Modes
 
-The mode names what the visitor's success looks like on this surface.
+The mode names what the visitor's success looks like on this surface. **本库：mode 按 `SKILL.md` 第一步的项目画像定**（落地页 Persuade、后台和消费 App Operate、阅读页 Read、作品集 Experience），这里不重新判断。
 
 - **Persuade:** the visitor decides and acts; design is the product. Landing pages, marketing, campaigns, pricing. Earn attention and action. Ship real imagery when the brief needs it; follow the committed world, not category habit.
 - **Operate:** the visitor completes a task. App UI, dashboards, editors, admin, settings, tools. Scanability, consistency, native expectations, and the real usage scene outrank expression. Brand lives in precise details.
@@ -94,6 +94,6 @@ Owned elsewhere in this skill, not here:
 
 Routing:
 
-- **No argument:** offer the default finishing run, `critique` + `audit` on the pages in scope, with one line on what each will report. Do not auto-run.
+- **No argument:** run the default finishing run, `critique` + `audit` on the pages in scope. Both only read, so they run without asking; nothing is edited until the user picks findings.
 - **Explicit or clearly implied command:** load its reference (native variant on native platforms) and follow it. Ask once if two commands fit.
 - **Otherwise:** this stage only refines what exists. A narrow refinement of existing code proceeds on the incumbent implementation even when `PRODUCT.md` is missing; offer `init` afterward rather than blocking on it. A request for a new surface or a replacement look leaves this stage through the pointers above.

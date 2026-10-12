@@ -1,7 +1,7 @@
 <!-- 第三方开源内容（MIT），已按本库规则修改；版权声明见仓库根目录 THIRD_PARTY_NOTICES.md -->
 
 > - **这份管什么**：从零做一个新页面或新屏幕（落地页、品牌页、dashboard、后台、电商页、手机 H5），动词是 `/bryan-uiux new`；另有 6 个只改一处的小动词 `soul`、`diverge`、`beats`、`depth`、`densify`、`scan`，见下面的 Commands。
-> - **什么时候读**：主入口 `SKILL.md` 第一步已经认完项目，要做的页面还不存在的时候。做 dashboard 而项目没有 `DESIGN.md`：先从 `references/visual/dashboard-layouts.md` 的 L1–L5 选 1 个排版方向写进 `DESIGN.md`，再走这里的流程。主入口已经按 `references/ux/interview.md` 问过用户、用户也选了方向：下面的「Design Read」直接用那个选择，不再问一遍。
+> - **什么时候读**：主入口 `SKILL.md` 第一步已经认完项目，要做的页面还不存在的时候。做 dashboard 而项目没有 `DESIGN.md`：先按 `references/visual/dashboard-layouts.md` 的信号表定骨架 K1–K6 和排版方向 L1–L5，排版方向写进 `DESIGN.md`，再走这里的流程。主入口已经按 `references/ux/interview.md` 从项目里定了方向、也告诉了用户：下面的「Design Read」直接用它，不再问一遍。
 > - **不管什么、去哪看**：写 `PRODUCT.md` → `references/core/product-brief.md`；把现有代码的设计整理成 `DESIGN.md` → `references/core/design-doc.md`；改版已有页面 → `references/visual/redesign/index.md`；收尾（`critique`、`audit`、`polish`、`bolder`、`quieter` 等）→ `references/visual/finish/index.md`；按钮、弹层、toast 这类 UI 小动效 → `references/build/web.md` 和 `references/recipes/` 下的配方。
 > - **谁说了算**：项目 `CLAUDE.md` > 项目动效规格 > 项目 `DESIGN.md` / token > 用户明说的 > 这份文件。动效数值以 `references/core/params.md` 为准；项目有 `DESIGN.md` 就锁定它的 token，这里选配色、选字体的步骤全部跳过，只用结构和层级的部分。
 > - **定下来的东西写在哪**：token 写进项目 `DESIGN.md` 的 frontmatter 和标准章节；本流程自己定的（register、soul、三个旋钮的值、不要像什么）写在它末尾的「## Direction lock」一节，格式见下面 §0.F。`PRODUCT.md` 在这里只读不写。轮换记录在 `.bryan-uiux/log.json`。
@@ -10,28 +10,28 @@
 # New page — Technically Spectacular · Soul-Distinct · Never Cheap
 
 <!-- 目录:开始（自动生成，别手改；改了标题就跑 python3 tools/toc.py） -->
-**本文件目录**（全文 629 行；先看这里，再按行号只读用得上的那一节）
+**本文件目录**（全文 636 行；先看这里，再按行号只读用得上的那一节）
 
 - 第 49–102 行：How to use this skill
 - 第 104–140 行：Commands
-- 第 142–360 行：0. BRAND READ (Before Anything Else)
-  - 第 146–177 行：0.A Determine the Register (this forks every later decision)
-  - 第 179–240 行：0.B Output a "Design Read" before generating — assert a direction, don't poll for one
-  - 第 242–244 行：0.C If the brief is ambiguous, ask ONE question — do not guess blind
-  - 第 246–256 行：0.C.1 Say it in words the user can act on
-  - 第 258–260 行：0.D Anti-Default Discipline
-  - 第 262–327 行：0.E Quick-Start Dial Mapping
-  - 第 329–360 行：0.F Lock the direction in `DESIGN.md` — the `## Direction lock` section
-- 第 362–384 行：1. THE THREE DIALS
-- 第 386–412 行：2. PICK A SOUL (Industry → Persona) · brand register
-- 第 414–431 行：3. THE PREMIUM SUBSTRATE (Why It Reads as Expensive)
-- 第 433–458 行：4. THE HERO ENGINE (This Flow's Differentiator) · brand register
-- 第 460–518 行：5. PAGE SKELETON — four brand skeletons, not one
-- 第 520–533 行：6. THE CHEAPNESS BLACKLIST
-- 第 535–551 行：7. PERFORMANCE & ACCESSIBILITY GUARDRAILS
-- 第 553–575 行：8. PRE-FLIGHT CHECK
-- 第 577–603 行：8.A POST-DELIVERY ITERATION GUIDE
-- 第 605–629 行：9. OUT OF SCOPE
+- 第 142–367 行：0. BRAND READ (Before Anything Else)
+  - 第 146–179 行：0.A Determine the Register (this forks every later decision)
+  - 第 181–246 行：0.B Output a "Design Read" before generating — assert a direction, don't poll for one
+  - 第 248–250 行：0.C If the brief is ambiguous, ask ONE question — do not guess blind
+  - 第 252–262 行：0.C.1 Say it in words the user can act on
+  - 第 264–266 行：0.D Anti-Default Discipline
+  - 第 268–333 行：0.E Quick-Start Dial Mapping
+  - 第 335–367 行：0.F Lock the direction in `DESIGN.md` — the `## Direction lock` section
+- 第 369–391 行：1. THE THREE DIALS
+- 第 393–419 行：2. PICK A SOUL (Industry → Persona) · brand register
+- 第 421–438 行：3. THE PREMIUM SUBSTRATE (Why It Reads as Expensive)
+- 第 440–465 行：4. THE HERO ENGINE (This Flow's Differentiator) · brand register
+- 第 467–525 行：5. PAGE SKELETON — four brand skeletons, not one
+- 第 527–540 行：6. THE CHEAPNESS BLACKLIST
+- 第 542–558 行：7. PERFORMANCE & ACCESSIBILITY GUARDRAILS
+- 第 560–582 行：8. PRE-FLIGHT CHECK
+- 第 584–610 行：8.A POST-DELIVERY ITERATION GUIDE
+- 第 612–636 行：9. OUT OF SCOPE
 <!-- 目录:结束 -->
 
 > **This flow builds two kinds of interface and routes by register (§0):**
@@ -48,7 +48,7 @@
 
 ## How to use this skill
 
-> **Already done before you get here.** The main entry (`SKILL.md` step 1) has identified the project: its `CLAUDE.md`, `PRODUCT.md`, `DESIGN.md`, motion spec, platform and code. Don't repeat that here. **If the project has a `DESIGN.md`, its tokens are locked**: every palette and font picker below (§2's soul palettes, `references/style-personas.md`, `references/design-dna.md` §5–§6, `references/product-palettes.md`) is skipped, and only the structure and hierarchy guidance applies. If the main entry already interviewed the user (`references/ux/interview.md`) and the user picked a direction, the Design Read in step 1 states that choice and does not ask for it again.
+> **Already done before you get here.** The main entry (`SKILL.md` step 1) has identified the project: its `CLAUDE.md`, `PRODUCT.md`, `DESIGN.md`, motion spec, platform and code. Don't repeat that here. **If the project has a `DESIGN.md`, its tokens are locked**: every palette and font picker below (§2's soul palettes, `references/style-personas.md`, `references/design-dna.md` §5–§6, `references/product-palettes.md`) is skipped, and only the structure and hierarchy guidance applies. If the main entry already set the direction from the project (`references/ux/interview.md`), the Design Read in step 1 records it and does not ask for it again.
 
 0. **Check the scope before anything else.** If the brief is a **single element** — a button, an input, a card, a modal, a toast — go to `references/component-scope.md` and follow it instead; steps 1–6 below are page apparatus and are wrong for one component. Detection and the ambiguity question live in that file.
 1. Run **§0 Brand Read** — read `.bryan-uiux/log.json` (the rotation memory, `divergence.md` §4), then infer **register** (brand vs product) + soul before touching code. Output the Design Read: the coordinate line, **a plain `You'll see:` line the user can actually veto**, the **`Images:` line naming every slot a picture would carry and where it would come from**, its two most likely objections, and the rotation as a sentence (§0.B). Before writing that `Images:` line, **check this session's actual tool list** — an image-gen tool, an MCP image tool, a network fetch, or none — because it decides what you can honestly offer (`asset-sourcing.md` §1), and **prove the one you're about to name actually runs here** before naming it (§1.1 — listed is not usable; a generator with no credential is not Path A). Offer it and **wait**; never generate or download off your own inference.
@@ -64,7 +64,7 @@
      - **pages you operate** — publish/create wizards, merchant & admin consoles, config, settings, review queues → `references/workflow-ui.md` **on top of** `product-ui.md` (workflow shell, numbered sections, radio-card choices, live preview, pre-submit check, derived totals, draft/commit). There is **no form-workflow page in `examples/`** — build from the reference, and do **not** force-fit a dashboard example onto a form.
      - **pages you delegate on** — AI 工作台, agent consoles, copilot UI, anything where something *other than the user* does work over a duration → `references/ai-console.md` **on top of** `product-ui.md` (three tenses on one screen, the run stream, nine run states, a resident stop, the in-stream approval card, cost as a receipt). Open `examples/relay-agent-console.html`. A dashboard fails by being unreadable and a console by being unfinishable; **this one fails by being untrustworthy**, and none of the dashboard parts address that.
    - **h5** → pick one of the **six morphologies** (`h5-mobile.md` §4: app shell · paged deck · snap narrative · commerce stack · longform site · ambient screen), then load the **content register it wraps** and follow that bullet above. Build the native furniture from `h5-mobile.md` §5 rather than inventing it — a TabBar is a convention, not a design opportunity.
-5. **Assemble the skeleton — again, the right one for the register.** **brand** → pick one of the four **§5 brand skeletons** (landing · portfolio · lookbook · studio) by what the page has to *do*. **product** → the skeleton is the **shell morphology** in `product-ui.md` §1 (sidebar · floating panel · bento · triptych …), **not** §5. **h5** → the skeleton is the frame (§1) plus the chosen morphology (§4); §5's brand skeletons and `product-ui.md` §1's desktop shells are both wrong inside 390px. Motion-motivated only, in all three.
+5. **Assemble the skeleton — again, the right one for the register.** **brand** → pick one of the four **§5 brand skeletons** (landing · portfolio · lookbook · studio) by what the page has to *do*. **product** → the frame is the **shell morphology** in `product-ui.md` §1 (sidebar · framed app card · bento · triptych …), **not** §5; the main area inside it is one of the dashboard skeletons **K1–K6**, picked from the signal table in `references/visual/dashboard-layouts.md`. **h5** → the skeleton is the frame (§1) plus the chosen morphology (§4); §5's brand skeletons and `product-ui.md` §1's desktop shells are both wrong inside 390px. Motion-motivated only, in all three.
 6. Run the **§6 Cheapness Blacklist** (`references/anti-cheap.md`), the **mobile floor** (`references/mobile-floor.md`), and **§8 Pre-Flight** (`references/preflight.md`) before shipping. **h5 builds run `h5-mobile.md` §9–§10 instead of the mobile floor** — the notch/frame/scroll/touch gates, which are a different set of failures from "a desktop page reaching a phone". Then **record the build** — append to `.bryan-uiux/log.json` and stamp the CSS (`divergence.md` §4.3). An unrecorded build is one the next run will collide with.
 
 The `references/*.md` files are the deep material. Load the one you need for the current phase — do not inline all of them.
@@ -145,6 +145,8 @@ Most AI design output is bad because the model jumps to a default aesthetic inst
 
 ### 0.A Determine the Register (this forks every later decision)
 
+> **本库：register 先看 `SKILL.md` 第一步的项目画像**，画像已经定了 brand / product / commerce 就不再重判。下面的规则只用来处理画像表没细分的：只在手机上打开的 h5、后台和工作台怎么分。
+
 > **Ask the surface question first: does this page have a desktop form at all?** If the answer is no — it's an **H5 / 移动端页面 / 活动页 / 小程序页 / app 原型**, opened from a chat message or a QR code, looked at in a phone mock — then the register is **h5**, and it is a **container**: go to `references/h5-mobile.md`, build the frame, then come back here and pick the *content* register underneath it. h5 wraps one of the three below; it never replaces one. The one-question tiebreak when the brief just says "手机端的页面" is in `h5-mobile.md` §0: *"这个页面只在手机上打开，还是电脑上也要好看？"* — "both" means it's a brand/product page with `mobile-floor.md` applied, and building a phone frame for it would be wrong.
 
 > **Ask the same question for 「工作台」, and ask it before anything else.** **「工作台」 and 「后台」 are two different products**, and defaulting the former to the latter is the most likely mis-build in this skill. Ask what it revolves around — **一批业务对象 → 后台; 他自己反复在做的一件事 → 工作台** — never how many people use it. Only then does the screen matter, and only to pick the workbench's body (desktop shell vs `h5-mobile.md` morph A.1); an agent doing the work is a **capability layer** on top (`ai-console.md`), not a third species. Full resolver under §1's dials table.
@@ -169,7 +171,7 @@ Most AI design output is bad because the model jumps to a default aesthetic inst
 | `DESIGN.md` | *What must stay the same?* — the locked palette / type / substrate tokens, so this page matches its siblings, plus this flow's own decisions (register, soul, dial values, anti-references) in its last section, `## Direction lock` (§0.F). The one visual authority. | tokens: `references/core/design-doc.md` · `## Direction lock`: this flow (§0.F) |
 | `.bryan-uiux/log.json` | *What must change?* — the last 20 builds' five-axis coordinates. The rotation memory. | every completed build (§8) |
 
-The first two lock **consistency**; the third forces **difference**. They are opposite goals and deliberately live in separate files — see `divergence.md` §4. If `.bryan-uiux/log.json` is absent, grep the codebase for a `/* bryan-uiux ·` CSS stamp and infer one entry from it; if neither exists, this is the first run and there is no rotation constraint.
+The first two lock **consistency**; the third forces **difference**. **本库：同一个产品只求一致**，第三份只在仓库里每一页各是一个品牌时才用来强制不一样（`divergence.md` §4 开头）。 They are opposite goals and deliberately live in separate files — see `divergence.md` §4. If `.bryan-uiux/log.json` is absent, grep the codebase for a `/* bryan-uiux ·` CSS stamp and infer one entry from it; if neither exists, this is the first run and there is no rotation constraint.
 
 - **No `PRODUCT.md`, multi-page or repeat project, thin brief** → offer to write it first, following `references/core/product-brief.md` (every later page reads it for who the product is for). Don't force it on a one-off page.
 - **Existing codebase with a look of its own, no `DESIGN.md`** → offer to capture what's there first, following `references/core/design-doc.md`, before adding to it.
@@ -178,7 +180,7 @@ The first two lock **consistency**; the third forces **difference**. They are op
 
 ### 0.B Output a "Design Read" before generating — assert a direction, don't poll for one
 
-> **If the main entry already interviewed the user** (`references/ux/interview.md`) **and the user picked a direction, the Design Read uses that choice.** Write the block below from what was picked, as a record, and go on — do not ask for the direction a second time, and drop the `Not right?` line. The one line that still waits for its own answer is `Images:`, because generating or downloading pictures was not part of what the user agreed to. **If the project has a `DESIGN.md`**, the color and type in `You'll see:` are read from it, not chosen here.
+> **If the main entry already set the direction** (`references/ux/interview.md` reads it from the project and tells the user) **, the Design Read uses it.** Write the block below from it, as a record, and go on to build one screen — do not ask for the direction a second time. Keep the `Not right?` line: it is the user's one-word veto once they have seen the screen. The one line that still waits for its own answer is `Images:`, because generating or downloading pictures was not part of what the user agreed to. **If the project has a `DESIGN.md`**, the color and type in `You'll see:` are read from it, not chosen here.
 
 Name the rejected default **first** (§0.D), then the direction — then **say what the page will look like in words the user can picture**, and give them two concrete ways to object:
 
@@ -227,13 +229,17 @@ If the page genuinely wants no photography (a phosphor-terminal build, a pure-ty
 
 **`Not right?` must name real forks, not invite open-ended feedback.** "Let me know what you think" returns nothing. Two specific, likely, *mutually different* objections give the user something to point at, and each one has to be a thing you would genuinely build differently — usually the theme and the motion, since those are the two decisions the whole page hangs off.
 
-**The rotation line is not optional, and it is not decoration.** Rotation you perform in your head is indistinguishable — afterwards, to you and to the user — from rotation you merely narrated. Writing it down before any code exists is what makes a bad rotation catchable while it's still free to fix. **Write it as a sentence, not as axis letters:** `differs on E + C + A (3/5 ✓)` is unfalsifiable *to the user* — they can't tell what E is, so they can't object that they actually wanted machined metal. The five-axis coordinates still get recorded, in `.bryan-uiux/log.json` and the CSS stamp (§8.0), which is where a `scan` reads them from. Threshold and format: `divergence.md` §4.4. Omit the line only on the first build of a project (no log, no stamp) — and say that's why.
+**The rotation line is not optional, and it is not decoration.** Rotation you perform in your head is indistinguishable — afterwards, to you and to the user — from rotation you merely narrated. Writing it down before any code exists is what makes a bad rotation catchable while it's still free to fix. **Write it as a sentence, not as axis letters:** `differs on E + C + A (3/5 ✓)` is unfalsifiable *to the user* — they can't tell what E is, so they can't object that they actually wanted machined metal. The five-axis coordinates still get recorded, in `.bryan-uiux/log.json` and the CSS stamp (§8.0), which is where a `scan` reads them from. Threshold and format: `divergence.md` §4.4. Omit the line only on the first build of a project (no log, no stamp) — and say that's why. **本库：同一个产品的后续页面，这行写「沿用这个项目定好的方向」**，不轮换（`divergence.md` §4 开头）。
+
+> **本库的规矩**（跟下面这句 STOP 不一样时听这条）：方向是从项目里看出来的，说完 Design Read 就直接做一屏，不停下来等；只有 `Images:` 那一行要等用户点头（生成或下载图片要花钱、有版权问题）。用户看到那一屏再否决，比看文字否决准。
 
 **STOP after the Design Read. Do not generate any code yet.** Wait for confirmation or redirect. (The one exception is the note at the top of this section: a direction the user already picked in the main entry's interview is not confirmed twice; then only an open `Images:` offer makes you wait.)
 
 **Assert, don't poll.** State the direction you're going and invite a veto. Do **not** hand the user a three-option menu of adjectives — *nobody can choose a design from words they can't see*, so they'll pick the first one and you'll have learned nothing. A menu is theater when the answer is already clear. Note that `You'll see:` + `Not right?` is **not** a menu: it asserts one direction and pre-names its two most likely failure modes, which is what makes the veto usable instead of ceremonial.
 
 > **When the user can't evaluate the assertion at all, that's Mode 2.** If the brief carried no directional information — only undirected praise-words ("好看", "高级", "有质感", "premium", "clean"), or an explicit "I can't really say" — then `You'll see:` will get a rubber-stamp no matter how plainly it's written, because the user has no basis for comparison. Build three real variants instead (`divergence.md` §7 Mode 2 + the squint test). Undirected adjectives are as strong a fork signal as a genuinely ambiguous brief.
+>
+> **本库的规矩**：只会说「好看」不算 Mode 2 的理由，项目里有信号就照常定一个方向。Mode 2 只在 `references/ux/interview.md`「先做一屏，然后」第 5 条的情况下用：空项目一点线索都没有，或用户连着否了两次。
 
 **The exception — when the brief genuinely forks** (a "premium" brand that could be austere-Nordic *or* maximal-baroque; a personal site that could be a portfolio *or* a manifesto): don't describe the options, **build them**. Three low-fidelity but *real*, screenshot-able pages, each moving on a **different axis**, then let the user look. See `references/divergence.md` §7 — including the **squint test** that stops the three variants from collapsing into one.
 
@@ -340,11 +346,12 @@ Once the Design Read is confirmed and the dials are set (§1), write the decisio
   - soul: {two or three words, e.g. "cinematic + reverent"}
   - dials: SOUL {1–10} · SPECTACLE {1–10} · DENSITY {1–10}
   - anti-references: {the category default rejected} · {the obvious rejection of it, also rejected} · {anything the user named as off-limits}
+  - material & layout: {material / metaphor, e.g. "paper & press"} · {dominant layout family of the first page}
   ```
 
 Rules:
 
-- **Four lines, no tokens.** Colors, fonts and radii live in the token sections above it; repeating them here makes a second source of truth. A color or font that turns out to be needed mid-build is added to the token sections first, then used. If you don't know a field, ask or write `TBD` — never invent a confident-sounding default.
+- **Five lines, no tokens.** The material is locked for every later page; the layout line records the first page's choice, and a later page may change layout when its content needs it (say why in its Design Read), never just to look different. Colors, fonts and radii live in the token sections above it; repeating them here makes a second source of truth. A color or font that turns out to be needed mid-build is added to the token sections first, then used. If you don't know a field, ask or write `TBD` — never invent a confident-sounding default.
 - **Once it exists, §0 reads it instead of inferring** register and soul from scratch. If a new request contradicts it, surface the conflict rather than silently overriding.
 - **Dials are defaults, not handcuffs.** A single page may run hotter or cooler (a dashboard inside a brand site: SPECTACLE 2, DENSITY 8) with a stated reason; that page's own values go in its Design Read and its CSS stamp, and the locked values are the gravity it returns to. The accent and the display type never change per page.
 - **Tell the user what got locked, and how to unlock it.** Writing the file silently is how page 5 becomes a mystery: he asks for a different color, the lock holds the line, and he has no idea what is holding it or where. One short notice at write time, naming the constraints in plain terms and the sentence that releases them — never the section name or the schema (`references/plain-words.md`):
@@ -609,7 +616,7 @@ This tree owns one job: **building a new page or screen from nothing**, in any o
 | Not done here | Owner |
 |---|---|
 | Identify the project | `SKILL.md` step 1 |
-| Interview the user, propose directions | `references/ux/interview.md` |
+| Set the direction from the project and tell the user | `references/ux/interview.md` |
 | Structure, friction, UX laws | `references/ux/ux-laws.md` |
 | Write `PRODUCT.md` (verb `init`) | `references/core/product-brief.md` |
 | Write `DESIGN.md` from existing code (verb `document`) | `references/core/design-doc.md` |

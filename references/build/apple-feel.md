@@ -211,7 +211,7 @@ Apple uses translucent materials as a floating functional layer that brings stru
 
 ```css
 .toolbar {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.85); /* glass values: references/visual/glassmorphism.md */
   backdrop-filter: blur(20px) saturate(180%);
   border-top: 1px solid rgba(255, 255, 255, 0.4); /* bright top edge = light catching the material */
 }

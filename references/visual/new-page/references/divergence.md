@@ -3,17 +3,17 @@
 # Divergence — Why Every Page Comes Out the Same, and the Machine That Fixes It
 
 <!-- 目录:开始（自动生成，别手改；改了标题就跑 python3 tools/toc.py） -->
-**本文件目录**（全文 298 行；先看这里，再按行号只读用得上的那一节）
+**本文件目录**（全文 305 行；先看这里，再按行号只读用得上的那一节）
 
 - 第 27–49 行：0. Register Boundary — READ THIS FIRST, or you will break a dashboard
 - 第 51–61 行：1. The Five Reasons Output Converges
 - 第 63–72 行：2. Anti-Default: Name It, Then Beat It
 - 第 74–97 行：3. Compose the Soul, Don't Select It
-- 第 99–188 行：4. Make "Don't Repeat" Actually Executable
-- 第 190–201 行：5. Read `examples/` as Coordinates, Not as Templates
-- 第 203–225 行：6. Breaking the Argmax — you cannot decide your way out of a determinism problem
-- 第 227–274 行：7. The Direction Proposal — assert, don't poll
-- 第 276–298 行：8. Self-Check — and why a checklist is the weakest form of it
+- 第 99–193 行：4. Make "Don't Repeat" Actually Executable
+- 第 195–206 行：5. Read `examples/` as Coordinates, Not as Templates
+- 第 208–232 行：6. Breaking the Argmax — you cannot decide your way out of a determinism problem
+- 第 234–281 行：7. The Direction Proposal — assert, don't poll
+- 第 283–305 行：8. Self-Check — and why a checklist is the weakest form of it
 <!-- 目录:结束 -->
 
 The most common complaint about AI-built interfaces is not that they're ugly. It's that they're **all the same page**. Same hero, same three-column card grid, same eyebrow above every headline, same accent. This skill has an anti-cheap blacklist that raises the *floor* — but a floor does not create *variety*. Negative constraints stop bad pages; they do not produce different ones.
@@ -36,7 +36,7 @@ So the axes split by register:
 
 | | `brand` | `product` (dashboard · console · admin) | `h5` (phone-only) |
 |---|---|---|---|
-| **Diverge freely on** | all five axes (§3) — palette, type, layout family, engine, material | **palette** (`product-palettes.md` — the real fix for "every dashboard is blue"), **shell morphology** (`product-ui.md` §1 — sidebar / floating panel / bento / triptych), **density**, surface treatment, chart style | **palette**, **type**, **material/metaphor**, **morphology** (`h5-mobile.md` §4 — app shell / deck / snap narrative / commerce stack / longform / ambient), chart language, transition character |
+| **Diverge freely on** | all five axes (§3) — palette, type, layout family, engine, material | **palette** (`product-palettes.md` — the real fix for "every dashboard is blue"), **shell morphology** (`product-ui.md` §1 — sidebar / framed app card / bento / triptych), **density**, surface treatment, chart style | **palette**, **type**, **material/metaphor**, **morphology** (`h5-mobile.md` §4 — app shell / deck / snap narrative / commerce stack / longform / ambient), chart language, transition character |
 | **Never diverge on** | — | **navigation conventions** (position, icon+label, depth ≤3), **interaction affordances** (what's clickable, sort, filter, selection), **table & form behavior**, **status color semantics** (red = bad, green = good), the §7 a11y floor | **the frame** (`h5-mobile.md` §1 — viewport contract, locked `body`, the 560px phone frame), **safe-area math** (§2), **the native furniture** (§5 — where the back button is, which edge the TabBar sits on, that a sheet rises from the bottom with a grab handle), **touch affordances** (§3 — 44px, `:active`, no tap flash) |
 | **The failure this prevents** | a forgettable page | an unusable one | a page that feels *wrong* in the hand |
 
@@ -97,6 +97,11 @@ The 10 personas in `style-personas.md` are simply the 10 combinations already va
 ---
 
 ## 4. Make "Don't Repeat" Actually Executable
+
+> **本库的规矩（跟本节不一样时听这条）**：同一个产品的页面不轮换，只求统一（`SKILL.md` 开头：同一个项目的 UI/UX 和动效全部统一）。
+> - **同一个产品**：项目的 `DESIGN.md` 里已经有 `## Direction lock`，或者已经做过一页。配色、字体、材质照锁定的来；版式跟着这一页的内容走，不为了「跟上一页不一样」去换。下面 4.4 的「至少 3 个轴不一样」不适用，Design Read 的 `Rotation:` 那行写「沿用这个项目定好的方向」。
+> - **轮换只用在一种仓库**：里面每一页本来就各是一个品牌，例如演示合集、代理公司放很多客户活动页的仓库。
+> - log 和 CSS 戳记照样写：下次知道这个项目定过什么。
 
 `DESIGN.md` locks **intra-project consistency** (one accent, one theme, one type system — so page 7 matches page 1). That is the *opposite* goal from divergence, and until now it was the only memory this flow had. Nothing tracked what you'd already built **across** pages, so §1.1's rotation rule could never fire.
 
@@ -206,6 +211,8 @@ Everything above is a *reasoning* fix, and reasoning fixes have a ceiling. The d
 
 So inject a source of variance the model doesn't control.
 
+> **本库的规矩**：先用项目里看得到的定轴（`PRODUCT.md`、已有页面、品牌色、行业、口味档案的收藏），骰子只用在项目给不出信号的那个轴上。同一个产品已经锁定的轴不掷骰子（见 §4 开头）。
+
 **The cheap version — a die roll, zero dependencies.** Draw an integer and let it pick the starting point on the highest-leverage axis (E · material, or C · layout family):
 
 ```bash
@@ -226,7 +233,7 @@ Then **honor the draw** — you may reject it, but you must reject it *in writin
 
 ## 7. The Direction Proposal — assert, don't poll
 
-> **Owner note.** Interviewing the user and proposing directions is owned by `references/ux/interview.md`. This section applies only when that interview did not happen (the user named what to build and came straight here). If it did happen and the user picked a direction, that pick is the direction: nothing below is asked again.
+> **Owner note.** Setting the direction from the project and telling the user is owned by `references/ux/interview.md`. This section applies only when that step did not happen (the user named what to build and came straight here). If it did happen, that direction stands: nothing below is asked again.
 
 The old §0.B Design Read emits **one** direction, and the user rubber-stamps it. The obvious fix — "offer three options and let the user choose" — is **wrong, and it has been tested to failure.**
 

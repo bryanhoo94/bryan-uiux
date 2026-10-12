@@ -202,7 +202,7 @@ What manufactures "premium," beyond layout:
 - **Layered depth** — `engine(z0) · grain(z1) · vignette · content(z5)`. Never one flat plane.
 - **Tinted shadows** — `box-shadow: 0 0 80px rgba(0,0,0,.8)`; on light pages tint the shadow to the bg hue, never pure black.
 - **Translucent borders** — `rgba(255,255,255,.07–.22)` / `rgba(0,0,0,.06–.08)`. Hard `#333` lines read cheap.
-- **Backdrop blur** — `backdrop-filter: blur(8px)` on nav and glass chips (sparingly, with a 1px inner border for real edge refraction).
+- **Backdrop blur** — `backdrop-filter: blur()` on nav and glass chips (sparingly, with a 1px inner border for real edge refraction). Opacity and blur values: `references/visual/glassmorphism.md` (below 10px reads as muddy noise, not material).
 - **Generous rhythm** — `section { padding: 120px 52px; max-width: 1280px; margin: 0 auto; }`. Symmetric gutters, centered axis.
 - **Grayscale photography** — `filter: grayscale(1) contrast(1.06)`, reveal color on hover for editorial souls.
 - **Custom easing** — hover `transform: scale(1.04)` (not 1.1) with the dictionary's `--ease-out`, `cubic-bezier(0.23, 1, 0.32, 1)` (a hover that only changes color uses `ease`; `references/core/params.md`), inside `@media (hover: hover) and (pointer: fine)`. Subtlety reads as expensive.

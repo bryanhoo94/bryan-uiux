@@ -100,7 +100,7 @@ Layers are a budget, not a quota. The hero moment of a screen and rare moments (
 
 ## Motion Personality
 
-A project has ONE personality. Apply consistently. If the project's motion spec already names it, use that and do not pick again. The spec records one of the three in `references/core/pick.md`; the four archetypes below describe the character in more detail and map onto those three.
+A project has ONE personality. Apply consistently. If the project's motion spec already names it, use that and do not pick again; otherwise it comes from the project profile in `SKILL.md` step 1. The spec records one of the three in `references/core/pick.md`; the four archetypes below describe the character in more detail and map onto those three.
 
 | Archetype | Maps to (`references/core/pick.md`) | Duration | Curve / spring | Keywords |
 |-----------|-------------------------------------|----------|----------------|----------|
