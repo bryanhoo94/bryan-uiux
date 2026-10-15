@@ -167,7 +167,7 @@
 
 ## 装什么
 
-**只装这一个。** 所有内容都在这个仓库里：106 个 md 文件、22 个示例网页、一个 demo。不用再装别的 skill，连 node 都不用装。
+**只装这一个。** 所有内容都在这个仓库里：107 个 md 文件、22 个示例网页、一个 demo。不用再装别的 skill，连 node 都不用装。
 
 ```bash
 git clone https://github.com/bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash install.sh
@@ -289,7 +289,8 @@ git clone https://github.com/bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash 
 | `references/visual/navigation.md` | 导航：手机底部 Tab、平板竖栏、桌面侧边栏一起设计，11 种风格、5 条硬规则、安全区写法 |
 | `references/visual/dashboard-layouts.md` | 6 种骨架 + 5 种排版方向 |
 | `references/visual/isometric-scene.md` | 等距 3D 场景怎么做：该不该上 3D、4 种场景画法、3 种屏、镜头、配色、每个行业要认得出的物件、手机怎么降级 |
-| `references/visual/cards.md` | 高级感卡片：一张卡只用一种主色、字号层级、5 种现成卡片、悬停和按下的微交互 |
+| `references/visual/illustrations.md` | 轴测线稿插画：空状态、引导弹窗顶部那张小图画不画、画成什么、怎么画；一张图只有一个物件用强调色 |
+| `references/visual/cards.md` | 高级感卡片：一张卡只用一种主色、字号层级、6 种现成卡片（含逐条处理卡）、悬停和按下的微交互 |
 | `references/visual/glassmorphism.md` | Apple 风磨砂玻璃卡片怎么做 |
 | `references/visual/libraries.md` | 18 个可以直接逛的组件库 + 5 个灵感站 + 图标库怎么选 + AI 界面清单 |
 | `references/visual/pick-library.md` | 某件事该用哪个 npm 库：图表、拖拽、弹层、虚拟列表这些 |

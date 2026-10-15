@@ -1,6 +1,6 @@
 ---
 name: bryan-uiux
-description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动效、收尾检查。先读当前项目，自己判断该用什么设计，不让用户从菜单里挑；同一项目的 UI/UX 和动效统一，每页都有桌面和手机视图。内容：从零做新页面、改版、收尾检查（critique / audit / polish）和定向修（配色、字体、排版、文案、适配、性能）；80 个交互配方（页面、组件、图表控件、手势、控件反馈、动效质感、网页效果）、Matter.js 物理、Web 和 RN / Expo 动效写法、动效评审；dashboard 骨架 K1–K6 和排版方向 L1–L5（含等距 3D）、导航 11 种风格、高级感卡片、玻璃卡片、7 条 UX 定律、AI 产品状态清单、参考组件库和灵感站、图标和 npm 库选型、GSAP、口味档案。适用于 Web、RN / Expo、Capacitor、Electron / Tauri。Use when 用户说「帮我设计一下 / 好看一点 / 随便你 / 我不知道要什么样 / 现在这个好丑 / 太 generic / 太 AI 味 / 高级一点」；新建、重做、改版某页或某屏（后台、工作台、dashboard、落地页、官网、定价页、登录页、表单、设置页、商品页、H5、活动页）；review 或 audit 现有 UI/UX；调配色、字体、间距、深色模式、空状态、错误态、设计 token；「转化低 / 找不到按钮 / 减少摩擦 / 手机上坏了」；「加点交互 / 微交互 / 手感 / 质感 / 更有生命力 / 像 iOS 那样顺」；3D 可视化、数字孪生、大屏、导航栏、卡片；给列表、滑杆、开关、步骤条加反馈；手势（滑动返回、拖拽排序、下拉回弹）；物理感（磁吸、液态形变、碰撞、掉落）；AI 界面（思考状态、流式输出、工具调用、操作确认）；写动画、评审动效、找哪里该加动效、「这个效果叫什么」；选组件库、图标库、npm 库，找设计参考；「记下来 / 收藏这个 / 整理截图」；点名配方（主题扩散、数字翻牌、流动 Tab、渐进模糊、挖空文字…）；用大白话描述效果（「鼠标放上去变大旁边让开」「像扇子一样展开」）。
+description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动效、收尾检查。先读当前项目，自己判断该用什么设计，不让用户从菜单里挑；同一项目的 UI/UX 和动效统一，每页都有桌面和手机视图。内容：从零做新页面、改版、收尾检查（critique / audit / polish）和定向修（配色、字体、排版、文案、适配、性能）；80 个交互配方（页面、组件、图表控件、手势、控件反馈、动效质感、网页效果）、Matter.js 物理、Web 和 RN / Expo 动效写法、动效评审；dashboard 骨架 K1–K6 和排版方向 L1–L5（含等距 3D）、导航 11 种风格、高级感卡片、玻璃卡片、轴测线稿插画、7 条 UX 定律、AI 产品状态清单、参考组件库和灵感站、图标和 npm 库选型、GSAP、口味档案。适用于 Web、RN / Expo、Capacitor、Electron / Tauri。Use when 用户说「帮我设计一下 / 好看一点 / 随便你 / 我不知道要什么样 / 现在这个好丑 / 太 generic / 太 AI 味 / 高级一点」；新建、重做、改版某页或某屏（后台、工作台、dashboard、落地页、官网、定价页、登录页、表单、设置页、商品页、H5、活动页）；review 或 audit 现有 UI/UX；调配色、字体、间距、深色模式、空状态、错误态、设计 token；「转化低 / 找不到按钮 / 减少摩擦 / 手机上坏了」；「加点交互 / 微交互 / 手感 / 质感 / 更有生命力 / 像 iOS 那样顺」；3D 可视化、数字孪生、大屏、导航栏、卡片；给列表、滑杆、开关、步骤条加反馈；手势（滑动返回、拖拽排序、下拉回弹）；物理感（磁吸、液态形变、碰撞、掉落）；AI 界面（思考状态、流式输出、工具调用、操作确认）；写动画、评审动效、找哪里该加动效、「这个效果叫什么」；选组件库、图标库、npm 库，找设计参考；「记下来 / 收藏这个 / 整理截图」；点名配方（主题扩散、数字翻牌、流动 Tab、渐进模糊、挖空文字…）；用大白话描述效果（「鼠标放上去变大旁边让开」「像扇子一样展开」）。
 ---
 
 # Bryan UI/UX — 结构、视觉、动效、收尾，一个 skill 做完
@@ -17,7 +17,7 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 | 「没人点 / 转化低 / 太复杂 / 找不到按钮」 | 先按 [references/ux/ux-laws.md](references/ux/ux-laws.md) 的检查清单过一遍，列出违反了哪几条、各怎么改，再动手 |
 | 检查现有页面，只看不改（`/bryan-uiux review`、`critique`、`audit`，「review 一下 / 检查现在的 UI / 哪里不好 / 挑毛病 / 上线前检查」） | **只看不改**：先第一步认项目，列出所有页面，每一页都看，不只看首页（点名了页面就只看那一页）。能跑起来就截图看桌面 1440px 和手机 390px 两种宽度；跑不起来就读代码，并说明是读代码判断的。每一页按 [references/ux/ux-laws.md](references/ux/ux-laws.md) 的页面类型过结构四问和 7 条清单；配色、字体、间距按 [references/visual/finish/index.md](references/visual/finish/index.md) 把 `critique` 和 `audit` 两个都跑；动效对照项目动效规格，没有规格就数一下现在用了几套时长和曲线。最后给一张表：页面 ｜ 违反哪条 ｜ 现在怎样 ｜ 怎么改 ｜ 先改哪个，按影响排序，并说推荐先改前几条 |
 | 打磨（`polish`，「打磨一下」，或者检查完用户说「改吧 / 改前 3 条」） | 按 [references/visual/finish/index.md](references/visual/finish/index.md) 的 `polish`，只修检查表里用户点了的那几条 |
-| 只修一样（「字体不对 / 配色太素 / 太挤 / 太吵 / 太平 / 文案看不懂 / 手机上坏了 / 很卡 / 空状态没做」） | 按 [references/visual/finish/index.md](references/visual/finish/index.md) 的命令表挑一个定向修（`typeset`、`colorize`、`layout`、`quieter`、`bolder`、`clarify`、`adapt`、`optimize`、`onboard`…） |
+| 只修一样（「字体不对 / 配色太素 / 太挤 / 太吵 / 太平 / 文案看不懂 / 手机上坏了 / 很卡 / 空状态没做」） | 按 [references/visual/finish/index.md](references/visual/finish/index.md) 的命令表挑一个定向修（`typeset`、`colorize`、`layout`、`quieter`、`bolder`、`clarify`、`adapt`、`optimize`、`onboard`…）。空状态和引导要配图时，再按 [references/visual/illustrations.md](references/visual/illustrations.md) 第一节判断画不画 |
 | 项目还没有 `PRODUCT.md` 或 `DESIGN.md`，用户想补上（`init`、`document`） | `PRODUCT.md` 按 [references/core/product-brief.md](references/core/product-brief.md) 写；`DESIGN.md` 按 [references/core/design-doc.md](references/core/design-doc.md) 从现有代码整理 |
 | 做导航（底部 Tab、侧边栏、顶栏、「导航栏好丑」） | 按 [references/visual/navigation.md](references/visual/navigation.md) 做：手机、平板、桌面三种宽度一起出，同一组入口 |
 | 做 3D 可视化、数字孪生、可视化大屏、等距场景（「把数据做立体一点」「让客户一眼看懂仓库现在什么情况」） | 按 [references/visual/isometric-scene.md](references/visual/isometric-scene.md) 做：先过第 1 节「该不该上 3D」那道关，再定场景画法 S1–S4 和是哪种屏（演示 / 后台 / 大屏）；桌面视图和手机视图一起出。要装 3D 的 npm 包先问用户 |
@@ -164,7 +164,8 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 - 导航：手机底部 Tab / 平板竖栏 / 桌面侧边栏，11 种风格 → [references/visual/navigation.md](references/visual/navigation.md)
 - Dashboard 骨架 K1–K6 + 排版方向 L1–L5 → [references/visual/dashboard-layouts.md](references/visual/dashboard-layouts.md)
 - 等距 3D 场景（L5 的完整做法）：该不该上 3D、四种场景画法 S1–S4、三种屏、镜头、白模配色、部件清单、联动、手机降级、R3F 写法 → [references/visual/isometric-scene.md](references/visual/isometric-scene.md)（做 3D 可视化、数字孪生、可视化大屏时读）
-- 高级感卡片：配色、字号层级、5 种卡片结构、微交互 → [references/visual/cards.md](references/visual/cards.md)（从零做卡片时用；项目有 `DESIGN.md` 就只借结构和层级）
+- 轴测线稿插画：画不画、画风、操作画成什么实物、放哪多大、Web 和 RN 画法 → [references/visual/illustrations.md](references/visual/illustrations.md)（做空状态、引导弹窗、功能介绍卡时读）
+- 高级感卡片：配色、字号层级、6 种卡片结构（含逐条处理卡）、微交互 → [references/visual/cards.md](references/visual/cards.md)（从零做卡片时用；项目有 `DESIGN.md` 就只借结构和层级）
 - 玻璃质感 → [references/visual/glassmorphism.md](references/visual/glassmorphism.md)（配 L1 用）
 - 参考组件库 + 灵感站 + 图标库 + AI 产品状态清单 → [references/visual/libraries.md](references/visual/libraries.md)（不是配方；找效果参照、整页参照、选图标库、查漏状态时读）
 - 某件事该用哪个 npm 库 → [references/visual/pick-library.md](references/visual/pick-library.md)（先用项目已有的；要装先问用户）
