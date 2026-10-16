@@ -15,7 +15,7 @@
 > **When loaded by `/bryan-uiux depth`** (you're adding/iterating a 3D moment, not rebuilding):
 > change **one** thing, keep the substrate (`../index.md` §3) and the soul intact, then re-run the "spectacle shown" check (`../index.md` §1.B) and the reduced-motion fallback. A full build (`/bryan-uiux new`) reads this only if the brief calls for depth.
 
-> **Neighbouring files.** A 3D scene that carries data — a digital twin, an isometric dashboard, a wall screen — is not this file: that is `references/visual/isometric-scene.md` (dashboard direction L5). The recipe-level versions of the CSS effects below, with parameters, interruption and reduced-motion forms, are `references/recipes/motion.md` M3 (3D parallax) and `references/recipes/effects.md` E2 (cover flow), E3 (ring gallery), E5 (page flip); where a number differs, those files win. Curves and durations come from `references/core/params.md`.
+> **Neighbouring files.** A 3D scene that carries data — a digital twin, an isometric dashboard, a wall screen — is not this file: that is `references/visual/isometric-scene.md` (dashboard direction L5). A small object people play with (buttons that light it up, a true-isometric view, a `.glb` redrawn as glowing line art) is `references/visual/glow-objects.md`. Before writing any three.js code, check `references/build/threejs.md`: LLMs write outdated three.js from memory. The recipe-level versions of the CSS effects below, with parameters, interruption and reduced-motion forms, are `references/recipes/motion.md` M3 (3D parallax) and `references/recipes/effects.md` E2 (cover flow), E3 (ring gallery), E5 (page flip); where a number differs, those files win. Curves and durations come from `references/core/params.md`.
 
 3D on the web splits into two registers — and reaching for the wrong one is the #1 mistake.
 
@@ -164,13 +164,13 @@ A library is never *in* this skill — the skill emits the page, and the page lo
 <!-- Three.js — versioned import map; core + addons MUST share the exact version -->
 <script type="importmap">
 { "imports": {
-  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/"
 }}
 </script>
 ```
 
-- **Pin the version** (`three@0.160.0`), never a bare `three` or `@latest` — a silent major bump breaks the addon API.
+- **Pin the version** (`three@0.186.1`, current as of 2026-10; check `references/build/threejs.md` for the version and the APIs that changed), never a bare `three` or `@latest` — a silent major bump breaks the addon API.
 - **Lazy-load** the heavy import so it never blocks first paint: `import()` the engine inside an `IntersectionObserver` when the canvas scrolls into view (see §2.B).
 - Going fully offline (kiosk, archival)? Then vendor `three.module.js` *and* every addon you import into `./lib/` and point the import map at local paths — accept the ~1.5MB+ repo cost.
 
@@ -219,7 +219,7 @@ addEventListener('pointerup', () => { drag = 0; vel = 0.003; });
 ```
 - Lazy-load `three` + the loader only when the viewer scrolls into view (`IntersectionObserver`) — never on initial paint.
 - **IBL (`scene.environment`) + one key light reads premium; a bare hemisphere or a single flat light reads cheap** — a metal/glass surface with nothing to reflect looks like plastic. Set `scene.environment`, not `scene.background`, so the env lights the model without hijacking the page's own backdrop.
-- The color pipeline from `hero-engines.md` Engine A (`outputColorSpace` + ACES tone mapping) is **mandatory** here, not optional — PBR + IBL without it renders muddy and grey, which is the exact "cheap" tell IBL was meant to kill.
+- The color pipeline from `hero-engines.md` Engine A (`outputColorSpace` + ACES tone mapping) is **mandatory** here, not optional — PBR + IBL without it renders muddy and grey, which is the exact "cheap" tell IBL was meant to kill. (In this library a product whose real colours matter uses `THREE.NeutralToneMapping` instead of ACES, which shifts hues; see `references/build/threejs.md` §2. If one part needs a new colour, `clone()` its material first: glTF parts often share one.)
 - `pmrem.dispose()` after the env texture is built; keep the `renderer.dispose()` cleanup from Engine A.
 - Provide a **static product photo poster** for reduced-motion and load failure — never a blank canvas.
 

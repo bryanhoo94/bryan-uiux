@@ -21,7 +21,7 @@ if [ -e "$SKILLS_DIR/bryan-uiux" ]; then
 fi
 
 echo "要做的事：把这个文件夹链接到 $SKILLS_DIR/bryan-uiux"
-echo "         （107 个 md + 22 个示例网页 + demo，没有任何依赖）"
+echo "         （112 个 md + 22 个示例网页 + 2 个物件模板 + demo，没有任何依赖）"
 echo
 echo "不会做的事：不下载别的东西；不给任何项目装 npm 包；不改你项目里的文件。"
 echo

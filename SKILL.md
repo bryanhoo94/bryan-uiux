@@ -1,6 +1,6 @@
 ---
 name: bryan-uiux
-description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动效、收尾检查。先读当前项目，自己判断该用什么设计，不让用户从菜单里挑；同一项目的 UI/UX 和动效统一，每页都有桌面和手机视图。内容：从零做新页面、改版、收尾检查（critique / audit / polish）和定向修（配色、字体、排版、文案、适配、性能）；80 个交互配方（页面、组件、图表控件、手势、控件反馈、动效质感、网页效果）、Matter.js 物理、Web 和 RN / Expo 动效写法、动效评审；dashboard 骨架 K1–K6 和排版方向 L1–L5（含等距 3D）、导航 11 种风格、高级感卡片、玻璃卡片、轴测线稿插画、7 条 UX 定律、AI 产品状态清单、参考组件库和灵感站、图标和 npm 库选型、GSAP、口味档案。适用于 Web、RN / Expo、Capacitor、Electron / Tauri。Use when 用户说「帮我设计一下 / 好看一点 / 随便你 / 我不知道要什么样 / 现在这个好丑 / 太 generic / 太 AI 味 / 高级一点」；新建、重做、改版某页或某屏（后台、工作台、dashboard、落地页、官网、定价页、登录页、表单、设置页、商品页、H5、活动页）；review 或 audit 现有 UI/UX；调配色、字体、间距、深色模式、空状态、错误态、设计 token；「转化低 / 找不到按钮 / 减少摩擦 / 手机上坏了」；「加点交互 / 微交互 / 手感 / 质感 / 更有生命力 / 像 iOS 那样顺」；3D 可视化、数字孪生、大屏、导航栏、卡片；给列表、滑杆、开关、步骤条加反馈；手势（滑动返回、拖拽排序、下拉回弹）；物理感（磁吸、液态形变、碰撞、掉落）；AI 界面（思考状态、流式输出、工具调用、操作确认）；写动画、评审动效、找哪里该加动效、「这个效果叫什么」；选组件库、图标库、npm 库，找设计参考；「记下来 / 收藏这个 / 整理截图」；点名配方（主题扩散、数字翻牌、流动 Tab、渐进模糊、挖空文字…）；用大白话描述效果（「鼠标放上去变大旁边让开」「像扇子一样展开」）。
+description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动效、收尾检查。先读当前项目，自己判断该用什么设计，不让用户从菜单里挑；同一项目的 UI/UX 和动效统一，每页都有桌面和手机视图。内容：从零做新页面、改版、收尾检查（critique / audit / polish）和定向修（配色、字体、排版、文案、适配、性能）；80 个交互配方（页面、组件、图表控件、手势、控件反馈、动效质感、网页效果）、Matter.js 物理、Web 和 RN / Expo 动效写法、动效评审；dashboard 骨架 K1–K6 和排版方向 L1–L5（含等距 3D）、能玩的发光等距小物件（线稿、实心、three.js 3D）、导航 11 种风格、高级感卡片、玻璃卡片、轴测线稿插画、7 条 UX 定律、AI 产品状态清单、参考组件库和灵感站、图标和 npm 库选型、GSAP、口味档案。适用于 Web、RN / Expo、Capacitor、Electron / Tauri。Use when 用户说「帮我设计一下 / 好看一点 / 随便你 / 我不知道要什么样 / 现在这个好丑 / 太 generic / 太 AI 味 / 高级一点」；新建、重做、改版某页或某屏（后台、工作台、dashboard、落地页、官网、定价页、登录页、表单、设置页、商品页、H5、活动页）；review 或 audit 现有 UI/UX；调配色、字体、间距、深色模式、空状态、错误态、设计 token；「转化低 / 找不到按钮 / 减少摩擦 / 手机上坏了」；「加点交互 / 微交互 / 手感 / 质感 / 更有生命力 / 像 iOS 那样顺」；3D 可视化、数字孪生、大屏；「能转能点的 3D 小物件 / 等距发光 / 把 .glb 做成线稿」；导航栏、卡片；给列表、滑杆、开关、步骤条加反馈；手势（滑动返回、拖拽排序、下拉回弹）；物理感（磁吸、液态形变、碰撞、掉落）；AI 界面（思考状态、流式输出、工具调用、操作确认）；写动画、评审动效、找哪里该加动效、「这个效果叫什么」；选组件库、图标库、npm 库，找设计参考；「记下来 / 收藏这个 / 整理截图」；点名配方（主题扩散、数字翻牌、流动 Tab、渐进模糊、挖空文字…）；用大白话描述效果（「鼠标放上去变大旁边让开」「像扇子一样展开」）。
 ---
 
 # Bryan UI/UX — 结构、视觉、动效、收尾，一个 skill 做完
@@ -21,6 +21,7 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 | 项目还没有 `PRODUCT.md` 或 `DESIGN.md`，用户想补上（`init`、`document`） | `PRODUCT.md` 按 [references/core/product-brief.md](references/core/product-brief.md) 写；`DESIGN.md` 按 [references/core/design-doc.md](references/core/design-doc.md) 从现有代码整理 |
 | 做导航（底部 Tab、侧边栏、顶栏、「导航栏好丑」） | 按 [references/visual/navigation.md](references/visual/navigation.md) 做：手机、平板、桌面三种宽度一起出，同一组入口 |
 | 做 3D 可视化、数字孪生、可视化大屏、等距场景（「把数据做立体一点」「让客户一眼看懂仓库现在什么情况」） | 按 [references/visual/isometric-scene.md](references/visual/isometric-scene.md) 做：先过第 1 节「该不该上 3D」那道关，再定场景画法 S1–S4 和是哪种屏（演示 / 后台 / 大屏）；桌面视图和手机视图一起出。要装 3D 的 npm 包先问用户 |
+| 做一个能玩的小物件（「能转能点的 3D」「一按就亮的小设备」「等距发光线稿」「把这个 .glb 做成线稿」），或者落地页、演示页要讲清一台设备 / 一套系统怎么运作 | 按 [references/visual/glow-objects.md](references/visual/glow-objects.md) 做：先过第 1 节「用不用」，再定三种画法（线稿发光 / 实心 / 真 3D），从现成模板改，不重写；桌面视图和手机视图一起出。dashboard 日常页、大屏、空状态不用它 |
 | 点名要什么（「加个数字翻牌」「这个按钮加个按下效果」） | 跳过提问，直接做：用户点名就算确认过，第三步第 4 条的确认表省掉。点名的是动作（hover、按下、拖、滑动）就查 [references/core/pick.md](references/core/pick.md) 的「按手怎么动来挑」 |
 | 「加点交互 / 加点微交互 / 哪里该加动效 / 让它更有生命力」，但没说加在哪 | 按 [references/review/opportunities.md](references/review/opportunities.md) 找，先过频率关，再按峰终定律排序，只推荐最值得的 1–3 处，问一句「先加这几处？」，用户点头再加 |
 | 用大白话描述效果（「鼠标放上去变大旁边让开」） | 查 [references/recipes/effects.md](references/recipes/effects.md) 翻译表，复述确认后再做 |
@@ -164,6 +165,7 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 - 导航：手机底部 Tab / 平板竖栏 / 桌面侧边栏，11 种风格 → [references/visual/navigation.md](references/visual/navigation.md)
 - Dashboard 骨架 K1–K6 + 排版方向 L1–L5 → [references/visual/dashboard-layouts.md](references/visual/dashboard-layouts.md)
 - 等距 3D 场景（L5 的完整做法）：该不该上 3D、四种场景画法 S1–S4、三种屏、镜头、白模配色、部件清单、联动、手机降级、R3F 写法 → [references/visual/isometric-scene.md](references/visual/isometric-scene.md)（做 3D 可视化、数字孪生、可视化大屏时读）
+- 能玩的发光小物件：用不用、三种画法怎么选、本库加的规矩、桌面和手机视图、.glb 两条路、怎么放进项目 → [references/visual/glow-objects.md](references/visual/glow-objects.md)（做落地页的产品物件、给客户的设备 / 系统演示时读；现成模板和 12 个 3D 示例在 `references/visual/glow-objects/`，从它的 `index.md` 进去）
 - 轴测线稿插画：画不画、画风、操作画成什么实物、放哪多大、Web 和 RN 画法 → [references/visual/illustrations.md](references/visual/illustrations.md)（做空状态、引导弹窗、功能介绍卡时读）
 - 高级感卡片：配色、字号层级、6 种卡片结构（含逐条处理卡）、微交互 → [references/visual/cards.md](references/visual/cards.md)（从零做卡片时用；项目有 `DESIGN.md` 就只借结构和层级）
 - 玻璃质感 → [references/visual/glassmorphism.md](references/visual/glassmorphism.md)（配 L1 用）
@@ -188,6 +190,7 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 - 手势手感、弹性、材质和深度 → [references/build/apple-feel.md](references/build/apple-feel.md)
 - 组件细节：transform、clip-path、拖拽、调试 → [references/build/craft-details.md](references/build/craft-details.md)
 - 动效意图：想让用户感觉什么、怎么编排多个元素 → [references/build/intent.md](references/build/intent.md)
+- three.js 别凭记忆写：当前版本、单文件怎么引、AI 最常写错的 API、模型解码器、手机和出错处理 → [references/build/threejs.md](references/build/threejs.md)（写任何 three.js 代码之前读）
 
 **review/ 评审动效**
 - 评审一段动效代码 → [references/review/motion-review.md](references/review/motion-review.md)（标准在 [references/review/standards.md](references/review/standards.md)）

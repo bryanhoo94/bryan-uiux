@@ -15,13 +15,14 @@
 
 ---
 
-## 它帮你做 6 件事
+## 它帮你做 7 件事
 
 | | 做什么 | 里面有多少 |
 |---|---|---|
 | 🧱 | 从零做一页，或者改版旧的一页 | 品牌页、后台、工作流页、AI 工作台、电商页、手机 H5，附 22 个示例网页 |
 | 🎬 | 让界面会动 | 80 个小动作，Web 和手机 App 的写法都有 |
 | 📐 | 帮你排 dashboard 的版 | 5 种排版方向，其中一种是等距 3D 场景 |
+| 🕹️ | 做能玩的小物件：一按就亮的设备、能转着看的 3D 模型 | 线稿发光、实心、真 3D 三种画法，12 个现成的 3D 示例，也能把你的 .glb 洗成线稿 |
 | 🤖 | 做 AI 产品的界面 | 一张「有没有漏掉」的清单 |
 | 🔍 | 做完帮你挑毛病 | 体验评分、技术检查、最后打磨，外加十几种只修一样的定向修 |
 | 💬 | 你说不清的时候，它自己看项目定方向 | 最多问你 1 个问题 |
@@ -167,7 +168,7 @@
 
 ## 装什么
 
-**只装这一个。** 所有内容都在这个仓库里：107 个 md 文件、22 个示例网页、一个 demo。不用再装别的 skill，连 node 都不用装。
+**只装这一个。** 所有内容都在这个仓库里：112 个 md 文件、22 个示例网页、2 个能玩的物件模板、一个 demo。不用再装别的 skill，连 node 都不用装。
 
 ```bash
 git clone https://github.com/bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash install.sh
@@ -289,6 +290,7 @@ git clone https://github.com/bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash 
 | `references/visual/navigation.md` | 导航：手机底部 Tab、平板竖栏、桌面侧边栏一起设计，11 种风格、5 条硬规则、安全区写法 |
 | `references/visual/dashboard-layouts.md` | 6 种骨架 + 5 种排版方向 |
 | `references/visual/isometric-scene.md` | 等距 3D 场景怎么做：该不该上 3D、4 种场景画法、3 种屏、镜头、配色、每个行业要认得出的物件、手机怎么降级 |
+| `references/visual/glow-objects.md`、`glow-objects/` | 能玩的发光小物件：什么时候用、线稿 / 实心 / 真 3D 怎么选、手机怎么办、怎么放进项目；文件夹里是现成模板和 12 个 3D 示例（台灯、鼓机、打字机、服务器机柜…） |
 | `references/visual/illustrations.md` | 轴测线稿插画：空状态、引导弹窗顶部那张小图画不画、画成什么、怎么画；一张图只有一个物件用强调色 |
 | `references/visual/cards.md` | 高级感卡片：一张卡只用一种主色、字号层级、6 种现成卡片（含逐条处理卡）、悬停和按下的微交互 |
 | `references/visual/glassmorphism.md` | Apple 风磨砂玻璃卡片怎么做 |
@@ -304,6 +306,7 @@ git clone https://github.com/bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash 
 | `references/build/apple-feel.md` | 手势手感、弹性、材质和深度 |
 | `references/build/craft-details.md` | 组件上的小细节：transform、clip-path、拖拽、怎么调试 |
 | `references/build/intent.md` | 动效意图：想让人感觉什么、多个元素怎么编排 |
+| `references/build/threejs.md` | 写 three.js 之前对一遍：当前版本、单文件怎么引、AI 最常写错的十几个 API |
 | **review/ 评审动效** | |
 | `references/review/motion-review.md` | 评审一段动效代码，只看不改 |
 | `references/review/motion-audit.md` | 全项目动效审计，出改进方案 |

@@ -12,12 +12,13 @@
 | `references/visual/redesign/` | MIT | 4 |
 | `references/visual/finish/`、`references/core/product-brief.md`、`references/core/design-doc.md` | Apache-2.0 | 5 |
 | `references/visual/new-page/examples/lib/` | GSAP 标准许可 | 6 |
+| `references/visual/glow-objects/`（`glow-objects.md` 是本库自己写的入口，不在内） | MIT | 7 |
 
 以后要更新某一套，从对应的来源取新版本，再按仓库 `CLAUDE.md` 的规矩重新处理。
 
 仓库自检用的关键词（除了本文件，别处不应该出现）：
 
-自检关键词：impeccable|finesse|taste-?skill|design-taste|emil|kowalski|animations\.dev|lottiefiles|bakaus|leonxlnx|mouse-lin|西瓜同学|ehmo|review-animations|improve-animations|find-animation-opportunities|animation-vocabulary|pick-ui-library|motion-design|apple-design|animate-expo
+自检关键词：impeccable|finesse|taste-?skill|design-taste|emil|kowalski|animations\.dev|lottiefiles|bakaus|leonxlnx|mouse-lin|西瓜同学|ehmo|review-animations|improve-animations|find-animation-opportunities|animation-vocabulary|pick-ui-library|motion-design|apple-design|animate-expo|iso-?glow|isoglow|iso-figure|ai-iso-skill|aprilzz|april ?zhu|april-zhu|tolga|cohce|mrbongoc
 
 ---
 
@@ -392,3 +393,35 @@ Apache License 2.0 全文：
 
 - `references/visual/new-page/examples/lib/gsap.min.js` 和 `ScrollTrigger.min.js` 是 GSAP 3.13.0 的原始文件，没有改动，只给同一文件夹里的示例网页用。
 - Copyright 2025, GreenSock。按 GSAP 标准许可使用，条款见 https://gsap.com/standard-license ；版权信息保留在这两个文件的开头。
+
+## 7. ISO-GLOW（iso-glow）
+
+- 来源：https://isoglow.dev （同一个站也在 https://iso-glow.vercel.app ），下载包 `iso-glow.zip`，2026-10-16 取得的版本；作者 April Zhu（https://x.com/Aprilzz423 ）
+- 它建立在 iso-figure 之上：https://github.com/MrBongoC/ai-iso-skill （Tolga Cohce，MIT），两份版权声明都写在下面这份许可证里
+- 用到的部分：整个包（`SKILL.md` 改名为 `index.md`，`assets/`、`references/` 原样放进来）
+- 已修改：去掉作者和 skill 的名字、页脚署名链接、示例里印着的原名；`localStorage` 的键改名（`glowfig-` 开头）；路径改成本库的；检查办法、Blender 无头命令改成本库的做法；时长和曲线按参数词典改；补了减少动态（3D 原来没有）、自己开始的动画 5 秒停住、手机布局和 44px 触控、`?embed` 嵌入模式、开不了 WebGL 或上下文丢失时的提示；three.js 从 0.160.0 升到 0.186.1，12 个 3D 示例在浏览器里逐个测过
+
+```text
+MIT License
+
+Copyright (c) 2026 April Zhu (iso-glow: lighting, palettes, gallery shell, examples)
+Copyright (c) 2026 Tolga Cohce (iso-figure, on which iso-glow is based)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

@@ -7,7 +7,7 @@
 | | 本库自己写的 | 搬进来的开源内容 |
 |---|---|---|
 | 怎么认 | 第一行没有标记 | 第一行有一句「第三方开源内容」的标记 |
-| 在哪 | `SKILL.md`、`README.md`，`references/core/`、`recipes/`、`ux/`、`visual/` 里的大部分文件 | `references/build/`、`references/review/`、`references/visual/new-page/`、`redesign/`、`finish/`，以及 `core/product-brief.md`、`core/design-doc.md`、`recipes/vocabulary.md`、`visual/pick-library.md` |
+| 在哪 | `SKILL.md`、`README.md`，`references/core/`、`recipes/`、`ux/`、`visual/` 里的大部分文件 | `references/build/`（`threejs.md` 除外）、`references/review/`、`references/visual/new-page/`、`redesign/`、`finish/`、`glow-objects/`，以及 `core/product-brief.md`、`core/design-doc.md`、`recipes/vocabulary.md`、`visual/pick-library.md` |
 | 怎么写 | 按下面「用户贴外面的 skill.md」那 5 条 | 保持原文，不翻译、不改写风格。第一行的标记不删 |
 
 搬进来的文件只在 4 种情况下改：
@@ -72,7 +72,7 @@
 
   ```bash
   kw=$(grep -m1 '^自检关键词：' THIRD_PARTY_NOTICES.md | sed 's/^自检关键词：//')
-  grep -rnEi "$kw" --include='*.md' --include='*.html' --include='*.mjs' --include='*.sh' --exclude=THIRD_PARTY_NOTICES.md .
+  grep -rnEi "$kw" --include='*.md' --include='*.html' --include='*.js' --include='*.mjs' --include='*.sh' --exclude=THIRD_PARTY_NOTICES.md .
   ```
 
 - 曲线只有参数词典里的那几条（`recipes/effects.md` 和 `recipes/gsap.md` 是专门讲换算的，不查）：
