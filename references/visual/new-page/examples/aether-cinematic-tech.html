@@ -3,7 +3,7 @@
 <html lang="zh">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>AETHER — 空间智能引擎</title>
 <style>
   /* bryan-uiux · register=brand · A=dual-hue-near-black · B=sans+mono · C=full-bleed-engine-hero · D=Three.js+GLSL · E=circuitry&signal
@@ -25,7 +25,7 @@
   .content { position: relative; z-index: 5; }
 
   /* ── HERO ── */
-  .hero { position: relative; width: 100vw; height: 100vh; }
+  .hero { position: relative; width: 100vw; height: 100vh; height: 100svh; }   /* svh: the phone's address bar doesn't hide the title */
   .vig { position: absolute; inset: 0; z-index: -1; pointer-events: none;
     background: radial-gradient(ellipse 85% 65% at 56% 44%, transparent 50%, rgba(5,5,7,.82) 100%); }
   header { position: absolute; top: 0; left: 0; right: 0;
@@ -35,7 +35,7 @@
   .access { font-size: 12px; letter-spacing: .14em; color: var(--ink);
     background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.22); border-radius: 999px;
     padding: 10px 21px; cursor: pointer; transition: .25s; backdrop-filter: blur(6px); }
-  .access:hover { background: var(--ink); color: #050507; }
+  @media (hover: hover) and (pointer: fine) { .access:hover { background: var(--ink); color: #050507; } }
   .title { position: absolute; left: 52px; bottom: 70px; max-width: 820px; }
   .kicker { display: flex; align-items: center; gap: 14px; font-size: 11px;
     letter-spacing: .3em; color: #8A8A9B; margin-bottom: 28px; }
@@ -84,7 +84,7 @@
     border-top: 1px solid rgba(255,255,255,.1); border-left: 1px solid rgba(255,255,255,.1); }
   .cell { border-right: 1px solid rgba(255,255,255,.1); border-bottom: 1px solid rgba(255,255,255,.1);
     padding: 40px 36px 48px; position: relative; transition: background .3s; }
-  .cell:hover { background: rgba(34,227,255,.05); }
+  @media (hover: hover) and (pointer: fine) { .cell:hover { background: rgba(34,227,255,.05); } }
   .cell .idx { font-size: 11px; letter-spacing: .2em; color: var(--dim); }
   .cell h3 { margin: 28px 0 12px; font-size: 22px; font-weight: 600; letter-spacing: -.01em; }
   .cell p { font-size: 13.5px; line-height: 1.65; color: #8A8A9B; }
@@ -106,16 +106,48 @@
   .cta button { margin-top: 50px; font-size: 13px; letter-spacing: .14em; color: #050507;
     background: var(--ink); border: none; border-radius: 999px; padding: 17px 44px; cursor: pointer;
     font-weight: 600; transition: .25s; }
-  .cta button:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(34,227,255,.25); }
+  @media (hover: hover) and (pointer: fine) { .cta button:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(34,227,255,.25); } }
   .foot { padding: 60px 52px; display: flex; justify-content: space-between;
     font-size: 11px; letter-spacing: .24em; color: #4C4C5A; border-top: 1px solid rgba(255,255,255,.06);
     background: #050507; }
+
+  /* ── tablet 640–1023px: the menu and the coordinates no longer fit beside the title ── */
+  @media (max-width: 1023px) {
+    header { padding: 24px 32px; }
+    nav, .meta { display: none; }
+    .title { left: 32px; right: 32px; bottom: 56px; }
+    .manifesto { padding: 120px 32px; }
+    .specs { padding: 0 32px 48px; }
+    .cell { padding: 32px 24px 40px; } .cell .dot { top: 32px; right: 24px; }
+    .band .b { padding: 48px 32px; }
+    .cta { padding: 120px 32px 60px; }
+    .foot { padding: 48px 32px; }
+  }
+  @media (pointer: coarse) { .access { min-height: 44px; } }   /* touch: 44px tap target */
+  /* ── phone < 640px: one column, 16px edges ── */
+  @media (max-width: 639px) {
+    header { padding: 20px 16px; }
+    .title { left: 16px; right: 16px; bottom: calc(40px + env(safe-area-inset-bottom)); }
+    .kicker { letter-spacing: .2em; margin-bottom: 20px; }
+    .sub { margin-top: 22px; font-size: 15px; }
+    .manifesto { padding: 96px 16px; }
+    .sec-no { margin-bottom: 32px; }
+    .specs { padding: 0 16px 40px; }
+    .grid { grid-template-columns: 1fr; }
+    .cell { padding: 28px 20px 32px; } .cell .dot { top: 28px; right: 20px; }
+    .band { grid-template-columns: 1fr; }
+    .band .b { padding: 36px 16px; border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .band .b:last-child { border-bottom: none; }
+    .cta { padding: 96px 16px calc(56px + env(safe-area-inset-bottom)); }
+    .cta button { padding: 15px 32px; }
+    .foot { flex-direction: column; gap: 10px; padding: 40px 16px calc(40px + env(safe-area-inset-bottom)); }
+  }
 </style>
 <!-- Three.js (~1.2MB + addon dependency tree) stays on versioned CDN so this page runs standalone and the repo stays light. Pin the version; keep core + addons identical. -->
 <script type="importmap">
 { "imports": {
-  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/"
 }}
 </script>
 </head>
@@ -206,7 +238,7 @@ import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 
 const canvas = document.getElementById('c');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setPixelRatio(Math.min(devicePixelRatio, matchMedia('(pointer: coarse)').matches ? 1.5 : 2));   // phones: bloom at 3x is too heavy
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.0;
 
@@ -235,7 +267,8 @@ function makeColorEnv() {
   panel('#ffffff', -3, -5, 2, 4, 1.6); // 白高光
   return es;
 }
-scene.environment = pmrem.fromScene(makeColorEnv(), 0.35).texture;
+// blur 0.1: before r186 a 0.35 blur was silently clipped to about this; r186 blurs the full amount and washes the colours grey
+scene.environment = pmrem.fromScene(makeColorEnv(), 0.1).texture;
 
 // ── 金属球（清晰实体 + 大片虹彩反射） ──
 const geo = new THREE.IcosahedronGeometry(1, 48);
@@ -279,8 +312,8 @@ mat.onBeforeCompile = (shader) => {
   mat.userData.shader = shader;
 };
 const blob = new THREE.Mesh(geo, mat);
-blob.scale.setScalar(2.0);
-blob.position.x = 0.6;
+// where the blob sits: right of the title on wide screens; on portrait screens centred in the top half, sized to the width
+const place = { x: 0.6, y: 0, s: 2.0 };
 scene.add(blob);
 
 // ── 旋转彩色点光（虹彩来源，强度收敛） ──
@@ -314,6 +347,11 @@ function resize() {
   const w = innerWidth, h = innerHeight;
   renderer.setSize(w, h);
   camera.aspect = w / h; camera.updateProjectionMatrix();
+  if (w / h < 1) {
+    const visH = 2 * camera.position.z * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));   // visible height at the blob
+    Object.assign(place, { x: 0, y: 1.0, s: Math.min(2.0, visH * camera.aspect * 0.42, visH * 0.24) });
+  } else Object.assign(place, { x: 0.6, y: 0, s: 2.0 });
+  blob.position.x = place.x;
   buildComposer(w, h);
 }
 addEventListener('resize', resize);
@@ -323,15 +361,17 @@ resize();
 let scrollY = 0;
 addEventListener('scroll', () => { scrollY = window.scrollY / innerHeight; });
 
-const clock = new THREE.Clock();
-function tick() {
-  const t = clock.getElapsedTime();
+const timer = new THREE.Timer();   // Clock is deprecated since r183
+timer.connect(document);           // no jump after the tab comes back from the background
+function tick(now) {
+  timer.update(now);
+  const t = timer.getElapsed();
   if (mat.userData.shader) mat.userData.shader.uniforms.uTime.value = t;
   blob.rotation.y = t * 0.12 + mouse.x * 0.45;
   blob.rotation.x = mouse.y * 0.3;
   const sink = Math.min(scrollY, 1.5);
-  blob.position.y = Math.sin(t * 0.8) * 0.1 - sink * 1.2;
-  blob.scale.setScalar(2.0 - sink * 0.25);
+  blob.position.y = place.y + Math.sin(t * 0.8) * 0.1 - sink * 1.2;
+  blob.scale.setScalar(place.s * (1 - sink * 0.125));
   lightGroup.rotation.y = t * 0.3;
   composer.render();
   // reduced-motion: render one composed still frame, then stop the loop.

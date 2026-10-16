@@ -1,14 +1,14 @@
 # Three.js 别凭记忆写（r186 速查）
 
 <!-- 目录:开始（自动生成，别手改；改了标题就跑 python3 tools/toc.py） -->
-**本文件目录**（全文 125 行；先看这里，再按行号只读用得上的那一节）
+**本文件目录**（全文 126 行；先看这里，再按行号只读用得上的那一节）
 
 - 第 21–38 行：1. 单个 HTML 文件怎么引
 - 第 40–59 行：2. 渲染器起手
-- 第 61–82 行：3. 最常写错的
-- 第 84–100 行：4. 模型（GLTF / GLB）
-- 第 102–117 行：5. 手机、出错和收尾
-- 第 119–125 行：6. 这几件事没查到官方说法
+- 第 61–83 行：3. 最常写错的
+- 第 85–101 行：4. 模型（GLTF / GLB）
+- 第 103–118 行：5. 手机、出错和收尾
+- 第 120–126 行：6. 这几件事没查到官方说法
 <!-- 目录:结束 -->
 
 three.js 差不多每个月出一版，旧写法过大约 10 版就删掉。AI 凭记忆写，最常错的就是下面这些：写法过时、引入路径不对、构造函数的参数变了。**写任何 three.js 代码之前，先对一遍这份。**
@@ -73,6 +73,7 @@ renderer.toneMapping = THREE.NeutralToneMapping;                     // 默认�
 | `RGBELoader` | `HDRLoader`（旧名还能用，会报警告） | r180 |
 | `new RoomEnvironment(renderer)` | `scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment()).texture` | 参数 r168 去掉；r183 起打出来的光看起来不一样 |
 | `PCFSoftShadowMap` | `PCFShadowMap`（现在本身就是软阴影） | r182 弃用 |
+| `pmrem.fromScene(场景, 0.35)` 这种大模糊值（照旧示例抄的） | 旧版超过 20 个采样就悄悄截断（控制台警告 `too large and will clip`），实际模糊小得多；r186 换了新的模糊算法，真按这个值模糊，反射的颜色被洗灰。要旧版的样子就写 0.1 左右（起始值），升级后截图对比 | r186 |
 | `WebGL1Renderer` | 删掉了，用 `WebGLRenderer` | r163 |
 | 以为色调映射默认开着 | 默认是 `NoToneMapping`，按第 2 节自己设 | — |
 | 用了后处理，还靠 `material.toneMapped = false` 让东西发光 | 用了后处理或渲染目标，这个开关就不起作用。发光部件用 `emissiveIntensity > 1`，`UnrealBloomPass` 阈值约 1，最后加 `OutputPass`；只让部分物体发光要用图层（官方示例 `webgl_postprocessing_unreal_bloom_selective`） | 色调映射只在画到屏幕时做，r155 起 |
