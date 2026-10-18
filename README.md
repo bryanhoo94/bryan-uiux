@@ -297,7 +297,7 @@ git clone https://github.com/bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash 
 | `references/visual/libraries.md` | 18 个可以直接逛的组件库 + 5 个灵感站 + 图标库怎么选 + AI 界面清单 |
 | `references/visual/pick-library.md` | 某件事该用哪个 npm 库：图表、拖拽、弹层、虚拟列表这些 |
 | **ux/ 体验和流程** | |
-| `references/ux/ux-laws.md` | 结构四问 + 减少摩擦的 7 条 UX 定律：先减选项、再分组、最后高亮，附检查清单和结账例子 |
+| `references/ux/ux-laws.md` | 结构四问 + 减少摩擦的 11 条 UX 定律：先减选项、再分组、最后高亮，附检查清单和结账例子 |
 | `references/ux/interview.md` | 怎么从项目里自己定方向，再用大白话说给用户听 |
 | `references/ux/taste.md` | 你的口味档案怎么读、怎么写：说「记下来 / 整理截图」就存，出方案时自动参照；截图和索引在 `screenshot/` |
 | **build/ 怎么写动效** | |
