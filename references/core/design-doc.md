@@ -6,22 +6,22 @@
 > **锁定**：`DESIGN.md` 一旦存在，它的 token 就对本库其他所有章节锁定，别的章节只许动结构和层级，不许换颜色和字体。动效数值以 `references/core/params.md` 为准，不写进 `DESIGN.md`。
 
 <!-- 目录:开始（自动生成，别手改；改了标题就跑 python3 tools/toc.py） -->
-**本文件目录**（全文 327 行；先看这里，再按行号只读用得上的那一节）
+**本文件目录**（全文 329 行；先看这里，再按行号只读用得上的那一节）
 
 - 第 33–77 行：The frontmatter: token schema
 - 第 79–92 行：The markdown body: eight sections (canonical order)
 - 第 94–101 行：When to run
 - 第 103–107 行：Scope: code that exists
-- 第 109–300 行：Scan mode (approach C: auto-extract, then confirm descriptive language)
+- 第 109–302 行：Scan mode (approach C: auto-extract, then confirm descriptive language)
   - 第 111–121 行：Step 1: Find the design assets
   - 第 123–132 行：Step 2: Auto-extract what can be auto-extracted
   - 第 134–143 行：Step 2b: Stage the frontmatter
-  - 第 145–155 行：Step 3: Ask the user for qualitative language
-  - 第 157–282 行：Step 4: Write DESIGN.md
-  - 第 284–292 行：Step 4b: Place what the frontmatter cannot hold
-  - 第 294–300 行：Step 5: Confirm and refine
-- 第 302–314 行：Style guidelines
-- 第 316–327 行：Pitfalls
+  - 第 145–157 行：Step 3: Ask the user for qualitative language
+  - 第 159–284 行：Step 4: Write DESIGN.md
+  - 第 286–294 行：Step 4b: Place what the frontmatter cannot hold
+  - 第 296–302 行：Step 5: Confirm and refine
+- 第 304–316 行：Style guidelines
+- 第 318–329 行：Pitfalls
 <!-- 目录:结束 -->
 
 Generate a `DESIGN.md` file at the project root that captures the current visual design system, so AI agents generating new screens stay on-brand. The project has already been identified by the main entry (`SKILL.md` step 1), which also found any existing design document; do not repeat that here. Once this file exists, its tokens are locked for every other chapter of this skill: they change only when the user asks for it.
@@ -143,6 +143,8 @@ From the auto-extracted tokens, draft the YAML frontmatter now (you'll write it 
 Skip anything the project doesn't have. Empty scale keys or fabricated tokens pollute the spec.
 
 ### Step 3: Ask the user for qualitative language
+
+> **本库的规矩**（跟下面不一样时听这条）：按 `references/ux/interview.md` 的「一次问一题」问：一次一题，推荐排第一，回「好」就照推荐；查得到的不问。下面几项不分两轮三题，一项一题，每项先给推荐的说法（例如推荐的 Creative North Star）。
 
 The following require creative input that cannot be auto-extracted. Ask them in two structured rounds of no more than three questions each (or the harness's lower limit), waiting between rounds:
 

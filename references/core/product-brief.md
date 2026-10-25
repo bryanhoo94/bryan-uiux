@@ -8,13 +8,13 @@
 # Init flow
 
 <!-- 目录:开始（自动生成，别手改；改了标题就跑 python3 tools/toc.py） -->
-**本文件目录**（全文 143 行；先看这里，再按行号只读用得上的那一节）
+**本文件目录**（全文 145 行；先看这里，再按行号只读用得上的那一节）
 
 - 第 24–34 行：Step 1: Load current state
 - 第 36–44 行：Step 2: Explore the project
-- 第 46–77 行：Step 3: Interview for product truth
-- 第 79–130 行：Step 4: Write PRODUCT.md
-- 第 132–143 行：Step 5: Wrap up or resume
+- 第 46–79 行：Step 3: Interview for product truth
+- 第 81–132 行：Step 4: Write PRODUCT.md
+- 第 134–145 行：Step 5: Wrap up or resume
 <!-- 目录:结束 -->
 
 `init` captures durable product truth in PRODUCT.md. It does not invent a visual world and does not write DESIGN.md; the new-page flow (`references/visual/new-page/index.md`) creates one, and `document` (`references/core/design-doc.md`) records an incumbent one.
@@ -44,6 +44,8 @@ Form a platform hypothesis: `web`, `ios`, `android`, or `adaptive` (one product 
 Form a product-type hypothesis as well: back-office / workbench (people stay in it for hours), consumer app, or landing / brand page, and how often and for how long a person uses it. A product can have more than one surface family (a marketing site and an app).
 
 ## Step 3: Interview for product truth
+
+> **本库的规矩**（跟下面不一样时听这条）：按 `references/ux/interview.md` 的「一次问一题」问：一次一题，推荐排第一，回「好」就照推荐；查得到的不问。缺的几项一项一题，每题先给从仓库里推出来的推荐答案。
 
 STOP and ask the user. Ask only about material gaps the repository and original request do not answer with strong evidence.
 

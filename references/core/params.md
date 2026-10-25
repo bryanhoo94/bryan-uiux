@@ -14,6 +14,15 @@
 | `spring-gesture` | `{ type: "spring", duration: 0.5, bounce: 0.2 }` | `{ duration: 400, dampingRatio: 0.8, velocity }` | 手势松手后落位，继承松手速度，轻微回弹 |
 | `spring-pop` | `{ type: "spring", duration: 0.4, bounce: 0.3 }` | `{ duration: 400, dampingRatio: 0.7 }` | 确认时弹一下。bounce 0.3 是上限，只用在低频操作 |
 
+**按动作性格挑**：同一个项目里，动作的性格不一样，用的预设也不一样。人格是「克制」的项目，下面的 `spring-gesture` 和 `spring-pop` 一律换成 `spring-ui`。
+
+| 动作 | 性格 | 用 |
+|---|---|---|
+| 拖拽松手吸附：侧栏拖宽、拖到吸附点、排序落位 | 利落，一松手就到位，不晃 | `spring-ui` |
+| 甩出去或拉回来：卡片、抽屉、底部弹层，要继承松手速度 | 跟手，带一点余韵 | `spring-gesture` |
+| 表达喜欢或完成：点赞、收藏、打卡（低频） | 欢快，弹一下 | `spring-pop` |
+| 工具动作：复制、保存、标为已读 | 安静，换个状态就完 | 不用 spring，150ms `--ease-out`（F16） |
+
 **曲线**：`--ease-out: cubic-bezier(0.23, 1, 0.32, 1)` 用于进入、离开和默认；`--ease-in-out: cubic-bezier(0.77, 0, 0.175, 1)` 用于屏幕上的移动和形变；`--ease-drawer: cubic-bezier(0.32, 0.72, 0, 1)` 只用于抽屉和底部弹层；颜色和 hover 用 `ease`；匀速运动（跑马灯、进度条）用 `linear`。永远不用 `ease-in`。
 
 **时长**：按下反馈 100–160ms ｜ 小弹层 125–200ms ｜ 下拉菜单 150–250ms ｜ 全屏切换、抽屉 200–500ms ｜ 其余 UI ≤ 300ms ｜ 落地页和品牌页的首屏叙事、滚动叙事可以更长，曲线照旧 ｜ 错峰 30–80ms 一项，整组错峰总和 ≤ 300ms（超出的项同时出现）。
@@ -38,6 +47,7 @@
 - reduced-motion：去掉位移和缩放，保留透明度和颜色变化。配方写了降级方式的，按配方来。
 - 触屏上的 hover 效果包在 `@media (hover: hover) and (pointer: fine)` 里。
 - 会变化的数字加 `font-variant-numeric: tabular-nums`，防止宽度跳动。
+- 质感 10 条（`references/visual/premium-details.md`）每个页面都照做；跟动效有关的 4 条在这里和配方里：流式文字 C21、折叠展开 F5、上面的「按动作性格挑」、复制对勾 F16。
 - 每个页面、每张卡片都要同时有桌面视图和手机视图，布局怎么变按 `references/core/platforms.md` 第 2.2 节。只做了一个视图不算完成。
 
 ## 用户说「不够精细」时怎么调

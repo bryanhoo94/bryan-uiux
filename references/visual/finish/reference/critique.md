@@ -1,7 +1,7 @@
 <!-- 第三方开源内容（Apache-2.0），本文件已修改；版权声明和许可证全文见仓库根目录 THIRD_PARTY_NOTICES.md -->
 
 <!-- 目录:开始（自动生成，别手改；改了标题就跑 python3 tools/toc.py） -->
-**本文件目录**（全文 790 行；先看这里，再按行号只读用得上的那一节）
+**本文件目录**（全文 792 行；先看这里，再按行号只读用得上的那一节）
 
   - 第 32–34 行：Purpose
   - 第 36–46 行：Hard Invariants
@@ -11,22 +11,22 @@
   - 第 84–103 行：Assessment B: Mechanical Evidence
   - 第 105–197 行：Generate Combined Critique Report
   - 第 199–205 行：Deliver the Report
-  - 第 207–229 行：Ask the User
-  - 第 231–259 行：Recommended Actions
-- 第 261–790 行：Reference Material
-  - 第 265–372 行：Cognitive Load Assessment
-  - 第 374–611 行：Heuristics Scoring Guide
-    - 第 378–580 行：Nielsen's 10 Heuristics
-    - 第 582–596 行：Score Summary
-    - 第 598–611 行：Issue Severity (P0–P3)
-  - 第 613–790 行：Persona-Based Design Testing
-    - 第 621–646 行：1. Impatient Power User: "Alex"
-    - 第 648–673 行：2. Confused First-Timer: "Jordan"
-    - 第 675–701 行：3. Accessibility-Dependent User: "Sam"
-    - 第 703–728 行：4. Deliberate Stress Tester: "Riley"
-    - 第 730–755 行：5. Distracted Mobile User: "Casey"
-    - 第 757–770 行：Selecting Personas
-    - 第 772–790 行：Project-Specific Personas
+  - 第 207–231 行：Ask the User
+  - 第 233–261 行：Recommended Actions
+- 第 263–792 行：Reference Material
+  - 第 267–374 行：Cognitive Load Assessment
+  - 第 376–613 行：Heuristics Scoring Guide
+    - 第 380–582 行：Nielsen's 10 Heuristics
+    - 第 584–598 行：Score Summary
+    - 第 600–613 行：Issue Severity (P0–P3)
+  - 第 615–792 行：Persona-Based Design Testing
+    - 第 623–648 行：1. Impatient Power User: "Alex"
+    - 第 650–675 行：2. Confused First-Timer: "Jordan"
+    - 第 677–703 行：3. Accessibility-Dependent User: "Sam"
+    - 第 705–730 行：4. Deliberate Stress Tester: "Riley"
+    - 第 732–757 行：5. Distracted Mobile User: "Casey"
+    - 第 759–772 行：Selecting Personas
+    - 第 774–792 行：Project-Specific Personas
 <!-- 目录:结束 -->
 
 ### Purpose
@@ -205,6 +205,8 @@ After the report and before the questions, add one line for the score over time.
 The report is not the end of the run. Go to Ask the User below and emit the questions, or the `Questions skipped: <reason>` line when the count allows it. Stopping at the report leaves the user with findings and no way forward, and leaves `/bryan-uiux polish` with no priorities to inherit.
 
 ### Ask the User
+
+> **本库的规矩**（跟下面不一样时听这条）：按 `references/ux/interview.md` 的「一次问一题」问：一次一题，推荐排第一，回「好」就照推荐；查得到的不问。报告照样先写完，最后只问一题：推荐先改哪几条（按影响排的前几条），回「好」就照推荐。
 
 **After presenting findings**, use targeted questions based on what was actually found. STOP and ask the user. These answers will shape the action plan.
 

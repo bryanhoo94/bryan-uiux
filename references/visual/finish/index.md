@@ -24,6 +24,7 @@ House rules. They hold in every project and win over anything a reference file i
 4. Animate only `transform` and `opacity` (`clip-path` allowed; height only for expand/collapse). Every animation has a reduced-motion form. Hover effects sit behind `@media (hover: hover) and (pointer: fine)`.
 5. Every page and card has both a desktop view and a phone view.
 6. Before installing any npm package, ask the user; if the project already has a library of the same kind, use that one.
+7. 质感 10 条（`references/visual/premium-details.md`）每个页面都要过：`critique` 和 `audit` 都按它最后的清单查，没过的列进问题表。
 
 Curves, durations and springs come only from `references/core/params.md`, or from the project's motion spec, which outranks it.
 

@@ -1,12 +1,12 @@
 <!-- 第三方开源内容（Apache-2.0），本文件已修改；版权声明和许可证全文见仓库根目录 THIRD_PARTY_NOTICES.md -->
 
 <!-- 目录:开始（自动生成，别手改；改了标题就跑 python3 tools/toc.py） -->
-**本文件目录**（全文 142 行；先看这里，再按行号只读用得上的那一节）
+**本文件目录**（全文 144 行；先看这里，再按行号只读用得上的那一节）
 
-- 第 43–59 行：Assess What "Extraordinary" Means Here
-- 第 61–97 行：The Toolkit
-- 第 99–133 行：Implement with Discipline
-- 第 135–142 行：Verify the Result
+- 第 45–61 行：Assess What "Extraordinary" Means Here
+- 第 63–99 行：The Toolkit
+- 第 101–135 行：Implement with Discipline
+- 第 137–144 行：Verify the Result
 <!-- 目录:结束 -->
 
 Start your response with:
@@ -27,6 +27,8 @@ Two jobs named below are owned elsewhere. UI motion (a dialog morph, a stagger, 
 ### Propose Before Building
 
 This command has the highest potential to misfire. Do NOT jump straight into implementation. You MUST:
+
+> **本库的规矩**（跟下面不一样时听这条）：按 `references/ux/interview.md` 的「一次问一题」问：一次一题，推荐排第一，回「好」就照推荐；查得到的不问。2–3 个方向照样写清楚，推荐的那个排第一、标「推荐」。
 
 1. **Think through 2-3 different directions**: consider different techniques, levels of ambition, and aesthetic approaches. For each direction, briefly describe what the result would look and feel like.
 2. **Get the user's pick before writing any code.** STOP and ask the user. Carry each direction's description and its trade-offs (browser support, performance cost, complexity) inside the option itself, so the user is choosing between things they can read. A structured question blocks the message it rides in until the user answers, so directions written alongside the question stay invisible while the user is being asked to choose between them.
