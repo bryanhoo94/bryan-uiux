@@ -7,7 +7,7 @@
 | | 本库自己写的 | 搬进来的开源内容 |
 |---|---|---|
 | 怎么认 | 第一行没有标记 | 第一行有一句「第三方开源内容」的标记 |
-| 在哪 | `SKILL.md`、`README.md`，`references/core/`、`recipes/`、`ux/`、`visual/` 里的大部分文件 | `references/build/`（`threejs.md` 除外）、`references/review/`、`references/visual/new-page/`、`redesign/`、`finish/`、`glow-objects/`，以及 `core/product-brief.md`、`core/design-doc.md`、`recipes/vocabulary.md`、`visual/pick-library.md` |
+| 在哪 | `SKILL.md`、`README.md`，`references/core/`、`recipes/`、`ux/`、`visual/` 里的大部分文件 | `references/build/`（`threejs.md` 除外）、`references/review/`、`references/visual/new-page/`、`redesign/`、`finish/`、`glow-objects/`、`explain-objects/`，以及 `core/product-brief.md`、`core/design-doc.md`、`recipes/vocabulary.md`、`visual/pick-library.md` |
 | 怎么写 | 按下面「用户贴外面的 skill.md」那 5 条 | 保持原文，不翻译、不改写风格。第一行的标记不删 |
 
 搬进来的文件只在 4 种情况下改：
@@ -15,7 +15,7 @@
 1. 时长、曲线、spring 跟 `references/core/params.md` 不一致 → 改成参数词典的值。
 2. 跟现有规则冲突（频率关、一屏只高亮 1 样、红色只给错误和危险操作、桌面和手机都要有）→ 按现有规则改，或在旁边加一句说明。
 3. 出现了外部作者、GitHub 账号、别的 skill 的名字 → 去掉，改成指向本库对应的文件。
-4. 要读者去跑本库没有的程序 → 改成人工做法。唯一例外是 `references/visual/new-page/scripts/detect.mjs`，它是可选的，没有 Node 也能照清单人工过。
+4. 要读者去跑本库没有的程序 → 改成人工做法。例外有两处：`references/visual/new-page/scripts/detect.mjs`，它是可选的，没有 Node 也能照清单人工过；`references/visual/explain-objects/` 的工具包和脚本，画图本身就要 Node，检查脚本还要 Chrome，没有 Chrome 就照它的 `verify.md` 清单人工看，没有 Node 就改用 `glow-objects` 的 2D 模板。
 
 文件开头 `<!-- 目录:开始 -->` 到 `<!-- 目录:结束 -->` 之间的「本文件目录」是 `tools/toc.py` 生成的，不算改原文，自己写的和搬进来的文件都一样。别手改。
 

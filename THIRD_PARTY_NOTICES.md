@@ -13,12 +13,13 @@
 | `references/visual/finish/`、`references/core/product-brief.md`、`references/core/design-doc.md` | Apache-2.0 | 5 |
 | `references/visual/new-page/examples/lib/` | GSAP 标准许可 | 6 |
 | `references/visual/glow-objects/`（`glow-objects.md` 是本库自己写的入口，不在内） | MIT | 7 |
+| `references/visual/explain-objects/`（`explain-objects.md` 是本库自己写的入口，不在内） | MIT | 8 |
 
 以后要更新某一套，从对应的来源取新版本，再按仓库 `CLAUDE.md` 的规矩重新处理。
 
 仓库自检用的关键词（除了本文件，别处不应该出现）：
 
-自检关键词：impeccable|finesse|taste-?skill|design-taste|emil|kowalski|animations\.dev|lottiefiles|bakaus|leonxlnx|mouse-lin|西瓜同学|ehmo|review-animations|improve-animations|find-animation-opportunities|animation-vocabulary|pick-ui-library|motion-design|apple-design|animate-expo|iso-?glow|isoglow|iso-figure|ai-iso-skill|aprilzz|april ?zhu|april-zhu|tolga|cohce|mrbongoc
+自检关键词：impeccable|finesse|taste-?skill|design-taste|emil|kowalski|animations\.dev|lottiefiles|bakaus|leonxlnx|mouse-lin|西瓜同学|ehmo|review-animations|improve-animations|find-animation-opportunities|animation-vocabulary|pick-ui-library|motion-design|apple-design|animate-expo|iso-?glow|isoglow|iso-figure|ai-iso-skill|aprilzz|april ?zhu|april-zhu|tolga|cohce|mrbongoc|wheresryan|anatomy-community|--anatomy-
 
 ---
 
@@ -406,6 +407,36 @@ MIT License
 
 Copyright (c) 2026 April Zhu (iso-glow: lighting, palettes, gallery shell, examples)
 Copyright (c) 2026 Tolga Cohce (iso-figure, on which iso-glow is based)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+## 8. Anatomy（anatomy）
+
+- 来源：https://github.com/wheresryan22/anatomy ，2026-10-18 的版本（提交 1482e84）；作者 Ryan
+- 用到的部分：`SKILL.md`（改名为 `index.md`）；`references/` 里除 `publish.md` 以外的 9 份；`kit/` 全部；`scripts/` 里画图、检查、打印要用的 11 个（不含发布到社区画廊的 `publish.mjs` 和它用的 `session.mjs`、`fingerprint.mjs`，不含测试）；`examples/` 9 个示例的源码（不含打包好的 HTML 和 PDF）。都放在 `references/visual/explain-objects/`
+- 已修改：去掉 skill 的名字、社区画廊和发布脚本；代码里带原名的 CSS 变量（`--fig-` 开头）、临时文件夹前缀和环境变量改名，图外框的 class 从 `iso-figure` 改成 `iso-fig`（跟第 7 节的原名撞了），街机示例屏幕上的原名改成 `ARCADE`，打印页脚的原名改成图的名字；`--fig-ease` 曲线按参数词典改成 `--ease-out`，悬停抬起从 700ms 改成 300ms；自己开始的演示改成 5 秒内停住、不自己重新开始（示例代码保留原版的循环，正文写明只学写法）；文档里互相引用的路径改成本库的
+
+```text
+MIT License
+
+Copyright (c) 2026 Ryan
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
