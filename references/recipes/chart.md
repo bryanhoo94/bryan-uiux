@@ -5,7 +5,9 @@
 **图表额外规则**
 
 - 进入动画（画出、数字增长）每个会话只播一次；之后只在数据变化时播。dashboard 一天打开几十次，每次都从零画会很烦。
-- 进入绘制 300–500ms，按全屏切换那一档。
+- 进入绘制 300–500ms，按全屏切换那一档。落地页和对外汇报页的滚动叙事可以更长，起始值 800ms。
+- 首屏以下的图表等进了屏幕再播：一个 IntersectionObserver 看图表容器，露出 30%（起始值）才开始，开始后停止观察，滚走再回来不重播。首屏里的图表打开就播。RN 用 `onViewableItemsChanged`，或者 `onLayout` 记下位置再跟滚动位置比。
+- 柱子从 0 长高用 `scaleY`，`transform-origin: bottom`，不动 `height`；SVG 柱子加 `transform-box: fill-box`。柱顶有圆角时改用 `clip-path: inset(100% 0 0 0 round 圆角)` 过渡到 `inset(0 round 圆角)`，圆角不会被压扁。柱顶数字和柱高用同一个进度插值（同 D1），不用 G3，G3 是数字变化时用的。
 - 动画只能帮助看懂，不能改变数据的样子：比例、面积、刻度必须和数据一致。
 - 屏幕阅读器读的是最终值（写在 `aria-label` 里），不是动画中的数字。
 - 颜色不能是唯一的区分方式，要配标签或图例。选哪种图、怎么配色见 `references/visual/new-page/references/dataviz.md`；项目有 `DESIGN.md` 就用它的 token。
