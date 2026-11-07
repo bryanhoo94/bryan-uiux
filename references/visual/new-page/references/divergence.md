@@ -233,7 +233,7 @@ Then **honor the draw** — you may reject it, but you must reject it *in writin
 
 ## 7. The Direction Proposal — assert, don't poll
 
-> **Owner note.** Setting the direction from the project and telling the user is owned by `references/ux/interview.md`. This section applies only when that step did not happen (the user named what to build and came straight here). If it did happen, that direction stands: nothing below is asked again.
+> **Owner note.** 给用户看方向、让用户选，归 `references/ux/interview.md` 的建议卡管。下面说的「文字菜单选不出来」本库还是认的，所以建议卡不是三段形容词：每项有推荐、有项目里的证据、有图鉴小图，回「好」就行。这一节只在没有出卡时才用（用户点名要做什么，直接到了这里）。出过卡，那个方向就定了，下面不再问。
 
 The old §0.B Design Read emits **one** direction, and the user rubber-stamps it. The obvious fix — "offer three options and let the user choose" — is **wrong, and it has been tested to failure.**
 

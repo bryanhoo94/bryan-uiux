@@ -1,6 +1,6 @@
 ---
 name: bryan-uiux
-description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动效、收尾检查。先读当前项目，自己判断该用什么设计，不让用户从菜单里挑；同一项目的 UI/UX 和动效统一，每页都有桌面和手机视图。内容：从零做新页面、改版、收尾检查（critique / audit / polish）和定向修（配色、字体、排版、文案、适配、性能）；85 个交互配方（页面、组件、图表控件、手势、控件反馈、动效质感、网页效果）、Matter.js 物理、Web 和 RN / Expo 动效写法、动效评审；dashboard 骨架 K1–K6 和排版方向 L1–L5（含等距 3D）、能玩的发光等距小物件（线稿、实心、three.js 3D）、讲概念的等距实物图、导航 11 种风格、高级感卡片、质感 10 条、玻璃卡片、轴测线稿插画、11 条 UX 定律、AI 产品状态清单、参考组件库和灵感站、图标和 npm 库选型、GSAP、口味档案。适用于 Web、RN / Expo、Capacitor、Electron / Tauri。Use when 用户说「帮我设计一下 / 好看一点 / 随便你 / 我不知道要什么样 / 现在这个好丑 / 太 generic / 太 AI 味 / 高级一点 / 塑料感 / 抠细节」；新建、重做、改版某页或某屏（后台、工作台、dashboard、落地页、官网、定价页、登录页、表单、设置页、商品页、H5、活动页）；review 或 audit 现有 UI/UX；调配色、字体、间距、深色模式、空状态、错误态、设计 token；「转化低 / 找不到按钮 / 减少摩擦 / 手机上坏了」；「加点交互 / 微交互 / 手感 / 质感 / 更有生命力 / 像 iOS 那样顺」；3D 可视化、数字孪生、大屏；「能转能点的 3D 小物件 / 等距发光 / 把 .glb 做成线稿」；「把复杂概念画成一台机器」；导航栏、卡片；给列表、滑杆、开关、步骤条加反馈；手势（滑动返回、拖拽排序、下拉回弹）；滚动（视差、吸顶、渐显）；物理感（磁吸、液态形变、碰撞、掉落）；AI 界面（思考状态、流式输出、工具调用、操作确认）；写动画、评审动效、找哪里该加动效、「这个效果叫什么」；选组件库、图标库、npm 库，找设计参考；「记下来 / 收藏这个 / 整理截图」；点名配方（主题扩散、数字翻牌、渐进模糊…）；用大白话描述效果（「鼠标放上去变大旁边让开」）。
+description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动效、收尾检查。先读项目出建议卡，用户选了才动手，交互动效每次都设计；同一项目的 UI/UX 和动效统一，每页都有桌面和手机视图。内容：从零做新页面、改版、收尾检查（critique / audit / polish）和定向修（配色、字体、排版、文案、适配、性能）；85 个交互配方（页面、组件、图表控件、手势、控件反馈、动效质感、网页效果）、Matter.js 物理、Web 和 RN / Expo 动效写法、动效评审；dashboard 骨架 K1–K6 和排版方向 L1–L5（含等距 3D）、能玩的发光等距小物件（线稿、实心、three.js 3D）、讲概念的等距实物图、导航 11 种风格、高级感卡片、质感 10 条、玻璃卡片、轴测线稿插画、11 条 UX 定律、AI 产品状态清单、参考组件库和灵感站、图标和 npm 库选型、GSAP、口味档案。适用于 Web、RN / Expo、Capacitor、Electron / Tauri。Use when 用户说「帮我设计一下 / 好看一点 / 随便你 / 我不知道要什么样 / 现在这个好丑 / 太 generic / 太 AI 味 / 高级一点 / 塑料感 / 抠细节」；新建、重做、改版某页或某屏（后台、工作台、dashboard、落地页、官网、定价页、登录页、表单、设置页、商品页、H5、活动页）；review 或 audit 现有 UI/UX；调配色、字体、间距、深色模式、空状态、错误态、设计 token；「转化低 / 找不到按钮 / 减少摩擦 / 手机上坏了」；「加点交互 / 微交互 / 手感 / 质感 / 更有生命力 / 像 iOS 那样顺」；3D 可视化、数字孪生、大屏；「能转能点的 3D 小物件 / 等距发光 / 把 .glb 做成线稿」；「把复杂概念画成一台机器」；导航栏、卡片；给列表、滑杆、开关、步骤条加反馈；手势（滑动返回、拖拽排序、下拉回弹）；滚动（视差、吸顶、渐显）；物理感（磁吸、液态形变、碰撞、掉落）；AI 界面（思考状态、流式输出、工具调用、操作确认）；写动画、评审动效、找哪里该加动效、「这个效果叫什么」；选组件库、图标库、npm 库，找设计参考；「记下来 / 收藏这个 / 整理截图」；点名配方（主题扩散、数字翻牌、渐进模糊…）；用大白话描述效果（「鼠标放上去变大旁边让开」）。
 ---
 
 # Bryan UI/UX — 结构、视觉、动效、收尾，一个 skill 做完
@@ -9,24 +9,26 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 
 ## 第零步：先看是哪种叫法
 
+**每次先出建议卡**：下表里除了写明不出卡的，都先按 [references/ux/interview.md](references/ux/interview.md) 出一张卡（写法和全部选项在 [references/ux/options.md](references/ux/options.md)），用户回了才动手。卡上第一行是这个产品的风格，第 1 项永远是交互动效。
+
 | 用户怎么说 | 怎么办 |
 |---|---|
-| 只打 `/bryan-uiux`；或者「帮我设计一下 / 好看一点 / 高级一点 / 随便你 / 我不知道要什么样」，而要做的页还不存在 | **默认走全套**：先做第一步认项目、写项目画像，再按 [references/ux/interview.md](references/ux/interview.md) 从项目里自己定方向，用一段大白话说清「你会看到什么、根据什么」，然后**直接先做一屏**，桌面视图和手机视图都给用户看；做完再按它的「一次问一题」问：结构 → 视觉 → 动效多少 → 转场 → 交互，每题推荐排第一，回「好」就照推荐，项目定得了的不问，最多 3 题。只有项目里看不出「给谁用、想干成什么」时，才在做之前问这 1 个问题。不要反问「你想做什么」，也不给方案菜单让用户挑 |
+| 只打 `/bryan-uiux`；或者「帮我设计一下 / 好看一点 / 高级一点 / 随便你 / 我不知道要什么样」，而要做的页还不存在 | **默认走全套**：先做第一步认项目、写项目画像，再出**完整卡**：产品风格 + 交互动效 + 最多 2 项，每项 ⭐ 推荐加一句项目里的证据、1–2 个备选。用户回「好」就全用 ⭐，再先做一屏，桌面视图和手机视图都给用户看，附一张交互表。只有项目里看不出「给谁用、想干成什么」时，才在出卡之前问这 1 个问题。不要反问「你想做什么」 |
 | `/bryan-uiux <页面名>`，例如「设置页」 | 同上，但范围锁定在那一页；那一页已经存在就走下面的改版 |
-| 已有的页面不满意（`/bryan-uiux redesign <页面>`、「现在这个好丑 / 太土了 / 太 AI 味 / 太 generic / 好看一点 / 高级一点」） | 改版。先说清保留什么、换成什么感觉，再按页面类型走：落地页、作品集、官网 → [references/visual/redesign/index.md](references/visual/redesign/index.md)（从它的第 11 节读起）；dashboard、后台、表格页（redesign 那份不管这类）→ 先跑 `critique` 和 `audit` 看现状，骨架按 [references/visual/dashboard-layouts.md](references/visual/dashboard-layouts.md) 的信号表重新判断，视觉走 [references/visual/new-page/index.md](references/visual/new-page/index.md) 的 product 路线；有 `DESIGN.md` 就锁定 token，只动结构 |
-| 「没人点 / 转化低 / 太复杂 / 找不到按钮」 | 先按 [references/ux/ux-laws.md](references/ux/ux-laws.md) 的检查清单过一遍，列出违反了哪几条、各怎么改，再动手 |
-| 检查现有页面，只看不改（`/bryan-uiux review`、`critique`、`audit`，「review 一下 / 检查现在的 UI / 哪里不好 / 挑毛病 / 上线前检查」） | **只看不改**：先第一步认项目，列出所有页面，每一页都看，不只看首页（点名了页面就只看那一页）。能跑起来就截图看桌面 1440px 和手机 390px 两种宽度；跑不起来就读代码，并说明是读代码判断的。每一页按 [references/ux/ux-laws.md](references/ux/ux-laws.md) 的页面类型过结构四问和检查清单（前 7 条，加上这一屏用得上的第 8–11 条）；配色、字体、间距按 [references/visual/finish/index.md](references/visual/finish/index.md) 把 `critique` 和 `audit` 两个都跑，再按 [references/visual/premium-details.md](references/visual/premium-details.md) 的收尾清单过质感 10 条；动效对照项目动效规格，没有规格就数一下现在用了几套时长和曲线。最后给一张表：页面 ｜ 违反哪条 ｜ 现在怎样 ｜ 怎么改 ｜ 先改哪个，按影响排序，并说推荐先改前几条 |
-| 打磨（`polish`，「打磨一下」，或者检查完用户说「改吧 / 改前 3 条」） | 按 [references/visual/finish/index.md](references/visual/finish/index.md) 的 `polish`，只修检查表里用户点了的那几条 |
-| 只修一样（「字体不对 / 配色太素 / 太挤 / 太吵 / 太平 / 文案看不懂 / 手机上坏了 / 很卡 / 空状态没做」） | 按 [references/visual/finish/index.md](references/visual/finish/index.md) 的命令表挑一个定向修（`typeset`、`colorize`、`layout`、`quieter`、`bolder`、`clarify`、`adapt`、`optimize`、`onboard`…）。空状态和引导要配图时，再按 [references/visual/illustrations.md](references/visual/illustrations.md) 第一节判断画不画 |
-| 「质感不够 / 塑料感 / 廉价 / 抠细节」，或者做 AI 对话界面要抠细节 | 按 [references/visual/premium-details.md](references/visual/premium-details.md) 的收尾清单逐条过，只修没过的；会动的那几样按它开头写的配方做（C21 流式文字、F16 复制成功、F5 展开收起） |
+| 已有的页面不满意（`/bryan-uiux redesign <页面>`、「现在这个好丑 / 太土了 / 太 AI 味 / 太 generic / 好看一点 / 高级一点」） | 改版。先出完整卡，卡上说清保留什么、换成什么感觉，用户回了再按页面类型走：落地页、作品集、官网 → [references/visual/redesign/index.md](references/visual/redesign/index.md)（从它的第 11 节读起）；dashboard、后台、表格页（redesign 那份不管这类）→ 先跑 `critique` 和 `audit` 看现状，骨架按 [references/visual/dashboard-layouts.md](references/visual/dashboard-layouts.md) 的信号表重新定 ⭐，视觉走 [references/visual/new-page/index.md](references/visual/new-page/index.md) 的 product 路线；有 `DESIGN.md` 就锁定 token，只动结构 |
+| 「没人点 / 转化低 / 太复杂 / 找不到按钮」 | 先按 [references/ux/ux-laws.md](references/ux/ux-laws.md) 的检查清单过一遍，违反的几条和改法写成短卡，用户回了再动手 |
+| 检查现有页面，只看不改（`/bryan-uiux review`、`critique`、`audit`，「review 一下 / 检查现在的 UI / 哪里不好 / 挑毛病 / 上线前检查」） | **只看不改**：先第一步认项目，列出所有页面，每一页都看，不只看首页（点名了页面就只看那一页）。能跑起来就截图看桌面 1440px 和手机 390px 两种宽度；跑不起来就读代码，并说明是读代码判断的。每一页按 [references/ux/ux-laws.md](references/ux/ux-laws.md) 的页面类型过结构四问和检查清单（前 7 条，加上这一屏用得上的第 8–11 条）；配色、字体、间距按 [references/visual/finish/index.md](references/visual/finish/index.md) 把 `critique` 和 `audit` 两个都跑，再按 [references/visual/premium-details.md](references/visual/premium-details.md) 的收尾清单过质感 10 条；动效对照项目动效规格，没有规格就数一下现在用了几套时长和曲线。交互也要看：每页的主操作、状态变化、等待、进下一层有没有反馈。最后给一张表：页面 ｜ 违反哪条 ｜ 现在怎样 ｜ 怎么改 ｜ 先改哪个，按影响排序，并说推荐先改前几条。不出卡 |
+| 打磨（`polish`，「打磨一下」，或者检查完用户说「改吧 / 改前 3 条」） | 按 [references/visual/finish/index.md](references/visual/finish/index.md) 的 `polish`，只修检查表里用户点了的那几条。用户还没点过要改哪几条，先出短卡 |
+| 只修一样（「字体不对 / 配色太素 / 太挤 / 太吵 / 太平 / 文案看不懂 / 手机上坏了 / 很卡 / 空状态没做」） | 出短卡，用户回了再按 [references/visual/finish/index.md](references/visual/finish/index.md) 的命令表挑一个定向修（`typeset`、`colorize`、`layout`、`quieter`、`bolder`、`clarify`、`adapt`、`optimize`、`onboard`…）。空状态和引导要配图时，再按 [references/visual/illustrations.md](references/visual/illustrations.md) 第一节判断画不画 |
+| 「质感不够 / 塑料感 / 廉价 / 抠细节」，或者做 AI 对话界面要抠细节 | 按 [references/visual/premium-details.md](references/visual/premium-details.md) 的收尾清单逐条过，没过的写成短卡，用户回了只修这几条；会动的那几样按它开头写的配方做（C21 流式文字、F16 复制成功、F5 展开收起） |
 | 项目还没有 `PRODUCT.md` 或 `DESIGN.md`，用户想补上（`init`、`document`） | `PRODUCT.md` 按 [references/core/product-brief.md](references/core/product-brief.md) 写；`DESIGN.md` 按 [references/core/design-doc.md](references/core/design-doc.md) 从现有代码整理 |
 | 做导航（底部 Tab、侧边栏、顶栏、「导航栏好丑」） | 按 [references/visual/navigation.md](references/visual/navigation.md) 做：手机、平板、桌面三种宽度一起出，同一组入口 |
 | 做 3D 可视化、数字孪生、可视化大屏、等距场景（「把数据做立体一点」「让客户一眼看懂仓库现在什么情况」） | 按 [references/visual/isometric-scene.md](references/visual/isometric-scene.md) 做：先过第 1 节「该不该上 3D」那道关，再定场景画法 S1–S4 和是哪种屏（演示 / 后台 / 大屏）；桌面视图和手机视图一起出。要装 3D 的 npm 包先问用户 |
 | 做一个能玩的小物件（「能转能点的 3D」「一按就亮的小设备」「等距发光线稿」「把这个 .glb 做成线稿」），或者落地页、演示页要讲清一台设备怎么用 | 按 [references/visual/glow-objects.md](references/visual/glow-objects.md) 做：先过第 1 节「用不用」，再定三种画法（线稿发光 / 实心 / 真 3D），从现成模板改，不重写；桌面视图和手机视图一起出。dashboard 日常页、大屏、空状态不用它 |
 | 把一个看不见的概念、规则、算法讲明白（「把复杂的概念变得容易懂」「把这条规则画成一台机器」「说明页 / 文档配一张会动的图」），或者落地页「它怎么工作」那一节 | 按 [references/visual/explain-objects.md](references/visual/explain-objects.md) 做：先过第 1 节「用不用」，写下真的数字、一句话「什么在动、代表什么」、按什么 → 出什么，再从最接近的示例改；桌面视图和手机视图一起出。画产品本身用上一行的发光小物件，空状态用轴测线稿插画 |
-| 点名要什么（「加个数字翻牌」「这个按钮加个按下效果」） | 跳过提问，直接做：用户点名就算确认过，第三步第 4 条的确认表省掉。点名的是动作（hover、按下、拖、滑动）就查 [references/core/pick.md](references/core/pick.md) 的「按手怎么动来挑」 |
-| 「加点交互 / 加点微交互 / 哪里该加动效 / 让它更有生命力」，但没说加在哪 | 按 [references/review/opportunities.md](references/review/opportunities.md) 找，先过频率关，再按峰终定律排序，只推荐最值得的 1–3 处，问一句「先加这几处？」，用户点头再加 |
-| 「滑起来太平 / 加点滚动效果」，或者这一页要滚很长 | 查 [references/core/pick.md](references/core/pick.md) 的「页面要滚动时」，按项目信号自己挑，先过频率关 |
+| 点名要什么（「加个数字翻牌」「这个按钮加个按下效果」） | 不出卡，直接做：用户点名就算确认过，第三步第 4 条的确认表省掉。做完补一行「这页还可以加 X，要吗」。点名的是动作（hover、按下、拖、滑动）就查 [references/core/pick.md](references/core/pick.md) 的「按手怎么动来挑」 |
+| 「加点交互 / 加点微交互 / 哪里该加动效 / 让它更有生命力」，但没说加在哪 | 按 [references/review/opportunities.md](references/review/opportunities.md) 找，先过频率关，再按峰终定律排序，只推荐最值得的 1–3 处，写成短卡，用户回了再加 |
+| 「滑起来太平 / 加点滚动效果」，或者这一页要滚很长 | 查 [references/core/pick.md](references/core/pick.md) 的「页面要滚动时」，按项目信号定 ⭐，先过频率关，写成短卡 |
 | 用大白话描述效果（「鼠标放上去变大旁边让开」） | 查 [references/recipes/effects.md](references/recipes/effects.md) 翻译表，复述确认后再做 |
 | 「这个效果叫什么」 | 查 [references/recipes/vocabulary.md](references/recipes/vocabulary.md)，只回答名字，不动手做 |
 | 评审已有动效（「动效 review / 这个动画哪里不对」） | 按 [references/review/motion-review.md](references/review/motion-review.md)，只看不改 |
@@ -34,7 +36,7 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 | 丢来链接或截图，说「记下来 / 收藏这个 / 这个好看」 | 按 [references/ux/taste.md](references/ux/taste.md) 记一条收藏，只记不做 |
 | 「整理截图」（截图已经拖进 `screenshot/`） | 按 [references/ux/taste.md](references/ux/taste.md) 把新截图写进索引，写完给用户一张表改猜错的 |
 
-走全套时：第一步认项目、写项目画像 → 自己定方向，用一段话说清 → **先做一屏**，桌面视图和手机视图都给用户看 → 一次问一题（推荐排第一，回「好」就照推荐，最多 3 题）。用户说不对，只换他点的那一项；连着否两次，才做 2–3 屏真的给他比（不是文字菜单）。
+走全套时：第一步认项目、写项目画像 → 出建议卡 → 用户回「好」或「1B」→ 按结构、静态视觉、动效的顺序做 → **先做一屏**，桌面视图和手机视图都给用户看，附交互表 → 把这张卡记进 `.bryan-uiux/log.json`，下次否过的不再推、备选换新的。用户说不对，只换他点的那一项；连着否两次，才做 2–3 屏真的给他比（不是文字菜单）。同一个项目保持统一：整体风格选一次就锁，回「换方向」才全项目一起换。
 
 ## 第一步：认项目（每次都做，不用问用户）
 
@@ -73,14 +75,14 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 
 - 已经有动效文档（不管叫什么名字）→ 直接用它，不另建第二份。
 - 没有 → 按 [references/core/motion-spec-template.md](references/core/motion-spec-template.md) 起草 `docs/MOTION-SPEC.md`。常量从现有代码提取，已有 token 就沿用，不另起一套；人格按第一步的项目画像定，配方范围看 [references/core/pick.md](references/core/pick.md) 的「人格 → 配方范围」表；意图用三问（想让用户感觉什么、动效人格、主角时刻），要展开时读 [references/build/intent.md](references/build/intent.md)。
-- **给用户确认人格和常量后才写入。** 走全套时，用户看完第一屏、答完那几题（`references/ux/interview.md`）就算确认。 写入后在项目 `CLAUDE.md` 加一句「动效按 `docs/MOTION-SPEC.md`」；项目没有 `CLAUDE.md` 就新建一个，只写这一句。以后每个会话都会自动遵守。
+- **给用户确认人格和常量后才写入。** 用户回了建议卡（`references/ux/interview.md`）就算确认。 写入后在项目 `CLAUDE.md` 加一句「动效按 `docs/MOTION-SPEC.md`」；项目没有 `CLAUDE.md` 就新建一个，只写这一句。以后每个会话都会自动遵守。
 
 ## 第三步：按动效规格挑配方
 
 1. 同一类组件已经在规格的「已采用」里 → 照用它的配方和参数，不重新挑。**这是全项目统一的关键。**
 2. 在规格的「没采用」里 → 不用，除非用户明确推翻。
 3. 规格里都没有 → 用 [references/core/pick.md](references/core/pick.md) 的「按场景挑」表，在人格范围内挑 1–3 个。每个都要说得出「它回答用户的哪个问题」，并过两道关：频率关（每天用 100 次以上的操作不加动画）、目的关（说不出目的就不做）。配方里的「别用在」优先于用户笼统的「加点动效」。
-4. **新配方先问用户，点头再写代码**（用户自己点名的配方算已确认，不用再问）：按 [references/ux/interview.md](references/ux/interview.md) 的「一次问一题」问，推荐的配方排第一，写清放在哪个元素、回答用户的哪个问题、要不要装新包；回「好」就照推荐。编号和参数写进规格，不念给用户听。**装任何 npm 包之前先问用户**；项目里已有同类库（例如已经有 Motion 就别再装 GSAP）就用已有的；确实要选新库，查 [references/visual/pick-library.md](references/visual/pick-library.md)。
+4. **新配方先问用户，点头再写代码**（用户自己点名的配方算已确认，不用再问）：写进建议卡第 1 项（`references/ux/options.md`）；卡以外临时要加的，按 [references/ux/interview.md](references/ux/interview.md) 的「一次问一题」问，推荐的配方排第一，写清放在哪个元素、回答用户的哪个问题、要不要装新包；回「好」就照推荐。编号和参数写进规格，不念给用户听。**装任何 npm 包之前先问用户**；项目里已有同类库（例如已经有 Motion 就别再装 GSAP）就用已有的；确实要选新库，查 [references/visual/pick-library.md](references/visual/pick-library.md)。
 5. 拿完整配方：`references/core/pick.md` 最后一节「全部配方」写着每个配方在哪份文件的第几行，按行号只读挑中的那几个（那一类有共同规则时一起读），不整份读配方文件。
 6. 按平台和输入方式落地：同一个配方在触屏、鼠标 / 触控板、键盘上各怎么做，见 `references/core/platforms.md` 第 2 节。触屏手势配方在桌面上要有鼠标或键盘的对应做法。再按屏幕宽度落地：同一页在桌面视图和手机视图怎么排、哪些配方要换，见第 2.2 节。
 7. 参数按人格改写。例如「不回弹」人格把 `spring-gesture` / `spring-pop` 一律换成 `spring-ui`。改写后的值写进规格。
@@ -93,7 +95,7 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 | 层 | 做什么 | 看哪份 |
 |---|---|---|
 | 1 结构 | 结构四问，再先减选项、再分组、最后只高亮 1 样（做事的页是主操作，看的页是主数字） | `references/ux/ux-laws.md` |
-| 2 静态视觉 | 质感 10 条照做（`references/visual/premium-details.md`）。有 `DESIGN.md` 就锁定 token，只动结构和层级。没有时：新页面按 `references/visual/new-page/index.md`，改版按 `references/visual/redesign/index.md`。做 dashboard 且没有 `DESIGN.md`，先从 `references/visual/dashboard-layouts.md` 按每页的数据自己判断骨架 K1–K6（不让用户挑）、按它的信号表给整个产品定 1 个排版方向 L1–L5（同样不让用户挑），写进 `DESIGN.md`，再做新页面 | 左边两份，二选一 |
+| 2 静态视觉 | 质感 10 条照做（`references/visual/premium-details.md`）。有 `DESIGN.md` 就锁定 token，只动结构和层级。没有时：新页面按 `references/visual/new-page/index.md`，改版按 `references/visual/redesign/index.md`。做 dashboard 且没有 `DESIGN.md`，先从 `references/visual/dashboard-layouts.md` 按每页的数据定骨架 K1–K6 的 ⭐、按它的信号表给整个产品定 1 个排版方向 L1–L5 的 ⭐，放上建议卡，用户回了写进 `DESIGN.md`，再做新页面 | 左边两份，二选一 |
 | 3 收尾 | `critique` 和 `audit` 两个都跑，再过质感 10 条，挑出问题，再 `polish` | `references/visual/finish/index.md`、`references/visual/premium-details.md` |
 | 4 挑配方 | 第三步 | `references/core/pick.md` |
 | 5 写动效 | 第三步第 8 条 | `references/build/web.md` / `references/build/rn.md` |
@@ -115,12 +117,13 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 
 ## 什么时候停下来问用户
 
-1. 项目第一次建动效规格时，确认人格和常量（走全套时，先做的那一屏就是拿来确认的）。
+0. 每次调用先出建议卡，第零步写明不出卡的除外。
+1. 项目第一次建动效规格时，确认人格和常量（建议卡就是拿来确认的）。
 2. 要加一个规格里还没有、用户也没点名的新配方时。
 
-另外两件本来就要先问：装 npm 包；生成或下载图片。项目里看不出「给谁用、想干成什么」时，问这 1 个问题。
+另外两件本来就要先问：装 npm 包；生成或下载图片。写在卡上，用户回「好」就算同意。项目里看不出「给谁用、想干成什么」时，问这 1 个问题。
 
-怎么问都一样，按 [references/ux/interview.md](references/ux/interview.md)：一次一题，推荐排第一，回「好」就照推荐；查得到的事实自己查，不问用户。
+卡以外怎么问，按 [references/ux/interview.md](references/ux/interview.md)：一次一题，推荐排第一，回「好」就照推荐；查得到的事实自己查，不问用户。
 
 其余全部照规格自动做。
 
@@ -162,8 +165,9 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 
 **ux/ 体验和流程**
 - 结构四问 + 减少摩擦的 11 条 UX 定律 + 检查清单 → [references/ux/ux-laws.md](references/ux/ux-laws.md)（出方案和自检时必须过）
-- 从项目里自己定方向、说给用户听，做完一屏再一次问一题；全库「问用户」的问法 → [references/ux/interview.md](references/ux/interview.md)（见第零步）
-- 口味档案（觉得好看的设计）→ [references/ux/taste.md](references/ux/taste.md)（截图和索引在 `screenshot/`；走全套和出方案时读；用户说「记下来 / 整理截图」时写）
+- 什么时候出建议卡、用户回了怎么办、交互表、全库「问用户」的问法 → [references/ux/interview.md](references/ux/interview.md)（见第零步）
+- 建议卡怎么写、哪些选项能上卡、怎么做到下次不一样、全部选项（排版、卡片、导航、配色、3D、动效）→ [references/ux/options.md](references/ux/options.md)
+- 口味档案（觉得好看的设计）→ [references/ux/taste.md](references/ux/taste.md)（截图和索引在 `screenshot/`；出建议卡时读；用户说「记下来 / 整理截图」时写）
 
 **visual/ 长什么样**（静态视觉阶段用，见第四步）
 - 从零做新页面：品牌页、产品后台、工作流页、AI 工作台、电商页、手机 H5 → [references/visual/new-page/index.md](references/visual/new-page/index.md)（它自己的参考文件和 22 个示例网页在同一个文件夹）

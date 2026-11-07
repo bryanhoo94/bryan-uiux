@@ -1,7 +1,7 @@
 <!-- 第三方开源内容（MIT），已按本库规则修改；版权声明见仓库根目录 THIRD_PARTY_NOTICES.md -->
 
 > - **这份管什么**：从零做一个新页面或新屏幕（落地页、品牌页、dashboard、后台、电商页、手机 H5），动词是 `/bryan-uiux new`；另有 6 个只改一处的小动词 `soul`、`diverge`、`beats`、`depth`、`densify`、`scan`，见下面的 Commands。
-> - **什么时候读**：主入口 `SKILL.md` 第一步已经认完项目，要做的页面还不存在的时候。做 dashboard 而项目没有 `DESIGN.md`：先按 `references/visual/dashboard-layouts.md` 的信号表定骨架 K1–K6 和排版方向 L1–L5，排版方向写进 `DESIGN.md`，再走这里的流程。主入口已经按 `references/ux/interview.md` 从项目里定了方向、也告诉了用户：下面的「Design Read」直接用它，不再问一遍。
+> - **什么时候读**：主入口 `SKILL.md` 第一步已经认完项目，要做的页面还不存在的时候。做 dashboard 而项目没有 `DESIGN.md`：先按 `references/visual/dashboard-layouts.md` 的信号表定骨架 K1–K6 和排版方向 L1–L5，排版方向写进 `DESIGN.md`，再走这里的流程。用户已经在建议卡（`references/ux/interview.md`）上选了方向：下面的「Design Read」直接用它，不再问一遍。
 > - **不管什么、去哪看**：写 `PRODUCT.md` → `references/core/product-brief.md`；把现有代码的设计整理成 `DESIGN.md` → `references/core/design-doc.md`；改版已有页面 → `references/visual/redesign/index.md`；收尾（`critique`、`audit`、`polish`、`bolder`、`quieter` 等）→ `references/visual/finish/index.md`；按钮、弹层、toast 这类 UI 小动效 → `references/build/web.md` 和 `references/recipes/` 下的配方。
 > - **谁说了算**：项目 `CLAUDE.md` > 项目动效规格 > 项目 `DESIGN.md` / token > 用户明说的 > 这份文件。动效数值以 `references/core/params.md` 为准；项目有 `DESIGN.md` 就锁定它的 token，这里选配色、选字体的步骤全部跳过，只用结构和层级的部分。
 > - **定下来的东西写在哪**：token 写进项目 `DESIGN.md` 的 frontmatter 和标准章节；本流程自己定的（register、soul、三个旋钮的值、不要像什么）写在它末尾的「## Direction lock」一节，格式见下面 §0.F。`PRODUCT.md` 在这里只读不写。轮换记录在 `.bryan-uiux/log.json`。
@@ -180,7 +180,7 @@ The first two lock **consistency**; the third forces **difference**. **本库：
 
 ### 0.B Output a "Design Read" before generating — assert a direction, don't poll for one
 
-> **If the main entry already set the direction** (`references/ux/interview.md` reads it from the project and tells the user) **, the Design Read uses it.** Write the block below from it, as a record, and go on to build one screen — do not ask for the direction a second time. Keep the `Not right?` line: it is the user's one-word veto once they have seen the screen. The one line that still waits for its own answer is `Images:`, because generating or downloading pictures was not part of what the user agreed to. **If the project has a `DESIGN.md`**, the color and type in `You'll see:` are read from it, not chosen here.
+> **If the user already picked a direction on the suggestion card** (`references/ux/interview.md`) **, the Design Read uses it.** Write the block below from it, as a record, and go on to build one screen — do not ask for the direction a second time. Keep the `Not right?` line: it is the user's one-word veto once they have seen the screen. The one line that still waits for its own answer is `Images:`, because generating or downloading pictures was not part of what the user agreed to — unless the card already listed them. **If the project has a `DESIGN.md`**, the color and type in `You'll see:` are read from it, not chosen here.
 
 Name the rejected default **first** (§0.D), then the direction — then **say what the page will look like in words the user can picture**, and give them two concrete ways to object:
 
@@ -231,7 +231,7 @@ If the page genuinely wants no photography (a phosphor-terminal build, a pure-ty
 
 **The rotation line is not optional, and it is not decoration.** Rotation you perform in your head is indistinguishable — afterwards, to you and to the user — from rotation you merely narrated. Writing it down before any code exists is what makes a bad rotation catchable while it's still free to fix. **Write it as a sentence, not as axis letters:** `differs on E + C + A (3/5 ✓)` is unfalsifiable *to the user* — they can't tell what E is, so they can't object that they actually wanted machined metal. The five-axis coordinates still get recorded, in `.bryan-uiux/log.json` and the CSS stamp (§8.0), which is where a `scan` reads them from. Threshold and format: `divergence.md` §4.4. Omit the line only on the first build of a project (no log, no stamp) — and say that's why. **本库：同一个产品的后续页面，这行写「沿用这个项目定好的方向」**，不轮换（`divergence.md` §4 开头）。
 
-> **本库的规矩**（跟下面这句 STOP 不一样时听这条）：方向是从项目里看出来的，说完 Design Read 就直接做一屏，不停下来等；只有 `Images:` 那一行要等用户点头（生成或下载图片要花钱、有版权问题）。用户看到那一屏再否决，比看文字否决准。
+> **本库的规矩**（跟下面这句 STOP 不一样时听这条）：等用户这件事由建议卡（`references/ux/options.md`）做完了，回了卡就直接做，Design Read 只是记录，不再停一次。`Images:` 写在卡上；卡上没写的图片才要另外等用户点头（生成或下载图片要花钱、有版权问题）。
 
 **STOP after the Design Read. Do not generate any code yet.** Wait for confirmation or redirect. (The one exception is the note at the top of this section: a direction the user already picked in the main entry's interview is not confirmed twice; then only an open `Images:` offer makes you wait.)
 
@@ -239,7 +239,7 @@ If the page genuinely wants no photography (a phosphor-terminal build, a pure-ty
 
 > **When the user can't evaluate the assertion at all, that's Mode 2.** If the brief carried no directional information — only undirected praise-words ("好看", "高级", "有质感", "premium", "clean"), or an explicit "I can't really say" — then `You'll see:` will get a rubber-stamp no matter how plainly it's written, because the user has no basis for comparison. Build three real variants instead (`divergence.md` §7 Mode 2 + the squint test). Undirected adjectives are as strong a fork signal as a genuinely ambiguous brief.
 >
-> **本库的规矩**：只会说「好看」不算 Mode 2 的理由，项目里有信号就照常定一个方向。Mode 2 只在 `references/ux/interview.md`「先做一屏，然后」第 5 条的情况下用：空项目一点线索都没有，或用户连着否了两次。
+> **本库的规矩**：只会说「好看」不算 Mode 2 的理由，项目里有信号就照常出建议卡。Mode 2 只在 `references/ux/interview.md`「用户怎么回，你怎么做」最后一段的情况下用：空项目一点线索都没有，或用户连着否了两次。
 
 **The exception — when the brief genuinely forks** (a "premium" brand that could be austere-Nordic *or* maximal-baroque; a personal site that could be a portfolio *or* a manifesto): don't describe the options, **build them**. Three low-fidelity but *real*, screenshot-able pages, each moving on a **different axis**, then let the user look. See `references/divergence.md` §7 — including the **squint test** that stops the three variants from collapsing into one.
 
