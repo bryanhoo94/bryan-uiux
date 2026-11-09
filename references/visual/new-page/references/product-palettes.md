@@ -143,25 +143,25 @@ Two rules that break most dark modes:
 
 ## 3. Accent Library
 
-Mix any of these with any §2 ramp (respect the hue-match note). Each row gives the **light** value (used on a white/near-white card), the **dark** value (on a `900` panel — always lighter and more saturated; never reuse the light value), and what text color survives on top of the accent fill.
+Mix any of these with any §2 ramp (respect the hue-match note). Each row gives the **light** value (used on a white/near-white card), the **dark** value (on a `900` panel — always lighter and more saturated; never reuse the light value), and what text color survives on top of the accent fill — light value first, dark value second. **near-black** means the ramp's `950` (or `--ink-1`). Every dark value is too light for white text: they all take near-black.
 
-| Accent | Light | Dark | `--accent-soft` | `--on-accent` | Notes |
+| Accent | Light | Dark | `--accent-soft` | `--on-accent` (light / dark) | Notes |
 |--------|-------|------|-----------------|---------------|-------|
-| **Indigo** | `#4A46C9` | `#7B77F0` | `rgba(74,70,201,.10)` | white | The SaaS workhorse. Pair with coral, not green. |
-| **Violet** | `#5B4BD1` | `#9B85FF` | `rgba(91,75,209,.10)` | white | Flat violet ≠ the banned "AI-purple **glow**". Keep SPECTACLE ≤4. |
-| **Purple** | `#7C3F9E` | `#B57BD8` | `rgba(124,63,158,.10)` | white | Deeper, more editorial than violet. |
-| **Cobalt** | `#2D5BD8` | `#5E8CFF` | `rgba(45,91,216,.10)` | white | The deliberate platform blue. See §4 Set 9 before using. |
-| **Sky** | `#0E7FA8` | `#3FC5E8` | `rgba(14,127,168,.11)` | white | Lighter, friendlier than cobalt. |
-| **Teal** | `#176C6B` | `#2FD3C5` | `rgba(23,108,107,.10)` | white | Cool but not blue — the best "not-blue" escape. |
-| **Emerald** | `#1E8A5F` | `#3FCB86` | `rgba(30,138,95,.11)` | white | ⚠ Collides with `--up`. Move `--up` to a blue-green, or pick another accent. |
-| **Forest** | `#2F6B4F` | `#63C795` | `rgba(47,107,79,.10)` | white | Darker, more "institution" than emerald. Same `--up` caution. |
-| **Lime** | `#6F8F0F` | `#B6E018` | `rgba(111,143,15,.13)` | **near-black** | White text on lime fails AA. Always dark text on the fill. |
-| **Amber** | `#B77A16` | `#E8A33D` | `rgba(183,122,22,.12)` | **near-black** | Same — white on amber fails AA at body size. |
-| **Orange** | `#D9642A` | `#FF8A4C` | `rgba(217,100,42,.11)` | white | Burnt, not safety-cone. The merchant/ops default. |
-| **Brick** | `#A8402C` | `#E0705A` | `rgba(168,64,44,.10)` | white | ⚠ Collides with `--down`. See §7. |
-| **Coral** | `#DB4B3E` | `#FF6B5A` | `rgba(219,75,62,.10)` | white | ⚠ Same red collision. Best used as `--accent-2`, not `--accent`. |
-| **Rose** | `#B4485E` | `#F07C93` | `rgba(180,72,94,.10)` | white | The grown-up alternative to reflex hot-pink. |
-| **Magenta** | `#A93D80` | `#E87BC0` | `rgba(169,61,128,.10)` | white | Rare in product UI — that's the point. |
+| **Indigo** | `#4A46C9` | `#8582FC` | `rgba(74,70,201,.10)` | white / near-black | The SaaS workhorse. Pair with coral, not green. |
+| **Violet** | `#5B4BD1` | `#9B85FF` | `rgba(91,75,209,.10)` | white / near-black | Flat violet ≠ the banned "AI-purple **glow**". Keep SPECTACLE ≤4. |
+| **Purple** | `#7C3F9E` | `#B57BD8` | `rgba(124,63,158,.10)` | white / near-black | Deeper, more editorial than violet. |
+| **Cobalt** | `#2D5BD8` | `#5E8CFF` | `rgba(45,91,216,.10)` | white / near-black | The deliberate platform blue. See §4 Set 9 before using. |
+| **Sky** | `#0E7FA8` | `#3FC5E8` | `rgba(14,127,168,.11)` | white / near-black | Lighter, friendlier than cobalt. |
+| **Teal** | `#176C6B` | `#2FD3C5` | `rgba(23,108,107,.10)` | white / near-black | Cool but not blue — the best "not-blue" escape. |
+| **Emerald** | `#16855B` | `#3FCB86` | `rgba(22,133,91,.11)` | white / near-black | ⚠ Collides with `--up`. Move `--up` to a blue-green, or pick another accent. Light value darkened a step so white text clears 4.5:1. |
+| **Forest** | `#2F6B4F` | `#63C795` | `rgba(47,107,79,.10)` | white / near-black | Darker, more "institution" than emerald. Same `--up` caution. |
+| **Lime** | `#6F8F0F` | `#B6E018` | `rgba(111,143,15,.13)` | **near-black** / near-black | White text on lime fails AA. Always dark text on the fill. |
+| **Amber** | `#B77A16` | `#E8A33D` | `rgba(183,122,22,.12)` | **near-black** / near-black | Same — white on amber fails AA at body size. |
+| **Orange** | `#D9642A` | `#FF8A4C` | `rgba(217,100,42,.11)` | **near-black** / near-black | Burnt, not safety-cone. The merchant/ops default. White text on it is 3.6:1 — fails AA, so the label is near-black. |
+| **Brick** | `#A8402C` | `#E0705A` | `rgba(168,64,44,.10)` | white / near-black | ⚠ Collides with `--down`. See §7. |
+| **Coral** | `#D04135` | `#FF6B5A` | `rgba(208,65,53,.10)` | white / near-black | ⚠ Same red collision. Best used as `--accent-2`, not `--accent`. Light value darkened a step so white text clears 4.5:1. |
+| **Rose** | `#B4485E` | `#F07C93` | `rgba(180,72,94,.10)` | white / near-black | The grown-up alternative to reflex hot-pink. |
+| **Magenta** | `#A93D80` | `#E87BC0` | `rgba(169,61,128,.10)` | white / near-black | Rare in product UI — that's the point. |
 | **Mono** | `#2B3039` | `#D7DAE0` | `rgba(43,48,57,.08)` | white / near-black | No accent at all. Buttons are ink; the *only* color on the page is semantic. Ruthless, hard to do, unmistakable when it lands. |
 
 **Partner hue (`--accent-2`) rule:** if you take one, take it from **across the wheel**, not next door — indigo+coral, teal+clay, violet+amber, green+gold. Two adjacent hues (blue + teal) read as an accident. And a partner hue is for *a second data series or a secondary CTA* — not for decorating a third of the page.
@@ -170,17 +170,17 @@ Mix any of these with any §2 ramp (respect the hue-match note). Each row gives 
 
 ## 4. Curated Sets — 12 complete builds
 
-Paste-ready. Each is a §2 ramp + a §3 accent, already collision-checked.
+Paste-ready. Each is a §2 ramp + a §3 accent, already collision-checked. Contrast recomputed: `--ink-3` clears 4.5:1 on `--page`, `--bg` and `--panel-2`; `--on-accent` 4.5:1 on the fill; `--warn` and `--down` 4.5:1 on `--bg`, so they work as text; `--accent-2` 3:1 on `--bg`, enough for a chart series or an icon.
 
 ### Set 1 · **Sage Ledger** — forest green on sage paper *(light)*
 *Finance ops · tax · procurement · supply chain · B2B back-office.* The non-blue answer to Trust-SaaS.
 ```css
 :root{
   --page:#eef0ec; --bg:#fff; --panel-2:#f3f5f1; --border:rgba(20,32,26,.07);
-  --ink-1:#14201a; --ink-2:#3c4a43; --ink-3:#6d7d74;
+  --ink-1:#14201a; --ink-2:#3c4a43; --ink-3:#607067;
   --accent:#2F6B4F; --accent-2:#C08A3E; --accent-soft:rgba(47,107,79,.10);
   --on-accent:#fff; --glow:rgba(47,107,79,.32);
-  --up:#2C7A8C; --down:#C0453C; --warn:#B77A16;   /* --up moved to blue-green: accent is already green */
+  --up:#2C7A8C; --down:#C0453C; --warn:#A46800;   /* --up moved to blue-green: accent is already green */
   --shadow:0 1px 3px rgba(20,40,30,.05); --shadow-lg:0 40px 90px -50px rgba(20,40,30,.35);
 }
 ```
@@ -190,10 +190,10 @@ Paste-ready. Each is a §2 ramp + a §3 accent, already collision-checked.
 ```css
 :root{
   --page:#f4f0e9; --bg:#fff; --panel-2:#faf6f0; --border:rgba(48,32,20,.07);
-  --ink-1:#1f1710; --ink-2:#4a3f34; --ink-3:#82715f;
+  --ink-1:#1f1710; --ink-2:#4a3f34; --ink-3:#7b6a58;
   --accent:#D9642A; --accent-2:#2E6B63; --accent-soft:rgba(217,100,42,.11);
-  --on-accent:#fff; --glow:rgba(217,100,42,.34);
-  --up:#2F7A55; --down:#C0453C; --warn:#B77A16;
+  --on-accent:#1f1710; --glow:rgba(217,100,42,.34);
+  --up:#2F7A55; --down:#C0453C; --warn:#A46800;
   --shadow:0 1px 3px rgba(60,38,20,.05); --shadow-lg:0 40px 90px -50px rgba(60,38,20,.34);
 }
 ```
@@ -203,10 +203,10 @@ Paste-ready. Each is a §2 ramp + a §3 accent, already collision-checked.
 ```css
 :root{
   --page:#f5eeee; --bg:#fff; --panel-2:#faf3f3; --border:rgba(48,24,28,.07);
-  --ink-1:#231519; --ink-2:#4d3a3e; --ink-3:#87696f;
-  --accent:#B4485E; --accent-2:#C1913C; --accent-soft:rgba(180,72,94,.10);
+  --ink-1:#231519; --ink-2:#4d3a3e; --ink-3:#82656b;
+  --accent:#B4485E; --accent-2:#BB8B35; --accent-soft:rgba(180,72,94,.10);
   --on-accent:#fff; --glow:rgba(180,72,94,.30);
-  --up:#3B7D5C; --down:#BE4238; --warn:#B77A16;
+  --up:#3B7D5C; --down:#BE4238; --warn:#A46800;
   --shadow:0 1px 3px rgba(60,28,36,.05); --shadow-lg:0 40px 90px -50px rgba(60,28,36,.32);
 }
 ```
@@ -216,10 +216,10 @@ Paste-ready. Each is a §2 ramp + a §3 accent, already collision-checked.
 ```css
 :root{
   --page:#e9eeed; --bg:#fff; --panel-2:#f1f5f4; --border:rgba(16,38,38,.07);
-  --ink-1:#0f2322; --ink-2:#3a4b4a; --ink-3:#6b7d7c;
+  --ink-1:#0f2322; --ink-2:#3a4b4a; --ink-3:#5d6e6d;
   --accent:#176C6B; --accent-2:#C4633F; --accent-soft:rgba(23,108,107,.10);
   --on-accent:#fff; --glow:rgba(23,108,107,.30);
-  --up:#2C7A62; --down:#C0453C; --warn:#B77A16;
+  --up:#2C7A62; --down:#C0453C; --warn:#A46800;
   --shadow:0 1px 3px rgba(19,61,74,.05); --shadow-lg:0 40px 90px -50px rgba(19,61,74,.34);
 }
 ```
@@ -229,10 +229,10 @@ Paste-ready. Each is a §2 ramp + a §3 accent, already collision-checked.
 ```css
 :root{
   --page:#eeecf7; --bg:#fff; --panel-2:#f5f3fb; --border:rgba(28,22,56,.07);
-  --ink-1:#171334; --ink-2:#403a63; --ink-3:#6f6890;
-  --accent:#5B4BD1; --accent-2:#D98A3C; --accent-soft:rgba(91,75,209,.10);
+  --ink-1:#171334; --ink-2:#403a63; --ink-3:#6c658d;
+  --accent:#5B4BD1; --accent-2:#CF8131; --accent-soft:rgba(91,75,209,.10);
   --on-accent:#fff; --glow:rgba(91,75,209,.32);
-  --up:#2F7A55; --down:#C0453C; --warn:#B77A16;
+  --up:#2F7A55; --down:#C0453C; --warn:#A46800;
   --shadow:0 1px 3px rgba(30,20,70,.05); --shadow-lg:0 40px 90px -50px rgba(30,20,70,.35);
 }
 ```
@@ -242,10 +242,10 @@ Paste-ready. Each is a §2 ramp + a §3 accent, already collision-checked.
 ```css
 :root{
   --page:#e9f0ec; --bg:#fff; --panel-2:#f1f7f3; --border:rgba(18,40,32,.07);
-  --ink-1:#132420; --ink-2:#3c4e48; --ink-3:#6c7f78;
+  --ink-1:#132420; --ink-2:#3c4e48; --ink-3:#5c6f68;
   --accent:#2E9E7B; --accent-2:#8E86D8; --accent-soft:rgba(46,158,123,.11);
-  --on-accent:#fff; --glow:rgba(46,158,123,.30);
-  --up:#2C7A8C; --down:#C24C42; --warn:#B77A16;   /* --up moved: accent is green */
+  --on-accent:#132420; --glow:rgba(46,158,123,.30);
+  --up:#2C7A8C; --down:#C24C42; --warn:#A46800;   /* --up moved: accent is green */
   --shadow:0 1px 3px rgba(20,50,40,.05); --shadow-lg:0 40px 90px -50px rgba(20,50,40,.32);
 }
 ```
@@ -256,10 +256,10 @@ Paste-ready. Each is a §2 ramp + a §3 accent, already collision-checked.
 ```css
 :root{
   --page:#f3efe6; --bg:#fff; --panel-2:#f9f6ef; --border:rgba(44,30,22,.07);
-  --ink-1:#1e1712; --ink-2:#4a3e35; --ink-3:#7f7263;
+  --ink-1:#1e1712; --ink-2:#4a3e35; --ink-3:#76695b;
   --accent:#9C4A38; --accent-2:#5C5A3A; --accent-soft:rgba(156,74,56,.10);
   --on-accent:#fff; --glow:rgba(156,74,56,.28);
-  --up:#3E7A52; --down:#C22E22; --warn:#B77A16;   /* --down: pure, saturated red — reads as ALARM, not brand */
+  --up:#3E7A52; --down:#C22E22; --warn:#A46800;   /* --down: pure, saturated red — reads as ALARM, not brand */
   --shadow:0 1px 3px rgba(56,36,24,.05); --shadow-lg:0 40px 90px -50px rgba(56,36,24,.33);
 }
 ```
@@ -269,10 +269,10 @@ Paste-ready. Each is a §2 ramp + a §3 accent, already collision-checked.
 ```css
 :root{
   --page:#edeff8; --bg:#fff; --panel-2:#f4f6fc; --border:rgba(24,28,60,.07);
-  --ink-1:#141830; --ink-2:#3c4361; --ink-3:#6b7391;
-  --accent:#4A46C9; --accent-2:#FF6B5A; --accent-soft:rgba(74,70,201,.10);
+  --ink-1:#141830; --ink-2:#3c4361; --ink-3:#626a88;
+  --accent:#4A46C9; --accent-2:#F66352; --accent-soft:rgba(74,70,201,.10);
   --on-accent:#fff; --glow:rgba(74,70,201,.32);
-  --up:#2F7A55; --down:#DB4B3E; --warn:#B77A16;
+  --up:#2F7A55; --down:#D04135; --warn:#A46800;
   --shadow:0 1px 3px rgba(24,28,70,.05); --shadow-lg:0 40px 90px -50px rgba(24,28,70,.34);
 }
 ```
@@ -282,10 +282,10 @@ Paste-ready. Each is a §2 ramp + a §3 accent, already collision-checked.
 ```css
 :root{
   --page:#edf0f6; --bg:#fff; --panel-2:#f4f6fa; --border:rgba(20,32,56,.07);
-  --ink-1:#121a2b; --ink-2:#3a465c; --ink-3:#69768c;
-  --accent:#2D5BD8; --accent-2:#E08A2E; --accent-soft:rgba(45,91,216,.10);
+  --ink-1:#121a2b; --ink-2:#3a465c; --ink-3:#606d83;
+  --accent:#2D5BD8; --accent-2:#D47F1E; --accent-soft:rgba(45,91,216,.10);
   --on-accent:#fff; --glow:rgba(45,91,216,.30);
-  --up:#2F7A55; --down:#C0453C; --warn:#B77A16;
+  --up:#2F7A55; --down:#C0453C; --warn:#A46800;
   --shadow:0 1px 3px rgba(20,34,64,.05); --shadow-lg:0 40px 90px -50px rgba(20,34,64,.34);
 }
 ```
@@ -329,7 +329,7 @@ Paste-ready. Each is a §2 ramp + a §3 accent, already collision-checked.
 }
 ```
 
-> **Any light set goes dark** (and vice versa): keep the hue, re-derive. Page → the ramp's 950; `--bg` → 900; ink inverted through three levels; **accent lifted in lightness** until it clears 4.5:1 on `--bg` (use the §3 dark column). Never just swap black and white — `product-ui.md` §8: *dark mode tested independently, not inverted*.
+> **Any light set goes dark** (and vice versa): keep the hue, re-derive. Page → the ramp's 950; `--bg` → 900; ink inverted through three levels; **accent lifted in lightness** until it clears 4.5:1 on `--bg` (use the §3 dark column), and `--on-accent` flips to near-black. Never just swap black and white — `product-ui.md` §8: *dark mode tested independently, not inverted*.
 
 ### 4.A The two-tone shell — light content, dark rail *(the merchant-console default)*
 
@@ -386,7 +386,7 @@ These are the recognizable ones. They're here because they're proven and because
 - [ ] **Red means error or danger, and nothing else** (the house-rule note at the top). No red-family `--accent` / `--accent-2` unless the brand is red and that was said; no red on a neutral or good decrease.
 - [ ] **`--warn` is told apart from `--accent` / `--accent-2`.** Set 11's `--warn` is its `--accent` (same hex) and Set 12's `--warn` is its `--accent-2`; Sets 1, 3, 5 and 9 carry a gold / amber `--accent-2` a few degrees of hue from `--warn`. On those, a warning needs an icon and a label, or shift `--warn`.
 - [ ] **`--ink-3` clears 4.5:1 on `--bg`.** The most-failed check in the register — small grey label text on a white card, or on a dark panel.
-- [ ] **`--accent` clears 3:1 on `--bg`** if it carries meaning (a data series, an active nav state), and **`--on-accent` clears 4.5:1 on the accent fill**. Lime and amber fills need near-black text; everything else in §3 takes white.
+- [ ] **`--accent` clears 3:1 on `--bg`** if it carries meaning (a data series, an active nav state), and **`--on-accent` clears 4.5:1 on the accent fill**. Lime, amber and orange fills need near-black text, and so does every §3 dark value; the other light values take white.
 - [ ] **`--border` is an alpha, not a hex grey** — it has to sit correctly on both `--bg` and `--panel-2`.
 - [ ] **`--glow` appears at most once per screen.**
 - [ ] **No raw hex outside `:root`.** A stray `#3B82F6` from a pasted component is exactly how the generic triad creeps back in. Grep for it.
