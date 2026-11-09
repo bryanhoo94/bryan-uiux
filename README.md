@@ -185,7 +185,7 @@
 
 ## 装什么
 
-**只装这一个。** 所有内容都在这个仓库里：125 个 md 文件、22 个示例网页、2 个能玩的物件模板、9 个讲概念的实物图示例、两个 demo 页（小动作、图鉴）。不用再装别的 skill；只有讲概念的实物图要 node（用它跑脚本出图），其余连 node 都不用装。
+**只装这一个。** 所有内容都在这个仓库里：126 个 md 文件、22 个示例网页、2 个能玩的物件模板、9 个讲概念的实物图示例、两个 demo 页（小动作、图鉴）。不用再装别的 skill；只有讲概念的实物图要 node（用它跑脚本出图），其余连 node 都不用装。
 
 ```bash
 git clone https://github.com/bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash install.sh
@@ -313,6 +313,7 @@ git clone https://github.com/bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash 
 | `references/visual/explain-objects.md`、`explain-objects/` | 讲概念的实物图：把一条看不见的规则、算法画成一台真机器（缓存 = 弹子锁），单色、只亮 1 个零件、带实时读数；什么时候用、画成什么机器、手机怎么办；文件夹里是零依赖的 Node 工具包、检查脚本和 9 个示例的源码 |
 | `references/visual/illustrations.md` | 轴测线稿插画：空状态、引导弹窗顶部那张小图画不画、画成什么、怎么画；一张图只有一个物件用强调色 |
 | `references/visual/cards.md` | 高级感卡片：一张卡只用一种主色、字号层级、6 种现成卡片（含逐条处理卡）、悬停和按下的微交互 |
+| `references/visual/color-roles.md` | 配色比例 60-30-10：底色、结构色、强调色、主按钮色各占多少，主按钮色怎么从强调色推出来，交付前 4 条检查 |
 | `references/visual/premium-details.md` | 质感 10 条，每页都照做：靠底色分层不画线、聚焦双环、深色下字重降 40、AI 回答的字晕开、图标和字对齐、数字不抖、展开不炸、最后一行不留单字、拖拽一下到位点赞 Q 弹、复制对勾 2.5 秒消失 |
 | `references/visual/glassmorphism.md` | Apple 风磨砂玻璃卡片怎么做 |
 | `references/visual/libraries.md` | 18 个可以直接逛的组件库 + 5 个灵感站 + 图标库怎么选 + AI 界面清单 |

@@ -100,7 +100,7 @@
 |---|---|---|---|
 | 后台排版方向（5） | L1 方格纸 + 玻璃卡 · L2 分组侧边栏 · L3 一深一强调 · L4 暗底明度分层 · L5 等距 3D 场景 | L2；能叠 L3 就叠，一个管结构，一个管焦点 | `references/visual/dashboard-layouts.md` |
 | 品牌页灵魂（10） | Cinematic Tech · Phosphor Terminal · Editorial Publication · Warm Heritage · Gold Luxury · Brutal Typographic · Quiet Luxury Minimal · Organic / Botanical · Electric Nightlife · Scientific Emergence | 按行业；拿不准用 Quiet Luxury Minimal，不靠重动效，手机也稳 | `references/visual/new-page/references/style-personas.md` |
-| 配色强度（4） | Restrained · Committed · Full · Drenched | 后台 Restrained，品牌页 Committed | 同上 |
+| 配色强度（4） | Restrained · Committed · Full · Drenched | 后台 Restrained，品牌页 Committed | 同上；每种强度里四个颜色角色各占多少、主按钮色怎么定见 `references/visual/color-roles.md` |
 | 后台配色（12，`palette1`–`palette12`） | Sage Ledger · Amber Ops · Rose Clay · Teal & Clay · Violet Console · Mint & Lavender · Brick & Olive · Indigo & Coral · Cobalt Trust · Graphite & Lime · Midnight & Amber · Steel Cyan | 按行业查它的第 8 节，不默认用蓝 | `references/visual/new-page/references/product-palettes.md` |
 | 底色（5） | Cool Slate · True Neutral · Warm Stone · Sage · Lilac | 跟强调色走；品牌色很抢眼时用 True Neutral | 同上 |
 | 三个旋钮 | 个性 · 炫技 · 密度（各 1–10） | 后台炫技 1–4、密度 6–9 | `references/visual/new-page/index.md` §1 |

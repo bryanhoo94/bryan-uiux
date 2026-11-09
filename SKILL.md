@@ -17,7 +17,7 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 | `/bryan-uiux <页面名>`，例如「设置页」 | 同上，但范围锁定在那一页；那一页已经存在就走下面的改版 |
 | 已有的页面不满意（`/bryan-uiux redesign <页面>`、「现在这个好丑 / 太土了 / 太 AI 味 / 太 generic / 好看一点 / 高级一点」） | 改版。先出完整卡，卡上说清保留什么、换成什么感觉，用户回了再按页面类型走：落地页、作品集、官网 → [references/visual/redesign/index.md](references/visual/redesign/index.md)（从它的第 11 节读起）；dashboard、后台、表格页（redesign 那份不管这类）→ 先跑 `critique` 和 `audit` 看现状，骨架按 [references/visual/dashboard-layouts.md](references/visual/dashboard-layouts.md) 的信号表重新定 ⭐，视觉走 [references/visual/new-page/index.md](references/visual/new-page/index.md) 的 product 路线；有 `DESIGN.md` 就锁定 token，只动结构 |
 | 「没人点 / 转化低 / 太复杂 / 找不到按钮」 | 先按 [references/ux/ux-laws.md](references/ux/ux-laws.md) 的检查清单过一遍，违反的几条和改法写成短卡，用户回了再动手 |
-| 检查现有页面，只看不改（`/bryan-uiux review`、`critique`、`audit`，「review 一下 / 检查现在的 UI / 哪里不好 / 挑毛病 / 上线前检查」） | **只看不改**：先第一步认项目，列出所有页面，每一页都看，不只看首页（点名了页面就只看那一页）。能跑起来就截图看桌面 1440px 和手机 390px 两种宽度；跑不起来就读代码，并说明是读代码判断的。每一页按 [references/ux/ux-laws.md](references/ux/ux-laws.md) 的页面类型过结构四问和检查清单（前 7 条，加上这一屏用得上的第 8–11 条）；配色、字体、间距按 [references/visual/finish/index.md](references/visual/finish/index.md) 把 `critique` 和 `audit` 两个都跑，再按 [references/visual/premium-details.md](references/visual/premium-details.md) 的收尾清单过质感 10 条；动效对照项目动效规格，没有规格就数一下现在用了几套时长和曲线。交互也要看：每页的主操作、状态变化、等待、进下一层有没有反馈。最后给一张表：页面 ｜ 违反哪条 ｜ 现在怎样 ｜ 怎么改 ｜ 先改哪个，按影响排序，并说推荐先改前几条。不出卡 |
+| 检查现有页面，只看不改（`/bryan-uiux review`、`critique`、`audit`，「review 一下 / 检查现在的 UI / 哪里不好 / 挑毛病 / 上线前检查」） | **只看不改**：先第一步认项目，列出所有页面，每一页都看，不只看首页（点名了页面就只看那一页）。能跑起来就截图看桌面 1440px 和手机 390px 两种宽度；跑不起来就读代码，并说明是读代码判断的。每一页按 [references/ux/ux-laws.md](references/ux/ux-laws.md) 的页面类型过结构四问和检查清单（前 7 条，加上这一屏用得上的第 8–11 条）；配色、字体、间距按 [references/visual/finish/index.md](references/visual/finish/index.md) 把 `critique` 和 `audit` 两个都跑，再按 [references/visual/premium-details.md](references/visual/premium-details.md) 的收尾清单过质感 10 条，配色再过 [references/visual/color-roles.md](references/visual/color-roles.md) 最后的 4 条检查；动效对照项目动效规格，没有规格就数一下现在用了几套时长和曲线。交互也要看：每页的主操作、状态变化、等待、进下一层有没有反馈。最后给一张表：页面 ｜ 违反哪条 ｜ 现在怎样 ｜ 怎么改 ｜ 先改哪个，按影响排序，并说推荐先改前几条。不出卡 |
 | 打磨（`polish`，「打磨一下」，或者检查完用户说「改吧 / 改前 3 条」） | 按 [references/visual/finish/index.md](references/visual/finish/index.md) 的 `polish`，只修检查表里用户点了的那几条。用户还没点过要改哪几条，先出短卡 |
 | 只修一样（「字体不对 / 配色太素 / 太挤 / 太吵 / 太平 / 文案看不懂 / 手机上坏了 / 很卡 / 空状态没做」） | 出短卡，用户回了再按 [references/visual/finish/index.md](references/visual/finish/index.md) 的命令表挑一个定向修（`typeset`、`colorize`、`layout`、`quieter`、`bolder`、`clarify`、`adapt`、`optimize`、`onboard`…）。空状态和引导要配图时，再按 [references/visual/illustrations.md](references/visual/illustrations.md) 第一节判断画不画 |
 | 「质感不够 / 塑料感 / 廉价 / 抠细节」，或者做 AI 对话界面要抠细节 | 按 [references/visual/premium-details.md](references/visual/premium-details.md) 的收尾清单逐条过，没过的写成短卡，用户回了只修这几条；会动的那几样按它开头写的配方做（C21 流式文字、F16 复制成功、F5 展开收起） |
@@ -95,8 +95,8 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 | 层 | 做什么 | 看哪份 |
 |---|---|---|
 | 1 结构 | 结构四问，再先减选项、再分组、最后只高亮 1 样（做事的页是主操作，看的页是主数字） | `references/ux/ux-laws.md` |
-| 2 静态视觉 | 质感 10 条照做（`references/visual/premium-details.md`）。有 `DESIGN.md` 就锁定 token，只动结构和层级。没有时：新页面按 `references/visual/new-page/index.md`，改版按 `references/visual/redesign/index.md`。做 dashboard 且没有 `DESIGN.md`，先从 `references/visual/dashboard-layouts.md` 按每页的数据定骨架 K1–K6 的 ⭐、按它的信号表给整个产品定 1 个排版方向 L1–L5 的 ⭐，放上建议卡，用户回了写进 `DESIGN.md`，再做新页面 | 左边两份，二选一 |
-| 3 收尾 | `critique` 和 `audit` 两个都跑，再过质感 10 条，挑出问题，再 `polish` | `references/visual/finish/index.md`、`references/visual/premium-details.md` |
+| 2 静态视觉 | 质感 10 条照做（`references/visual/premium-details.md`）。有 `DESIGN.md` 就锁定 token，只动结构和层级。没有时：新页面按 `references/visual/new-page/index.md`，改版按 `references/visual/redesign/index.md`。要新定配色时，从色盘挑完颜色，再按 `references/visual/color-roles.md` 分四个角色、定主按钮色。做 dashboard 且没有 `DESIGN.md`，先从 `references/visual/dashboard-layouts.md` 按每页的数据定骨架 K1–K6 的 ⭐、按它的信号表给整个产品定 1 个排版方向 L1–L5 的 ⭐，放上建议卡，用户回了写进 `DESIGN.md`，再做新页面 | 左边两份，二选一 |
+| 3 收尾 | `critique` 和 `audit` 两个都跑，再过质感 10 条和配色 4 条检查，挑出问题，再 `polish` | `references/visual/finish/index.md`、`references/visual/premium-details.md`、`references/visual/color-roles.md` 最后一节 |
 | 4 挑配方 | 第三步 | `references/core/pick.md` |
 | 5 写动效 | 第三步第 8 条 | `references/build/web.md` / `references/build/rn.md` |
 
@@ -180,6 +180,7 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 - 讲概念的实物图：用不用、概念画成什么机器、本库加的规矩、桌面和手机视图、动效、怎么放进项目 → [references/visual/explain-objects.md](references/visual/explain-objects.md)（说明页、文档、落地页「它怎么工作」要讲清一条规则或算法时读；工具包、检查脚本和 9 个示例在 `references/visual/explain-objects/`，从它的 `index.md` 进去，要 Node）
 - 轴测线稿插画：画不画、画风、操作画成什么实物、放哪多大、Web 和 RN 画法 → [references/visual/illustrations.md](references/visual/illustrations.md)（做空状态、引导弹窗、功能介绍卡时读）
 - 高级感卡片：配色、字号层级、6 种卡片结构（含逐条处理卡）、微交互 → [references/visual/cards.md](references/visual/cards.md)（从零做卡片时用；项目有 `DESIGN.md` 就只借结构和层级）
+- 配色比例 60-30-10：底色、结构色、强调色、主按钮色各占多少，四种配色强度怎么填，主按钮色怎么从强调色推出来，交付前 4 条检查 → [references/visual/color-roles.md](references/visual/color-roles.md)（要新定配色时读：先从色盘挑色，再用它分角色；项目有 `DESIGN.md` 就只分角色、不加色；收尾查配色时也过它最后一节）
 - 质感 10 条（本库硬规则，每页都照做）：背景分层代替画线、聚焦双环、深色字重降 40、流式文字晕开、行内图标对齐、等宽数字、Grid 展开、防孤字、动效分性格、复制对勾 → [references/visual/premium-details.md](references/visual/premium-details.md)（写代码时照做；收尾时按它的清单过）
 - 玻璃质感 → [references/visual/glassmorphism.md](references/visual/glassmorphism.md)（配 L1 用）
 - 参考组件库 + 灵感站 + 图标库 + AI 产品状态清单 → [references/visual/libraries.md](references/visual/libraries.md)（不是配方；找效果参照、整页参照、选图标库、查漏状态时读）
