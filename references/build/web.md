@@ -4,7 +4,7 @@
 > **什么时候读**：配方挑好了、要动手写 Web 动效代码时。第 1 步就是「频率关」，任何动效都先过这一关，过不了就不写。
 > **不管什么、去哪看**：常见组件的现成写法 → [web-recipes.md](web-recipes.md)；RN / Expo → `references/build/rn.md`；手势手感和 spring 物理 → `references/build/apple-feel.md`；组件细节 → `references/build/craft-details.md`；想让用户感觉什么 → `references/build/intent.md`；评审已有动效 → `references/review/motion-review.md`；落地页和品牌页的大型叙事动效 → `references/visual/new-page/references/motion.md`。
 > **数值**：时长、曲线、spring 以 `references/core/params.md` 为准，下面的表和它是同一组值。项目已经由主入口第一步认过，这里不再重认；项目动效规格或 `DESIGN.md` 里已有的 token 锁定照用，不另起一套。
-> **谁说了算**：项目 `CLAUDE.md` > 项目动效规格 > 项目 `DESIGN.md` / token > 用户明说的 > 这份文件。装任何 npm 包之前先问用户；项目里已有同类动效库就用它。
+> **谁说了算**：项目 `CLAUDE.md` / `AGENTS.md` > 项目动效规格 > 项目 `DESIGN.md` / token > 用户明说的 > 这份文件。装任何 npm 包之前先问用户；项目里已有同类动效库就用它。
 
 # Building Animations
 

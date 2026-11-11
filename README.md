@@ -193,7 +193,7 @@ git clone https://github.com/bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash 
 
 **没装 git？** 在 GitHub 页面点 Code → Download ZIP，解压到一个以后不会删的位置，在解压出来的文件夹里跑 `bash install.sh`。装完别删这个文件夹（装的是指向它的链接）；以后要更新，重新下载 ZIP 覆盖它。
 
-它会先把打算做的事列给你看，你点头才动手。它只做一件事：把这个文件夹链接到 `~/.claude/skills/bryan-uiux`。**不下载别的东西，也不会给你的任何项目装东西。**
+它会先把打算做的事列给你看，你点头才动手。它只做一件事：把这个文件夹链接到 `~/.claude/skills/bryan-uiux`；电脑上有 Codex 的话，再链接一份到 `~/.codex/skills/bryan-uiux`。两边指向同一个文件夹，规矩只有一份。**不下载别的东西，也不会给你的任何项目装东西。** 装完在 Claude Code 里打 `/bryan-uiux`，在 Codex 里打 `$bryan-uiux`。
 
 **以前分开装过别的设计 skill？** 做页面、做动效、做检查的内容这里都有了。两边同时留着会重复触发、规矩打架，建议把旧的移走。
 
@@ -319,7 +319,7 @@ git clone https://github.com/bryanhoo94/bryan-uiux.git && cd bryan-uiux && bash 
 | `references/visual/libraries.md` | 18 个可以直接逛的组件库 + 5 个灵感站 + 图标库怎么选 + AI 界面清单 |
 | `references/visual/pick-library.md` | 某件事该用哪个 npm 库：图表、拖拽、弹层、虚拟列表这些 |
 | **ux/ 体验和流程** | |
-| `references/ux/ux-laws.md` | 结构四问 + 减少摩擦的 11 条 UX 定律：先减选项、再分组、最后高亮，附检查清单和结账例子 |
+| `references/ux/ux-laws.md` | 结构四问（含让布局自己说话、少写说明文字）+ 减少摩擦的 11 条 UX 定律：先减选项、再分组、最后高亮，附检查清单和结账例子 |
 | `references/ux/interview.md` | 什么时候出建议卡、你回了它怎么做、每屏的交互表；卡以外一次只问一题，先给推荐 |
 | `references/ux/options.md` | 建议卡怎么写，库里全部可以推荐的选项：排版、卡片、导航、配色、3D、动效，每组有默认推荐和理由 |
 | `references/ux/taste.md` | 你的口味档案怎么读、怎么写：说「记下来 / 整理截图」就存，出方案时自动参照；截图和索引在 `screenshot/` |

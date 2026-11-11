@@ -4,7 +4,7 @@
 > **什么时候读**：动效「能跑但感觉不对」、要打磨一个组件的细节时；要用 `clip-path`、3D transform、拖拽关闭时；动画掉帧或要逐帧排查时。
 > **不管什么、去哪看**：该不该动、为什么动、曲线、时长、spring 怎么选 → `references/build/web.md`（先过它第 1 步的频率关，再用这里的任何一条）；常见组件的现成写法 → `references/build/web-recipes.md`；RN / Expo → `references/build/rn.md`；手势物理 → `references/build/apple-feel.md`；评审格式和评审清单 → `references/review/motion-review.md`。
 > **数值**：时长、曲线、spring 以 `references/core/params.md` 为准，代码里的 `var(--ease-out)` 就是词典里那条曲线。项目已经由主入口第一步认过，这里不再重认；项目动效规格或 `DESIGN.md` 里已有的 token 锁定照用。
-> **谁说了算**：项目 `CLAUDE.md` > 项目动效规格 > 项目 `DESIGN.md` / token > 用户明说的 > 这份文件。装任何 npm 包之前先问用户；项目里已有同类动效库就用它。
+> **谁说了算**：项目 `CLAUDE.md` / `AGENTS.md` > 项目动效规格 > 项目 `DESIGN.md` / token > 用户明说的 > 这份文件。装任何 npm 包之前先问用户；项目里已有同类动效库就用它。
 > **平台**：这里的代码是 Web 写法，桌面浏览器和手机浏览器都适用。hover 类效果只在 `(hover: hover) and (pointer: fine)` 下开，触屏上靠按下反馈。
 
 # Design Engineering

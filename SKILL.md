@@ -5,7 +5,7 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 
 # Bryan UI/UX — 结构、视觉、动效、收尾，一个 skill 做完
 
-每次调用先认出当前项目，再按这个项目自己的设计规矩和动效规格做事。静态视觉、交互配方、动效写法、收尾检查都在本库里，不需要另外装别的 skill。目标：同一个项目里的动效和 UI/UX 全部统一。
+每次调用先认出当前项目，再按这个项目自己的设计规矩和动效规格做事。静态视觉、交互配方、动效写法、收尾检查都在本库里，不需要另外装别的 skill。叫了本 skill 就只按本库走，不先跑、也不转去别的 skill（思考类、文案类、别的设计类都算），用户点名要用的除外。Claude Code 和 Codex 用的是同一份文件、同一套规矩。目标：同一个项目里的动效和 UI/UX 全部统一。
 
 ## 第零步：先看是哪种叫法
 
@@ -13,7 +13,7 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 
 | 用户怎么说 | 怎么办 |
 |---|---|
-| 只打 `/bryan-uiux`；或者「帮我设计一下 / 好看一点 / 高级一点 / 随便你 / 我不知道要什么样」，而要做的页还不存在 | **默认走全套**：先做第一步认项目、写项目画像，再出**完整卡**：产品风格 + 交互动效 + 最多 2 项，每项 ⭐ 推荐加一句项目里的证据、1–2 个备选。用户回「好」就全用 ⭐，再先做一屏，桌面视图和手机视图都给用户看，附一张交互表。只有项目里看不出「给谁用、想干成什么」时，才在出卡之前问这 1 个问题。不要反问「你想做什么」 |
+| 只打 `/bryan-uiux`（Codex 里是 `$bryan-uiux`，下面几行同理）；或者「帮我设计一下 / 好看一点 / 高级一点 / 随便你 / 我不知道要什么样」，而要做的页还不存在 | **默认走全套**：先做第一步认项目、写项目画像，再出**完整卡**：产品风格 + 交互动效 + 最多 2 项，每项 ⭐ 推荐加一句项目里的证据、1–2 个备选。用户回「好」就全用 ⭐，再先做一屏，桌面视图和手机视图都给用户看，附一张交互表。只有项目里看不出「给谁用、想干成什么」时，才在出卡之前问这 1 个问题。不要反问「你想做什么」 |
 | `/bryan-uiux <页面名>`，例如「设置页」 | 同上，但范围锁定在那一页；那一页已经存在就走下面的改版 |
 | 已有的页面不满意（`/bryan-uiux redesign <页面>`、「现在这个好丑 / 太土了 / 太 AI 味 / 太 generic / 好看一点 / 高级一点」） | 改版。先出完整卡，卡上说清保留什么、换成什么感觉，用户回了再按页面类型走：落地页、作品集、官网 → [references/visual/redesign/index.md](references/visual/redesign/index.md)（从它的第 11 节读起）；dashboard、后台、表格页（redesign 那份不管这类）→ 先跑 `critique` 和 `audit` 看现状，骨架按 [references/visual/dashboard-layouts.md](references/visual/dashboard-layouts.md) 的信号表重新定 ⭐，视觉走 [references/visual/new-page/index.md](references/visual/new-page/index.md) 的 product 路线；有 `DESIGN.md` 就锁定 token，只动结构 |
 | 「没人点 / 转化低 / 太复杂 / 找不到按钮」 | 先按 [references/ux/ux-laws.md](references/ux/ux-laws.md) 的检查清单过一遍，违反的几条和改法写成短卡，用户回了再动手 |
@@ -75,7 +75,7 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 
 - 已经有动效文档（不管叫什么名字）→ 直接用它，不另建第二份。
 - 没有 → 按 [references/core/motion-spec-template.md](references/core/motion-spec-template.md) 起草 `docs/MOTION-SPEC.md`。常量从现有代码提取，已有 token 就沿用，不另起一套；人格按第一步的项目画像定，配方范围看 [references/core/pick.md](references/core/pick.md) 的「人格 → 配方范围」表；意图用三问（想让用户感觉什么、动效人格、主角时刻），要展开时读 [references/build/intent.md](references/build/intent.md)。
-- **给用户确认人格和常量后才写入。** 用户回了建议卡（`references/ux/interview.md`）就算确认。 写入后在项目 `CLAUDE.md` 加一句「动效按 `docs/MOTION-SPEC.md`」；项目没有 `CLAUDE.md` 就新建一个，只写这一句。以后每个会话都会自动遵守。
+- **给用户确认人格和常量后才写入。** 用户回了建议卡（`references/ux/interview.md`）就算确认。 写入后在项目 `CLAUDE.md`（Claude Code 读）和 `AGENTS.md`（Codex 读）各加一句「动效按 `docs/MOTION-SPEC.md`」；哪个没有就新建一个，只写这一句。以后两边的每个会话都会自动遵守。
 
 ## 第三步：按动效规格挑配方
 
@@ -112,6 +112,7 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 - 同一类组件，全项目用同一个配方、同一组参数；多个平台之间也统一，只有输入方式不同。
 - 质感 10 条逐条过（`references/visual/premium-details.md` 最后的清单），没过的先改好再给用户看。
 - 每个目标平台都按 `references/core/platforms.md` 第 6 节验收一遍，不能只测一个；桌面视图和手机视图也都要看。
+- 每一屏做一次新人测试：遮掉说明文字，还答得出「下一步点哪、点了会怎样」才算过；答不出先改布局和按钮文案，不加字（`references/ux/ux-laws.md`「第 4 问用在文字上」）。
 - 每一屏按 `references/ux/ux-laws.md` 的页面类型过一遍清单：前 7 条每屏都过，第 8–11 条这一屏有横滑列表、弹窗、重要提示、多步流程时才过。只列没过的，先自己改好再给用户看；全过就写一行「7 条全过」（有对应的东西再补一句，例如「本屏有弹窗，图形与背景过」）。
 - 这次新采用的配方写进「已采用」，考虑过但否决的写进「没采用 + 原因」，都附日期。
 
@@ -129,7 +130,7 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 
 ## 冲突时谁说了算
 
-项目 `CLAUDE.md` 写明的 > 项目动效规格 > 项目 `DESIGN.md` / token > 用户明说的 > 11 条 UX 定律 `references/ux/ux-laws.md`（违反用户明说的要求时照做，只提醒一句） > 口味档案 `references/ux/taste.md`（只管方向，不管数值） > 本库参数词典 `references/core/params.md` > `references/build/`、`references/review/`、`references/visual/` 子文件夹里各份文件自己的说法。
+项目 `CLAUDE.md` / `AGENTS.md` 写明的 > 项目动效规格 > 项目 `DESIGN.md` / token > 用户明说的 > 11 条 UX 定律 `references/ux/ux-laws.md`（违反用户明说的要求时照做，只提醒一句） > 口味档案 `references/ux/taste.md`（只管方向，不管数值） > 本库参数词典 `references/core/params.md` > `references/build/`、`references/review/`、`references/visual/` 子文件夹里各份文件自己的说法。
 
 最后一档的意思：这些子文件夹里的文件来自不同的来源，写法不完全一样。它们跟参数词典或上面任何一档不一致时，听上面的。它们写着「STOP and ask the user」或一次问好几题的地方，也按 `references/ux/interview.md` 一次问一题。
 
@@ -138,6 +139,7 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 - 高频操作不加动画（频率关；唯一例外是 M5 流动 Tab，它的配方里写了为什么）；只动 `transform` / `opacity`；支持 reduced-motion。
 - 一屏只高亮 1 样；红色只给错误和危险操作。
 - 每个页面都有桌面视图和手机视图。
+- 让布局自己说话（Avoid unnecessary secondary labels and descriptions. Let the layout do the explaining.）：不加没必要的副标签和说明文字，看不懂就先改布局和按钮文案。错误提示、操作反馈、字段标签、单位、操作后果照留。测法和该留的清单见 [references/ux/ux-laws.md](references/ux/ux-laws.md)「第 4 问用在文字上」。
 - 质感 10 条每个页面都照做，写代码时就做，不是收尾才查：背景分层不画黑框、不用纯黑，聚焦双环，深色字重降 40，流式文字晕开，行内图标下移 0.125em，数字等宽，Grid 展开，防孤字，拖拽零回弹、点赞 Q 弹，复制对勾 2.5 秒消失。写法和例外见 [references/visual/premium-details.md](references/visual/premium-details.md)。
 - 装任何 npm 包之前先问用户。
 
@@ -164,7 +166,7 @@ description: Bryan 的设计库，一个 skill 做完结构、静态视觉、动
 - 从现有代码整理 `DESIGN.md`（`document`）→ [references/core/design-doc.md](references/core/design-doc.md)
 
 **ux/ 体验和流程**
-- 结构四问 + 减少摩擦的 11 条 UX 定律 + 检查清单 → [references/ux/ux-laws.md](references/ux/ux-laws.md)（出方案和自检时必须过）
+- 结构四问（含让布局自己说话、少写说明文字）+ 减少摩擦的 11 条 UX 定律 + 检查清单 → [references/ux/ux-laws.md](references/ux/ux-laws.md)（出方案和自检时必须过）
 - 什么时候出建议卡、用户回了怎么办、交互表、全库「问用户」的问法 → [references/ux/interview.md](references/ux/interview.md)（见第零步）
 - 建议卡怎么写、哪些选项能上卡、怎么做到下次不一样、全部选项（排版、卡片、导航、配色、3D、动效）→ [references/ux/options.md](references/ux/options.md)
 - 口味档案（觉得好看的设计）→ [references/ux/taste.md](references/ux/taste.md)（截图和索引在 `screenshot/`；出建议卡时读；用户说「记下来 / 整理截图」时写）

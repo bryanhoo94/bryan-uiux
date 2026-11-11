@@ -4,7 +4,7 @@
 > **什么时候读**：做拖拽、滑动、底部弹层、轮播这类手势交互时；用户说「不跟手 / 太硬 / 像 iOS 那样顺」时；要判断一个手势松手后该落到哪里时。
 > **不管什么、去哪看**：一步步怎么写 → Web 看 `references/build/web.md`，RN / Expo 看 `references/build/rn.md`（这份的代码是 Web 写法，RN 的对应写法在那边）；现成的手势配方 G1–G7 → `references/recipes/gesture.md`；玻璃卡片的取值 → `references/visual/glassmorphism.md`；页面结构和摩擦 → `references/ux/ux-laws.md`。
 > **数值**：spring、曲线、时长、手势常量（10px 方向判定、越界阻尼 0.55、动量 0.998）以 `references/core/params.md` 为准。第 4 节表里 Apple 自己的数值只作参考，写代码用词典的三个 spring 预设。
-> **谁说了算**：项目 `CLAUDE.md` > 项目动效规格 > 项目 `DESIGN.md` / token > 用户明说的 > 这份文件。项目有 `DESIGN.md` 就锁定它的 token：第 12 节的材质取值和第 15 节的字体建议只用来检查层级，不改 token。装任何 npm 包之前先问用户；项目里已有同类动效库就用它。
+> **谁说了算**：项目 `CLAUDE.md` / `AGENTS.md` > 项目动效规格 > 项目 `DESIGN.md` / token > 用户明说的 > 这份文件。项目有 `DESIGN.md` 就锁定它的 token：第 12 节的材质取值和第 15 节的字体建议只用来检查层级，不改 token。装任何 npm 包之前先问用户；项目里已有同类动效库就用它。
 
 # Apple Design
 

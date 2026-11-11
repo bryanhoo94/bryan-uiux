@@ -4,7 +4,7 @@
 > **什么时候读**：项目是 RN / Expo，要写动效、手势、底部弹层、转场、按下反馈、触感反馈，或者动效在真机上掉帧时。
 > **不管什么、去哪看**：现成写法 → [rn-recipes.md](rn-recipes.md)；Web 和 WebView 里的动效 → `references/build/web.md`；跟手、动量、回弹背后的道理 → `references/build/apple-feel.md`；评审已有动效 → `references/review/motion-review.md`；平板和桌面宽度怎么排 → `references/core/platforms.md`。
 > **数值**：spring 用 `references/core/params.md` 的 RN 列，曲线和时长也以它为准，下面的表是同一组值。项目已经由主入口第一步认过，这里不再重认；项目动效规格或 `DESIGN.md` 里已有的 token 锁定照用。
-> **谁说了算**：项目 `CLAUDE.md` > 项目动效规格 > 项目 `DESIGN.md` / token > 用户明说的 > 这份文件。装任何包之前先问用户。
+> **谁说了算**：项目 `CLAUDE.md` / `AGENTS.md` > 项目动效规格 > 项目 `DESIGN.md` / token > 用户明说的 > 这份文件。装任何包之前先问用户。
 
 # Building Animations in Expo
 
